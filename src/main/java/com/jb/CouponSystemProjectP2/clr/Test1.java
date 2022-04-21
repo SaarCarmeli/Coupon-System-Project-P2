@@ -21,7 +21,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.Collections;
 
 @Order(1)
-@Component
+//@Component
 @RequiredArgsConstructor
 public class Test1 implements CommandLineRunner {
     private final CustomerRepository customerRepository;

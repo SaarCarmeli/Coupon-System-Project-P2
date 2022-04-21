@@ -17,9 +17,21 @@ public class Coupon {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "coupon_id",length = 40)
     private int id;
+    @Column(nullable = false)
     private int amount;
+    @Column(nullable = false)
     private double price;
+    @Enumerated(EnumType.STRING)
+    @Column(length = 40, nullable = false)
     private Category category;
-    private String title, description, image;
-    private Date startDate, endDate;
+    @Column(length = 40, nullable = false)
+    private String title;
+    @Column(length = 40, nullable = false)
+    private String description;
+    @Column(length = 40, nullable = false)
+    private String image;
+    @Column(nullable = false)
+    private Date startDate;
+    @Column(nullable = false)
+    private Date endDate;
 }

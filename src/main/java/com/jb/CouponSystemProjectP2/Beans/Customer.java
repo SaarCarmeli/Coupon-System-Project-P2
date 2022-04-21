@@ -16,9 +16,14 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id",length = 40)
     private int id;
-    private String firstName, lastName, email, password;
-    //@Singular("customers")
-   // @JoinColumn(name = "customer_id",referencedColumnName = "customer_id")
+    @Column(length = 40, nullable = false)
+    private String firstName;
+    @Column(length = 40, nullable = false)
+    private String lastName;
+    @Column(length = 40, nullable = false)
+    private String email;
+    @Column(length = 40, nullable = false)
+    private String password;
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<Coupon> coupons;
 }

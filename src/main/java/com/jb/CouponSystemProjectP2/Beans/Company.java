@@ -17,7 +17,12 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "company_id",length = 40)
     private int id;
-    private String name, email, password;
+    @Column(length = 40, nullable = false)
+    private String name;
+    @Column(length = 40, nullable = false)
+    private String email;
+    @Column(length = 40, nullable = false)
+    private String password;
     @JoinColumn(name = "company_id",referencedColumnName = "company_id")
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<Coupon> coupons;

@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="added @Column annotations to beans">
+    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="added &quot;smart dialect&quot; methods to JPA repositories">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Repository/CompanyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Repository/CompanyRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Repository/CouponRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Repository/CouponRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Repository/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Repository/CustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/clr/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/clr/Test1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +47,7 @@
   <component name="RunManager">
     <configuration name="CouponSystemProjectSaarAndAvivP2Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.jb.CouponSystemProjectP2.CouponSystemProjectSaarAndAvivP2Application" />
-      <module name="Coupon-System-Project-Saar-and-Aviv-P2" />
+      <module name="Coupon-System-Project-P2" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.jb.CouponSystemProjectP2.*" />
@@ -104,7 +103,13 @@
       <option name="presentableId" value="LOCAL‎00005" />
       <updated>1650553098014</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL‎00006" summary="added &quot;smart dialect&quot; methods to JPA repositories">
+      <created>1650555963428</created>
+      <option name="number" value="LOCAL‎00006" />
+      <option name="presentableId" value="LOCAL‎00006" />
+      <updated>1650555963428</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -122,6 +127,7 @@
     <MESSAGE value="First commit" />
     <MESSAGE value="added deleteByEndDateAfter method for CouponRepository" />
     <MESSAGE value="added @Column annotations to beans" />
-    <option name="LAST_COMMIT_MESSAGE" value="added @Column annotations to beans" />
+    <MESSAGE value="added &quot;smart dialect&quot; methods to JPA repositories" />
+    <option name="LAST_COMMIT_MESSAGE" value="added &quot;smart dialect&quot; methods to JPA repositories" />
   </component>
 </project>

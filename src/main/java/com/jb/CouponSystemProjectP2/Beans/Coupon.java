@@ -5,13 +5,13 @@ import lombok.*;
 import javax.persistence.*;
 import java.sql.Date;
 
+@Entity
+@Table(name = "coupons")
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-@Entity
 @Setter
 @Getter
-@Table(name = "coupons")
+@Builder
 public class Coupon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

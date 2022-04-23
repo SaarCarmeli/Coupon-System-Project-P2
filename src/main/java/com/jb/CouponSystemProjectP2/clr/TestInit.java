@@ -10,7 +10,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.sql.Date;
-import java.time.Instant;
+import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
@@ -59,8 +59,8 @@ public class TestInit implements CommandLineRunner {
                 .title("Caribbean Cruise Coupon")
                 .description("5% off on cruise trips in the Caribbean")
                 .image("cruise_ship.jpeg")
-                .startDate((Date) Date.from(Instant.now()))
-                .endDate((Date) Date.from(Instant.now().plus(50, ChronoUnit.DAYS)))
+                .startDate(Date.valueOf(LocalDate.now()))
+                .endDate(Date.valueOf(LocalDate.now().plus(50, ChronoUnit.DAYS)))
                 .build();
         Coupon pcCoupon2 = Coupon.builder()
                 .amount(5)
@@ -69,8 +69,8 @@ public class TestInit implements CommandLineRunner {
                 .title("Steakhouse in The Ocean Coupon")
                 .description("15% off in the cruise ship's steakhouse")
                 .image("steak.jpeg")
-                .startDate((Date) Date.from(Instant.now()))
-                .endDate((Date) Date.from(Instant.now().plus(5, ChronoUnit.DAYS)))
+                .startDate(Date.valueOf(LocalDate.now()))
+                .endDate(Date.valueOf(LocalDate.now().plus(5, ChronoUnit.DAYS)))
                 .build();
         princessCruises.setCoupons(List.of(pcCoupon1, pcCoupon2));
 
@@ -81,8 +81,8 @@ public class TestInit implements CommandLineRunner {
                 .title("Fresh Apple Coupon")
                 .description("20% off on fresh apples from the farm")
                 .image("red_apple.jpg")
-                .startDate((Date) Date.from(Instant.now()))
-                .endDate((Date) Date.from(Instant.now().plus(3, ChronoUnit.MONTHS)))
+                .startDate(Date.valueOf(LocalDate.now()))
+                .endDate(Date.valueOf(LocalDate.now().plus(3, ChronoUnit.MONTHS)))
                 .build();
         apple.setCoupons(List.of(apCoupon1));
 
@@ -93,8 +93,8 @@ public class TestInit implements CommandLineRunner {
                 .title("Refrigerator Coupon")
                 .description("10% off on new refrigerators")
                 .image("refrigerator.jpg")
-                .startDate((Date) Date.from(Instant.now()))
-                .endDate((Date) Date.from(Instant.now().plus(60, ChronoUnit.DAYS)))
+                .startDate(Date.valueOf(LocalDate.now()))
+                .endDate(Date.valueOf(LocalDate.now().plus(60, ChronoUnit.DAYS)))
                 .build();
         Coupon amCoupon2 = Coupon.builder()
                 .amount(2)
@@ -103,8 +103,8 @@ public class TestInit implements CommandLineRunner {
                 .title("PC Coupon")
                 .description("15% off on new PCs")
                 .image("computer.jpg")
-                .startDate((Date) Date.from(Instant.now()))
-                .endDate((Date) Date.from(Instant.now().plus(30, ChronoUnit.DAYS)))
+                .startDate(Date.valueOf(LocalDate.now()))
+                .endDate(Date.valueOf(LocalDate.now().plus(30, ChronoUnit.DAYS)))
                 .build();
         Coupon amCoupon3 = Coupon.builder()
                 .amount(2)
@@ -113,8 +113,8 @@ public class TestInit implements CommandLineRunner {
                 .title("Microwave Coupon")
                 .description("12% off on new microwaves")
                 .image("microwave.jpg")
-                .startDate((Date) Date.from(Instant.now()))
-                .endDate((Date) Date.from(Instant.now().plus(15, ChronoUnit.DAYS)))
+                .startDate(Date.valueOf(LocalDate.now()))
+                .endDate(Date.valueOf(LocalDate.now().plus(15, ChronoUnit.DAYS)))
                 .build();
         Coupon amCoupon4 = Coupon.builder()
                 .amount(4)
@@ -123,8 +123,8 @@ public class TestInit implements CommandLineRunner {
                 .title("Computer Monitor Coupon")
                 .description("7% off on new computer monitors")
                 .image("monitor.jpg")
-                .startDate((Date) Date.from(Instant.now()))
-                .endDate((Date) Date.from(Instant.now().plus(30, ChronoUnit.DAYS)))
+                .startDate(Date.valueOf(LocalDate.now()))
+                .endDate(Date.valueOf(LocalDate.now().plus(30, ChronoUnit.DAYS)))
                 .build();
         Coupon amCoupon5 = Coupon.builder()
                 .amount(7)
@@ -133,8 +133,8 @@ public class TestInit implements CommandLineRunner {
                 .title("Photoshop License Coupon")
                 .description("12% off on photoshop subscription for 2 years")
                 .image("photoshop_logo.jpeg")
-                .startDate((Date) Date.from(Instant.now()))
-                .endDate((Date) Date.from(Instant.now().plus(75, ChronoUnit.DAYS)))
+                .startDate(Date.valueOf(LocalDate.now()))
+                .endDate(Date.valueOf(LocalDate.now().plus(75, ChronoUnit.DAYS)))
                 .build();
         amazon.setCoupons(List.of(amCoupon1, amCoupon2, amCoupon3, amCoupon4, amCoupon5));
     }

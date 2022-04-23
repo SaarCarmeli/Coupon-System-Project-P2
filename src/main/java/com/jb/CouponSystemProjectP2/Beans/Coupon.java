@@ -15,7 +15,7 @@ import java.sql.Date;
 public class Coupon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "coupon_id",length = 40)
+    @Column(name = "coupon_id", length = 40)
     private int id;
     @Column(nullable = false)
     private int amount;

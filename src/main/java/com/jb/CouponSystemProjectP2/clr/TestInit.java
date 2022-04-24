@@ -4,6 +4,8 @@ import com.jb.CouponSystemProjectP2.Beans.Category;
 import com.jb.CouponSystemProjectP2.Beans.Company;
 import com.jb.CouponSystemProjectP2.Beans.Coupon;
 import com.jb.CouponSystemProjectP2.Beans.Customer;
+import com.jb.CouponSystemProjectP2.Repository.CompanyRepository;
+import com.jb.CouponSystemProjectP2.Repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
@@ -18,6 +20,8 @@ import java.util.List;
 @Order(1)
 @RequiredArgsConstructor
 public class TestInit implements CommandLineRunner {
+    private final CompanyRepository companyRepository;
+    private final CustomerRepository customerRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -33,6 +37,7 @@ public class TestInit implements CommandLineRunner {
                 .password("sameAsEmail")
                 .build();
         Company amazon = Company.builder()
+                .name("Amazon")
                 .email("amazon@amazon.com")
                 .password("jungle")
                 .build();
@@ -72,7 +77,6 @@ public class TestInit implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plus(5, ChronoUnit.DAYS)))
                 .build();
-        princessCruises.setCoupons(List.of(pcCoupon1, pcCoupon2));
 
         Coupon apCoupon1 = Coupon.builder()
                 .amount(6)
@@ -84,7 +88,6 @@ public class TestInit implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plus(3, ChronoUnit.MONTHS)))
                 .build();
-        apple.setCoupons(List.of(apCoupon1));
 
         Coupon amCoupon1 = Coupon.builder()
                 .amount(3)
@@ -136,6 +139,15 @@ public class TestInit implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plus(75, ChronoUnit.DAYS)))
                 .build();
+
+        princessCruises.setCoupons(List.of(pcCoupon1, pcCoupon2));
+        apple.setCoupons(List.of(apCoupon1));
         amazon.setCoupons(List.of(amCoupon1, amCoupon2, amCoupon3, amCoupon4, amCoupon5));
+
+        jeffery.setCoupons(List.of(pcCoupon1, apCoupon1, amCoupon1, amCoupon3, amCoupon4));
+        jennifer.setCoupons(List.of(pcCoupon1, pcCoupon2, amCoupon2, amCoupon4, amCoupon5));
+
+        companyRepository.saveAll(List.of(princessCruises, apple, amazon));
+        customerRepository.saveAll(List.of(jeffery, jennifer));
     }
 }

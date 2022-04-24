@@ -15,20 +15,20 @@ import java.sql.Date;
 public class Coupon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "coupon_id", length = 40)
+    @Column(name = "coupon_id")
     private int id;
     @Column(nullable = false)
     private int amount;
     @Column(nullable = false)
     private double price;
     @Enumerated(EnumType.STRING)
-    @Column(length = 40, nullable = false)
+    @Column(length = 45, nullable = false)
     private Category category;
-    @Column(length = 40, nullable = false)
+    @Column(length = 50, nullable = false)
     private String title;
-    @Column(length = 40, nullable = false)
+    @Column(length = 50, nullable = false)
     private String description;
-    @Column(length = 40, nullable = false)
+    @Column(length = 45, nullable = false)
     private String image;
     @Column(nullable = false)
     private Date startDate;

@@ -15,15 +15,15 @@ import java.util.List;
 public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "company_id",length = 40)
+    @Column(name = "company_id")
     private int id;
-    @Column(length = 40, nullable = false)
+    @Column(length = 45, nullable = false)
     private String name;
-    @Column(length = 40, nullable = false)
+    @Column(length = 45, nullable = false)
     private String email;
-    @Column(length = 40, nullable = false)
+    @Column(length = 45, nullable = false)
     private String password;
-    @JoinColumn(name = "company_id",referencedColumnName = "company_id")
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name = "company_id", referencedColumnName = "company_id")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Coupon> coupons;
 }

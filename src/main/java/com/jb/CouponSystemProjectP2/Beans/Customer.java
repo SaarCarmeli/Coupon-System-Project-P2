@@ -14,16 +14,16 @@ import java.util.List;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "customer_id",length = 40)
+    @Column(name = "customer_id")
     private int id;
-    @Column(length = 40, nullable = false)
+    @Column(length = 45, nullable = false)
     private String firstName;
-    @Column(length = 40, nullable = false)
+    @Column(length = 45, nullable = false)
     private String lastName;
-    @Column(length = 40, nullable = false)
+    @Column(length = 45, nullable = false)
     private String email;
-    @Column(length = 40, nullable = false)
+    @Column(length = 45, nullable = false)
     private String password;
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Coupon> coupons;
 }

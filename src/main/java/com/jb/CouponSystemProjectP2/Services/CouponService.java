@@ -1,7 +1,7 @@
-package com.jb.CouponSystemProjectP2.Service;
+package com.jb.CouponSystemProjectP2.Services;
 
 import com.jb.CouponSystemProjectP2.Beans.Coupon;
-import com.jb.CouponSystemProjectP2.Repository.CouponRepository;
+import com.jb.CouponSystemProjectP2.Repositories.CouponRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

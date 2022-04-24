@@ -1,9 +1,9 @@
 package com.jb.CouponSystemProjectP2.clr;
 
 
-import com.jb.CouponSystemProjectP2.Repository.CompanyRepository;
-import com.jb.CouponSystemProjectP2.Repository.CouponRepository;
-import com.jb.CouponSystemProjectP2.Repository.CustomerRepository;
+import com.jb.CouponSystemProjectP2.Repositories.CompanyRepository;
+import com.jb.CouponSystemProjectP2.Repositories.CouponRepository;
+import com.jb.CouponSystemProjectP2.Repositories.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;

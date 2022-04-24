@@ -1,7 +1,7 @@
-package com.jb.CouponSystemProjectP2.Controller;
+package com.jb.CouponSystemProjectP2.Controllers;
 
 import com.jb.CouponSystemProjectP2.Beans.Coupon;
-import com.jb.CouponSystemProjectP2.Service.CouponService;
+import com.jb.CouponSystemProjectP2.Services.CouponService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

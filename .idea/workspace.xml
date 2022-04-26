@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="added fixes, not finished" />
+    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="changed package name, added TablePrinter">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -185,7 +187,13 @@
       <option name="presentableId" value="LOCAL‎00018" />
       <updated>1650791218257</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL‎00019" summary="changed package name, added TablePrinter">
+      <created>1650791608450</created>
+      <option name="number" value="LOCAL‎00019" />
+      <option name="presentableId" value="LOCAL‎00019" />
+      <updated>1650791608450</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -212,6 +220,7 @@
     <MESSAGE value="minor adjustments, changed &quot;coupons&quot; to @ManyToMany" />
     <MESSAGE value="added comments" />
     <MESSAGE value="added fixes, not finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="added fixes, not finished" />
+    <MESSAGE value="changed package name, added TablePrinter" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed package name, added TablePrinter" />
   </component>
 </project>

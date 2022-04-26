@@ -1,4 +1,4 @@
-package com.jb.CouponSystemProjectP2.clr;
+package com.jb.CouponSystemProjectP2.CLR;
 
 import com.jb.CouponSystemProjectP2.Beans.Category;
 import com.jb.CouponSystemProjectP2.Beans.Company;

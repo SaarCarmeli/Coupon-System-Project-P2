@@ -1,45 +1,42 @@
 package com.jb.CouponSystemProjectP2.Services;
 
+import com.jb.CouponSystemProjectP2.Beans.Category;
+import com.jb.CouponSystemProjectP2.Beans.Coupon;
 import com.jb.CouponSystemProjectP2.Beans.Customer;
 import com.jb.CouponSystemProjectP2.Repositories.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class CustomerService {
+public class CustomerService implements CustomerServiceDAO {
     private final CustomerRepository customerRepository;
+    private int loggedCustomerId; // todo initialize
 
+    @Override
+    public void purchaseCoupon(Coupon coupon) {
 
-    public void createCustomer(Customer customer) {
-        customerRepository.save(customer);
     }
 
-    public Customer readCustomerById(int id) {
-        Optional<Customer> customer = customerRepository.findById(id);
-        return customer.orElse(null);
+    @Override
+    public List<Coupon> readAllCustomerCoupons() {
+        return null;
     }
 
-    public List<Customer> readAllCustomers() {
-        return customerRepository.findAll();
+    @Override
+    public List<Coupon> readCustomerCouponsByCategory(Category category) {
+        return null;
     }
 
-    public void updateCustomer(Customer customer) {
-        if (customerRepository.existsById(customer.getId())) {
-            customerRepository.save(customer);
-        } else {
-            System.out.println("Customer not found");  // todo: customize exception.
-        }
+    @Override
+    public List<Coupon> readCustomerCouponsByMaxPrice(double price) {
+        return null;
     }
 
-    public void deleteCustomer(int id) {
-        customerRepository.deleteById(id);
-    }
-
-    public boolean isCustomerExists(int id) {
-        return customerRepository.existsById(id);
+    @Override
+    public Customer readCustomerDetails() {
+        return null;
     }
 }

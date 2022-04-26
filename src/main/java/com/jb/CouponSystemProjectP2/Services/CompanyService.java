@@ -1,45 +1,52 @@
 package com.jb.CouponSystemProjectP2.Services;
 
+import com.jb.CouponSystemProjectP2.Beans.Category;
 import com.jb.CouponSystemProjectP2.Beans.Company;
+import com.jb.CouponSystemProjectP2.Beans.Coupon;
 import com.jb.CouponSystemProjectP2.Repositories.CompanyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class CompanyService {
+public class CompanyService implements CompanyServiceDAO {
     private final CompanyRepository companyRepository;
+    private int loggedCompanyId;
 
+    @Override
+    public void createCoupon(Coupon coupon) {
 
-    public void createCompany(Company company) {
-        companyRepository.save(company);
     }
 
-    public Company readCompanyById(int id) {
-        Optional<Company> company = companyRepository.findById(id);
-        return company.orElse(null);
+    @Override
+    public List<Coupon> readAllCompanyCoupons() {
+        return null;
     }
 
-    public List<Company> readAllCompanies() {
-        return companyRepository.findAll();
+    @Override
+    public List<Coupon> readCompanyCouponsByCategory(Category category) {
+        return null;
     }
 
-    public void updateCompany(Company company) {
-        if (companyRepository.existsById(company.getId())) {
-            companyRepository.save(company);
-        } else {
-            System.out.println("Coupon not found");  // todo: customize exception.
-        }
+    @Override
+    public List<Coupon> readCompanyCouponsByMaxPrice(double price) {
+        return null;
     }
 
-    public void deleteCompany(int id) {
-        companyRepository.deleteById(id);
+    @Override
+    public void updateCoupon(Coupon coupon) {
+
     }
 
-    public boolean isCompanyExists(int id) {
-        return companyRepository.existsById(id);
+    @Override
+    public void deleteCouponById(int id) {
+
+    }
+
+    @Override
+    public Company readCompanyDetails() {
+        return null;
     }
 }

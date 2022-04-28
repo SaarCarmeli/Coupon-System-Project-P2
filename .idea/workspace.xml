@@ -4,20 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="Added beans and repository.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Config/SwaggerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controller/CompanyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controller/CouponController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controller/CustomerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Service/CompanyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Service/CouponService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Service/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/clr/Test1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/clr/Test1.java" afterDir="false" />
-    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="First commit">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="changed CompanyService, CustomerService to suit program architecture demands. added CompanyServiceDAO and CustomerServiceDAO.">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CompanyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CouponController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CouponController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CustomerController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -48,6 +37,7 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -57,14 +47,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="RunManager">
     <configuration name="CouponSystemProjectSaarAndAvivP2Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.jb.CouponSystemProjectP2.CouponSystemProjectSaarAndAvivP2Application" />
-      <module name="Coupon-System-Project-Saar-and-Aviv-P2" />
+      <module name="Coupon-System-Project-P2" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.jb.CouponSystemProjectP2.*" />
@@ -108,13 +100,127 @@
       <option name="presentableId" value="LOCAL‎00003" />
       <updated>1649175944222</updated>
     </task>
-    <task id="LOCAL‎00004" summary="Added beans and repository.">
-      <created>1649761121180</created>
+    <task id="LOCAL‎00004" summary="added deleteByEndDateAfter method for CouponRepository">
+      <created>1650469220048</created>
       <option name="number" value="LOCAL‎00004" />
       <option name="presentableId" value="LOCAL‎00004" />
-      <updated>1649761121181</updated>
+      <updated>1650469220048</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL‎00005" summary="added @Column annotations to beans">
+      <created>1650553098014</created>
+      <option name="number" value="LOCAL‎00005" />
+      <option name="presentableId" value="LOCAL‎00005" />
+      <updated>1650553098014</updated>
+    </task>
+    <task id="LOCAL‎00006" summary="added &quot;smart dialect&quot; methods to JPA repositories">
+      <created>1650555963428</created>
+      <option name="number" value="LOCAL‎00006" />
+      <option name="presentableId" value="LOCAL‎00006" />
+      <updated>1650555963428</updated>
+    </task>
+    <task id="LOCAL‎00007" summary="changed name of database in application.properties">
+      <created>1650634706498</created>
+      <option name="number" value="LOCAL‎00007" />
+      <option name="presentableId" value="LOCAL‎00007" />
+      <updated>1650634706498</updated>
+    </task>
+    <task id="LOCAL‎00008" summary="added specific @Query methods in CouponRepository">
+      <created>1650635797760</created>
+      <option name="number" value="LOCAL‎00008" />
+      <option name="presentableId" value="LOCAL‎00008" />
+      <updated>1650635797760</updated>
+    </task>
+    <task id="LOCAL‎00009" summary="added specific @Query methods in CouponRepository">
+      <created>1650646425098</created>
+      <option name="number" value="LOCAL‎00009" />
+      <option name="presentableId" value="LOCAL‎00009" />
+      <updated>1650646425098</updated>
+    </task>
+    <task id="LOCAL‎00010" summary="rearranged beans">
+      <created>1650650550890</created>
+      <option name="number" value="LOCAL‎00010" />
+      <option name="presentableId" value="LOCAL‎00010" />
+      <updated>1650650550890</updated>
+    </task>
+    <task id="LOCAL‎00011" summary="rearranged beans">
+      <created>1650716379787</created>
+      <option name="number" value="LOCAL‎00011" />
+      <option name="presentableId" value="LOCAL‎00011" />
+      <updated>1650716379787</updated>
+    </task>
+    <task id="LOCAL‎00012" summary="rearranged clr tests">
+      <created>1650729879797</created>
+      <option name="number" value="LOCAL‎00012" />
+      <option name="presentableId" value="LOCAL‎00012" />
+      <updated>1650729879797</updated>
+    </task>
+    <task id="LOCAL‎00013" summary="rearranged clr tests">
+      <created>1650730631679</created>
+      <option name="number" value="LOCAL‎00013" />
+      <option name="presentableId" value="LOCAL‎00013" />
+      <updated>1650730631679</updated>
+    </task>
+    <task id="LOCAL‎00014" summary="added comments">
+      <created>1650790788149</created>
+      <option name="number" value="LOCAL‎00014" />
+      <option name="presentableId" value="LOCAL‎00014" />
+      <updated>1650790788149</updated>
+    </task>
+    <task id="LOCAL‎00015" summary="minor adjustments">
+      <created>1650791093686</created>
+      <option name="number" value="LOCAL‎00015" />
+      <option name="presentableId" value="LOCAL‎00015" />
+      <updated>1650791093686</updated>
+    </task>
+    <task id="LOCAL‎00016" summary="minor adjustments, changed &quot;coupons&quot; to @ManyToMany">
+      <created>1650791138722</created>
+      <option name="number" value="LOCAL‎00016" />
+      <option name="presentableId" value="LOCAL‎00016" />
+      <updated>1650791138722</updated>
+    </task>
+    <task id="LOCAL‎00017" summary="added comments">
+      <created>1650791168898</created>
+      <option name="number" value="LOCAL‎00017" />
+      <option name="presentableId" value="LOCAL‎00017" />
+      <updated>1650791168898</updated>
+    </task>
+    <task id="LOCAL‎00018" summary="added fixes, not finished">
+      <created>1650791218257</created>
+      <option name="number" value="LOCAL‎00018" />
+      <option name="presentableId" value="LOCAL‎00018" />
+      <updated>1650791218257</updated>
+    </task>
+    <task id="LOCAL‎00019" summary="changed package name, added TablePrinter">
+      <created>1650791608450</created>
+      <option name="number" value="LOCAL‎00019" />
+      <option name="presentableId" value="LOCAL‎00019" />
+      <updated>1650791608450</updated>
+    </task>
+    <task id="LOCAL‎00020" summary="changed package name">
+      <created>1650963999892</created>
+      <option name="number" value="LOCAL‎00020" />
+      <option name="presentableId" value="LOCAL‎00020" />
+      <updated>1650963999892</updated>
+    </task>
+    <task id="LOCAL‎00021" summary="added advice package + ErrorDetails class">
+      <created>1650964406070</created>
+      <option name="number" value="LOCAL‎00021" />
+      <option name="presentableId" value="LOCAL‎00021" />
+      <updated>1650964406070</updated>
+    </task>
+    <task id="LOCAL‎00022" summary="added AdministratorService and AdministratorServiceDAO, added custom exceptions">
+      <created>1650974009939</created>
+      <option name="number" value="LOCAL‎00022" />
+      <option name="presentableId" value="LOCAL‎00022" />
+      <updated>1650974009939</updated>
+    </task>
+    <task id="LOCAL‎00023" summary="changed CompanyService, CustomerService to suit program architecture demands. added CompanyServiceDAO and CustomerServiceDAO.">
+      <created>1650976254535</created>
+      <option name="number" value="LOCAL‎00023" />
+      <option name="presentableId" value="LOCAL‎00023" />
+      <updated>1650976254535</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -127,11 +233,25 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit" />
-    <MESSAGE value="Added beans and repository." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added beans and repository." />
+    <MESSAGE value="added deleteByEndDateAfter method for CouponRepository" />
+    <MESSAGE value="added @Column annotations to beans" />
+    <MESSAGE value="added &quot;smart dialect&quot; methods to JPA repositories" />
+    <MESSAGE value="changed name of database in application.properties" />
+    <MESSAGE value="added specific @Query methods in CouponRepository" />
+    <MESSAGE value="rearranged beans" />
+    <MESSAGE value="rearranged clr tests" />
+    <MESSAGE value="minor adjustments" />
+    <MESSAGE value="minor adjustments, changed &quot;coupons&quot; to @ManyToMany" />
+    <MESSAGE value="added comments" />
+    <MESSAGE value="added fixes, not finished" />
+    <MESSAGE value="changed package name, added TablePrinter" />
+    <MESSAGE value="changed package name" />
+    <MESSAGE value="added advice package + ErrorDetails class" />
+    <MESSAGE value="added AdministratorService and AdministratorServiceDAO, added custom exceptions" />
+    <MESSAGE value="changed CompanyService, CustomerService to suit program architecture demands. added CompanyServiceDAO and CustomerServiceDAO." />
+    <option name="LAST_COMMIT_MESSAGE" value="changed CompanyService, CustomerService to suit program architecture demands. added CompanyServiceDAO and CustomerServiceDAO." />
   </component>
 </project>

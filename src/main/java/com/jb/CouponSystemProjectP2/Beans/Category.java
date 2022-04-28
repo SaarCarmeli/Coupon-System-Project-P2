@@ -1,10 +1,9 @@
 package com.jb.CouponSystemProjectP2.Beans;
 
-import javax.persistence.Enumerated;
-
 public enum Category {
     FOOD,
-    ELECTRICITY,
+    ELECTRONICS,
+    HOME_APPLIANCES,
     SOFTWARE,
     RESTAURANT,
     VACATION;

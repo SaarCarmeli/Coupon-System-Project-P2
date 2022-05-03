@@ -1,6 +1,10 @@
 package com.jb.CouponSystemProjectP2.Controllers;
 
+import com.jb.CouponSystemProjectP2.Beans.Category;
 import com.jb.CouponSystemProjectP2.Beans.Company;
+import com.jb.CouponSystemProjectP2.Beans.Coupon;
+import com.jb.CouponSystemProjectP2.Exceptions.CompanyException;
+import com.jb.CouponSystemProjectP2.Exceptions.CustomerException;
 import com.jb.CouponSystemProjectP2.Services.CompanyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -13,40 +17,48 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class CompanyController {
     private final CompanyService companyService;
-//
-//    @GetMapping("/get")
-//    public ResponseEntity<?> getAllCompanies() {
-//        return new ResponseEntity<>(companyService.readAllCompanies(), HttpStatus.OK);
-//    }
-//
-//    @GetMapping("/companies/{id}")
-//    public ResponseEntity<?> getCompanyById(@PathVariable int id) {
-//        return new ResponseEntity<>(companyService.readCompanyById(id), HttpStatus.ACCEPTED);
-//    }
-//
-//    @PostMapping("/add")
-//    public ResponseEntity<?> createNewCompany(@RequestBody Company company) {
-//        companyService.createCompany(company);
-//        return new ResponseEntity<>(HttpStatus.CREATED);
-//    }
-//
-//    @PutMapping("/update")
-//    @ResponseStatus(code = HttpStatus.ACCEPTED)
-//    public void updateCompany(@RequestBody Company company) {
-//        try {
-//            companyService.updateCompany(company);
-//        } catch (Exception e) {
-//            System.out.println("Failed to update company"); // todo: customize exception.
-//        }
-//    }
-//
-//    @DeleteMapping("/delete/{id}")
-//    @ResponseStatus(code = HttpStatus.ACCEPTED)
-//    public void deleteCompany(@PathVariable int id) throws Exception {
-//        try {
-//            companyService.deleteCompany(id);
-//        } catch (Exception e) {
-//            System.out.println("Failed to delete company"); //todo:customize exception
-//        }
-//    }
+// -------------------CREATE--------------------
+
+
+    @PostMapping("/add/coupon")
+    public ResponseEntity<?> createNewCoupon(@RequestBody Coupon coupon) {//todo:throw exception
+        companyService.createCoupon(coupon);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    //---------------READ----------------------
+    @GetMapping("/get-all-coupons")
+    public ResponseEntity<?> getAllCoupons() { //todo:throw exception
+        return new ResponseEntity<>(companyService.readAllCompanyCoupons(), HttpStatus.OK);
+    }
+
+    @GetMapping("/get/company-detail")
+    public ResponseEntity<?> getCompanyDetail() { //todo:throw exception
+        return new ResponseEntity<>(companyService.readCompanyDetails(), HttpStatus.OK);
+    }
+
+    @GetMapping("/coupon/{category}")
+    public ResponseEntity<?> getCouponsByCategory(@PathVariable Category category) {//todo:throw exception
+        return new ResponseEntity<>(companyService.readCompanyCouponsByCategory(category), HttpStatus.ACCEPTED);
+    }
+
+
+    @GetMapping("/coupon/{price}")
+    public ResponseEntity<?> getCouponsByMaxPrice(@PathVariable double price) {//todo:throw exception
+        return new ResponseEntity<>(companyService.readCompanyCouponsByMaxPrice(price), HttpStatus.ACCEPTED);
+    }
+
+    //-------------------------UPDATE------------------
+    @PutMapping("/update-coupon")
+    @ResponseStatus(code = HttpStatus.ACCEPTED)
+    public void updateCoupon(@RequestBody Coupon coupon) {//todo:throw exception
+        companyService.updateCoupon(coupon);
+    }
+
+    // ----------------------DELETE---------------------
+    @DeleteMapping("/delete-coupon/{id}")
+    @ResponseStatus(code = HttpStatus.ACCEPTED)
+    public void deleteCouponById(@PathVariable int id) {//todo:throw exception
+        companyService.deleteCouponById(id);
+    }
 }

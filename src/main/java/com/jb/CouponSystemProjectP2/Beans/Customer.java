@@ -24,6 +24,6 @@ public class Customer {
     private String email;
     @Column(length = 45, nullable = false)
     private String password;
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private List<Coupon> coupons;
 }

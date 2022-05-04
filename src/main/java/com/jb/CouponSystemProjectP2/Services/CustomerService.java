@@ -23,10 +23,6 @@ public class CustomerService implements CustomerServiceDAO {
 
     @Override
     public void purchaseCoupon(Coupon coupon) throws CouponException {
-        /*
-         * can't purchase same coupon twice.
-         * coupon amount goes down by 1 after purchase.
-         */
         if (!couponRepository.exists(Example.of(coupon))) {
             throw new CouponException("Failed to purchase 'coupon', as 'coupon' does not exist!");
         }

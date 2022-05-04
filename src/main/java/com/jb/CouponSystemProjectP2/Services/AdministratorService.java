@@ -74,8 +74,8 @@ public class AdministratorService implements AdministratorServiceDAO {
 
     @Override
     public Customer readCustomerById(int id) throws CustomerException {
-        Optional<Customer> customerOpt=customerRepository.findById(id);
-        if (customerOpt.isPresent()){
+        Optional<Customer> customerOpt = customerRepository.findById(id);
+        if (customerOpt.isPresent()) {
             return customerOpt.get();
         }
         throw new CustomerException("Failed to read 'customer', as 'customer' by ID= " + id + " does not exist!");
@@ -83,8 +83,8 @@ public class AdministratorService implements AdministratorServiceDAO {
 
     @Override
     public List<Customer> readAllCustomers() throws CustomerException {
-        List<Customer> customerList=customerRepository.findAll();
-        if (!customerList.isEmpty()){
+        List<Customer> customerList = customerRepository.findAll();
+        if (!customerList.isEmpty()) {
             return customerList;
         }
         throw new CustomerException("Failed to read 'customers', as there are no 'customers' in the database!");
@@ -93,7 +93,7 @@ public class AdministratorService implements AdministratorServiceDAO {
     @Override
     public void updateCustomer(Customer customer) throws CustomerException {
         // todo restrict update to customer.id
-        if (customerRepository.existsById(customer.getId())){
+        if (customerRepository.existsById(customer.getId())) {
             customerRepository.save(customer);
         } else {
             throw new CustomerException("Failed to update 'customer', as 'customer' by ID= " + customer.getId() + " does not exist!");
@@ -102,7 +102,7 @@ public class AdministratorService implements AdministratorServiceDAO {
 
     @Override
     public void deleteCustomerById(int id) throws CustomerException {
-        if (customerRepository.existsById(id)){
+        if (customerRepository.existsById(id)) {
             customerRepository.deleteById(id);
         } else {
             throw new CustomerException("Failed to delete 'customer', as 'customer' by ID= " + id + " does not exist!");

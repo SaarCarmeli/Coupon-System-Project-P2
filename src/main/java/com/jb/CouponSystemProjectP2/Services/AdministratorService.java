@@ -22,7 +22,7 @@ public class AdministratorService implements AdministratorServiceDAO {
     public void createCompany(Company company) throws CompanyException {
         if (companyRepository.existsByNameOrEmail(company.getName(), company.getEmail())) {
             throw new CompanyException(
-                    "Can not create 'company', as 'company' by name= " + company.getName() + ", or by email= " + company.getEmail() + " already exists!");
+                    "Failed to create 'company', as 'company' by name= " + company.getName() + ", or by email= " + company.getEmail() + " already exists!");
         }
         companyRepository.save(company);
     }
@@ -33,7 +33,7 @@ public class AdministratorService implements AdministratorServiceDAO {
         if (companyOpt.isPresent()) {
             return companyOpt.get();
         }
-        throw new CompanyException("Can not read 'company', as 'company' by ID= " + id + " does not exist!");
+        throw new CompanyException("Failed to read 'company', as 'company' by ID= " + id + " does not exist!");
     }
 
     @Override
@@ -42,7 +42,7 @@ public class AdministratorService implements AdministratorServiceDAO {
         if (!companyList.isEmpty()) {
             return companyList;
         }
-        throw new CompanyException("Can not read 'companies', as there are no 'companies' in the database!");
+        throw new CompanyException("Failed to read 'companies', as there are no 'companies' in the database!");
     }
 
     @Override
@@ -51,7 +51,7 @@ public class AdministratorService implements AdministratorServiceDAO {
         if (companyRepository.existsById(company.getId())) {
             companyRepository.save(company);
         } else {
-            throw new CompanyException("Can not update 'company', as 'company' by ID= " + company.getId() + " does not exist!");
+            throw new CompanyException("Failed to update 'company', as 'company' by ID= " + company.getId() + " does not exist!");
         }
     }
 
@@ -60,14 +60,14 @@ public class AdministratorService implements AdministratorServiceDAO {
         if (companyRepository.existsById(id)) {
             companyRepository.deleteById(id);
         } else {
-            throw new CompanyException("Can not delete 'company', as 'company' by ID= " + id + " does not exist!");
+            throw new CompanyException("Failed to delete 'company', as 'company' by ID= " + id + " does not exist!");
         }
     }
 
     @Override
     public void createCustomer(Customer customer) throws CompanyException {
         if (customerRepository.existsByEmail(customer.getEmail())) {
-            throw new CompanyException("Can not create 'customer', as 'customer' by email= " + customer.getEmail() + " already exists!");
+            throw new CompanyException("Failed to create 'customer', as 'customer' by email= " + customer.getEmail() + " already exists!");
         }
         customerRepository.save(customer);
     }
@@ -78,7 +78,7 @@ public class AdministratorService implements AdministratorServiceDAO {
         if (customerOpt.isPresent()){
             return customerOpt.get();
         }
-        throw new CustomerException("Can not read 'customer', as 'customer' by ID= " + id + " does not exist!");
+        throw new CustomerException("Failed to read 'customer', as 'customer' by ID= " + id + " does not exist!");
     }
 
     @Override
@@ -87,7 +87,7 @@ public class AdministratorService implements AdministratorServiceDAO {
         if (!customerList.isEmpty()){
             return customerList;
         }
-        throw new CustomerException("Can not read 'customers', as there are no 'customers' in the database!");
+        throw new CustomerException("Failed to read 'customers', as there are no 'customers' in the database!");
     }
 
     @Override
@@ -96,7 +96,7 @@ public class AdministratorService implements AdministratorServiceDAO {
         if (customerRepository.existsById(customer.getId())){
             customerRepository.save(customer);
         } else {
-            throw new CustomerException("Can not update 'customer', as 'customer' by ID= " + customer.getId() + " does not exist!");
+            throw new CustomerException("Failed to update 'customer', as 'customer' by ID= " + customer.getId() + " does not exist!");
         }
     }
 
@@ -105,7 +105,7 @@ public class AdministratorService implements AdministratorServiceDAO {
         if (customerRepository.existsById(id)){
             customerRepository.deleteById(id);
         } else {
-            throw new CustomerException("Can not delete 'customer', as 'customer' by ID= " + id + " does not exist!");
+            throw new CustomerException("Failed to delete 'customer', as 'customer' by ID= " + id + " does not exist!");
         }
     }
 }

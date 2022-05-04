@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-
-    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="changed CompanyService, CustomerService to suit program architecture demands. added CompanyServiceDAO and CustomerServiceDAO.">
+    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="changed exception message">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Exceptions/CouponException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Beans/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Beans/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CompanyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CouponController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CustomerController.java" afterDir="false" />
-    </list>
-    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="commented Controllers until fixing">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/CustomerServiceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/CustomerServiceDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -52,6 +46,17 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.jb.CouponSystemProjectP2.Exceptions" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="CouponSystemProjectSaarAndAvivP2Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -226,7 +231,19 @@
       <option name="presentableId" value="LOCAL‎00024" />
       <updated>1650990582880</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL‎00025" summary="changed CascadeType in Customer to MERGE">
+      <created>1651573592649</created>
+      <option name="number" value="LOCAL‎00025" />
+      <option name="presentableId" value="LOCAL‎00025" />
+      <updated>1651573592649</updated>
+    </task>
+    <task id="LOCAL‎00026" summary="changed exception message">
+      <created>1651658237604</created>
+      <option name="number" value="LOCAL‎00026" />
+      <option name="presentableId" value="LOCAL‎00026" />
+      <updated>1651658237604</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -239,7 +256,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit" />
@@ -260,6 +276,8 @@
     <MESSAGE value="added AdministratorService and AdministratorServiceDAO, added custom exceptions" />
     <MESSAGE value="changed CompanyService, CustomerService to suit program architecture demands. added CompanyServiceDAO and CustomerServiceDAO." />
     <MESSAGE value="commented Controllers until fixing" />
-    <option name="LAST_COMMIT_MESSAGE" value="commented Controllers until fixing" />
+    <MESSAGE value="changed CascadeType in Customer to MERGE" />
+    <MESSAGE value="changed exception message" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed exception message" />
   </component>
 </project>

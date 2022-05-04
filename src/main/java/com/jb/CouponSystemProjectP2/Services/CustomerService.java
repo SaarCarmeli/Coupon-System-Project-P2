@@ -52,7 +52,7 @@ public class CustomerService implements CustomerServiceDAO {
         if (!couponList.isEmpty()) {
             return couponList;
         }
-        throw new CustomerException("Failed to read 'customer' coupons, as customer does not own any!");
+        throw new CustomerException("Failed to read 'customer' coupons, as 'customer' does not own any!");
     }
 
     @Override
@@ -61,7 +61,7 @@ public class CustomerService implements CustomerServiceDAO {
         if (!couponList.isEmpty()) {
             return couponList;
         }
-        throw new CustomerException("Failed to read 'customer' coupons, as customer does not own any 'coupon' of category= " + category + "!");
+        throw new CustomerException("Failed to read 'customer' coupons, as 'customer' does not own any 'coupon' of category= " + category + "!");
     }
 
     @Override
@@ -70,7 +70,7 @@ public class CustomerService implements CustomerServiceDAO {
         if (!couponList.isEmpty()) {
             return couponList;
         }
-        throw new CustomerException("Failed to read 'customer' coupons, as customer does not own any 'coupon' under price= " + price + "!");
+        throw new CustomerException("Failed to read 'customer' coupons, as 'customer' does not own any 'coupon' under price= " + price + "!");
     }
 
     @Override

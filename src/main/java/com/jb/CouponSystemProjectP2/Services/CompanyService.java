@@ -4,6 +4,7 @@ import com.jb.CouponSystemProjectP2.Beans.Category;
 import com.jb.CouponSystemProjectP2.Beans.Company;
 import com.jb.CouponSystemProjectP2.Beans.Coupon;
 import com.jb.CouponSystemProjectP2.Exceptions.CompanyException;
+import com.jb.CouponSystemProjectP2.Exceptions.CouponNotFoundException;
 import com.jb.CouponSystemProjectP2.Repositories.CompanyRepository;
 import com.jb.CouponSystemProjectP2.Repositories.CouponRepository;
 import lombok.RequiredArgsConstructor;
@@ -32,30 +33,30 @@ public class CompanyService implements CompanyServiceDAO {
     }
 
     @Override
-    public List<Coupon> readAllCompanyCoupons() throws CompanyException {
+    public List<Coupon> readAllCompanyCoupons() throws CouponNotFoundException {
         List<Coupon> couponList = couponRepository.findByCompanyId(this.loggedCompanyId);
         if (!couponList.isEmpty()) {
             return couponList;
         }
-        throw new CompanyException("Failed to read 'company' coupons, as 'company' did not issue any!");
+        throw new CouponNotFoundException("Failed to read 'company' coupons, as 'company' did not issue any!");
     }
 
     @Override
-    public List<Coupon> readCompanyCouponsByCategory(Category category) throws CompanyException {
+    public List<Coupon> readCompanyCouponsByCategory(Category category) throws CouponNotFoundException {
         List<Coupon> couponList = couponRepository.findByCompanyIdAndCategory(this.loggedCompanyId, category);
         if (!couponList.isEmpty()) {
             return couponList;
         }
-        throw new CompanyException("Failed to read 'company' coupons, as 'company' did not issue any 'coupon' of category= " + category + "!");
+        throw new CouponNotFoundException("Failed to read 'company' coupons, as 'company' did not issue any 'coupon' of category= " + category + "!");
     }
 
     @Override
-    public List<Coupon> readCompanyCouponsByMaxPrice(double price) throws CompanyException {
+    public List<Coupon> readCompanyCouponsByMaxPrice(double price) throws CouponNotFoundException {
         List<Coupon> couponList = couponRepository.findByCompanyIdAndPriceLessThan(this.loggedCompanyId, price);
         if (!couponList.isEmpty()) {
             return couponList;
         }
-        throw new CompanyException("Failed to read 'company' coupons, as 'company' did not issue any 'coupon' under price= " + price + "!");
+        throw new CouponNotFoundException("Failed to read 'company' coupons, as 'company' did not issue any 'coupon' under price= " + price + "!");
     }
 
     @Override

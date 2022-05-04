@@ -4,6 +4,7 @@ import com.jb.CouponSystemProjectP2.Beans.Category;
 import com.jb.CouponSystemProjectP2.Beans.Coupon;
 import com.jb.CouponSystemProjectP2.Beans.Customer;
 import com.jb.CouponSystemProjectP2.Exceptions.CouponException;
+import com.jb.CouponSystemProjectP2.Exceptions.CouponNotFoundException;
 import com.jb.CouponSystemProjectP2.Exceptions.CustomerException;
 import com.jb.CouponSystemProjectP2.Repositories.CouponRepository;
 import com.jb.CouponSystemProjectP2.Repositories.CustomerRepository;
@@ -23,9 +24,9 @@ public class CustomerService implements CustomerServiceDAO {
     private int loggedCustomerId; // todo initialize
 
     @Override
-    public void purchaseCoupon(Coupon coupon) throws CouponException, CustomerException {
+    public void purchaseCoupon(Coupon coupon) throws CouponException, CustomerException, CouponNotFoundException {
         if (!couponRepository.exists(Example.of(coupon))) {
-            throw new CouponException("Failed to purchase 'coupon', as 'coupon' does not exist!");
+            throw new CouponNotFoundException("Failed to purchase 'coupon', as 'coupon' does not exist!");
         }
         if (coupon.getAmount() == 0) {
             throw new CouponException("Failed to purchase 'coupon', as no 'coupons' left in inventory!");
@@ -47,30 +48,30 @@ public class CustomerService implements CustomerServiceDAO {
     }
 
     @Override
-    public List<Coupon> readAllCustomerCoupons() throws CustomerException {
+    public List<Coupon> readAllCustomerCoupons() throws CouponNotFoundException {
         List<Coupon> couponList = couponRepository.findByCustomerId(this.loggedCustomerId);
         if (!couponList.isEmpty()) {
             return couponList;
         }
-        throw new CustomerException("Failed to read 'customer' coupons, as 'customer' does not own any!");
+        throw new CouponNotFoundException("Failed to read 'customer' coupons, as 'customer' does not own any!");
     }
 
     @Override
-    public List<Coupon> readCustomerCouponsByCategory(Category category) throws CustomerException {
+    public List<Coupon> readCustomerCouponsByCategory(Category category) throws CouponNotFoundException {
         List<Coupon> couponList = couponRepository.findByCustomerIdAndCategory(this.loggedCustomerId, category);
         if (!couponList.isEmpty()) {
             return couponList;
         }
-        throw new CustomerException("Failed to read 'customer' coupons, as 'customer' does not own any 'coupon' of category= " + category + "!");
+        throw new CouponNotFoundException("Failed to read 'customer' coupons, as 'customer' does not own any 'coupon' of category= " + category + "!");
     }
 
     @Override
-    public List<Coupon> readCustomerCouponsByMaxPrice(double price) throws CustomerException {
+    public List<Coupon> readCustomerCouponsByMaxPrice(double price) throws CouponNotFoundException {
         List<Coupon> couponList = couponRepository.findByCustomerIdAndPriceLessThan(this.loggedCustomerId, price);
         if (!couponList.isEmpty()) {
             return couponList;
         }
-        throw new CustomerException("Failed to read 'customer' coupons, as 'customer' does not own any 'coupon' under price= " + price + "!");
+        throw new CouponNotFoundException("Failed to read 'customer' coupons, as 'customer' does not own any 'coupon' under price= " + price + "!");
     }
 
     @Override

@@ -25,7 +25,7 @@ public class CompanyService implements CompanyServiceDAO {
             throw new CompanyException(
                     "Failed to create 'coupon', as 'coupon' by title= " + coupon.getTitle() + ", and by company_Id= " + this.loggedCompanyId + " already exists!");
         }
-        Company loggedCompany = companyRepository.getById(loggedCompanyId);
+        Company loggedCompany = companyRepository.getById(this.loggedCompanyId);
         List<Coupon> companyCoupons = loggedCompany.getCoupons();
         companyCoupons.add(coupon);
         loggedCompany.setCoupons(companyCoupons);
@@ -60,13 +60,22 @@ public class CompanyService implements CompanyServiceDAO {
     }
 
     @Override
-    public void updateCoupon(Coupon coupon) {
-
+    public void updateCoupon(Coupon coupon) throws CouponNotFoundException {
+        // todo restrict update to coupon.company_id and coupon.id
+        if (couponRepository.existsById(coupon.getId())) {
+            couponRepository.save(coupon);
+        } else {
+            throw new CouponNotFoundException("Failed to update 'coupon', as 'coupon' by ID= " + coupon.getId() + " does not exist!");
+        }
     }
 
     @Override
-    public void deleteCouponById(int id) {
-
+    public void deleteCouponById(int id) throws CouponNotFoundException {
+        if (couponRepository.existsById(id)){
+            couponRepository.deleteById(id);
+        } else {
+            throw new CouponNotFoundException("Failed to delete 'coupon', as 'coupon' by ID= " + id + " does not exist!");
+        }
     }
 
     @Override

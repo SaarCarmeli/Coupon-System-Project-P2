@@ -13,7 +13,7 @@ public interface CompanyServiceDAO {
     List<Coupon> readAllCompanyCoupons() throws CouponNotFoundException;
     List<Coupon> readCompanyCouponsByCategory(Category category) throws CouponNotFoundException;
     List<Coupon> readCompanyCouponsByMaxPrice(double price) throws CouponNotFoundException;
-    void updateCoupon(Coupon coupon);
-    void deleteCouponById(int id);
+    void updateCoupon(Coupon coupon) throws CouponNotFoundException;
+    void deleteCouponById(int id) throws CouponNotFoundException;
     Company readCompanyDetails();
 }

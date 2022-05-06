@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="added CompanyAdvice, CouponAdvice, CustomerAdvice and NotFoundAdvice">
+    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="finished CompanyService">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/CompanyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/CompanyServiceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/CompanyServiceDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -290,7 +288,13 @@
       <option name="presentableId" value="LOCAL‎00034" />
       <updated>1651683566372</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL‎00035" summary="finished CompanyService">
+      <created>1651844550101</created>
+      <option name="number" value="LOCAL‎00035" />
+      <option name="presentableId" value="LOCAL‎00035" />
+      <updated>1651844550101</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -305,7 +309,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added deleteByEndDateAfter method for CouponRepository" />
     <MESSAGE value="added @Column annotations to beans" />
     <MESSAGE value="added &quot;smart dialect&quot; methods to JPA repositories" />
     <MESSAGE value="changed name of database in application.properties" />
@@ -330,6 +333,7 @@
     <MESSAGE value="added some of the methods for CompanyService" />
     <MESSAGE value="replaced some exception throws to new 'NotFoundException's" />
     <MESSAGE value="added CompanyAdvice, CouponAdvice, CustomerAdvice and NotFoundAdvice" />
-    <option name="LAST_COMMIT_MESSAGE" value="added CompanyAdvice, CouponAdvice, CustomerAdvice and NotFoundAdvice" />
+    <MESSAGE value="finished CompanyService" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished CompanyService" />
   </component>
 </project>

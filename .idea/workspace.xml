@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="finished CompanyService">
+    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="thrown exceptions and other minor tweaks">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Advices/LoginAdvice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Beans/LoginDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Beans/UserType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Exceptions/LoginException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Security/JWTutil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Repositories/CompanyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Repositories/CompanyRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Repositories/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Repositories/CustomerRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +24,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -294,7 +303,25 @@
       <option name="presentableId" value="LOCAL‎00035" />
       <updated>1651844550101</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL‎00036" summary="deleted duplicate dependencies of swagger from pom.xml, added comments">
+      <created>1651845155172</created>
+      <option name="number" value="LOCAL‎00036" />
+      <option name="presentableId" value="LOCAL‎00036" />
+      <updated>1651845155172</updated>
+    </task>
+    <task id="LOCAL‎00037" summary="added existsByEmailAndPassword methods for login">
+      <created>1652010198453</created>
+      <option name="number" value="LOCAL‎00037" />
+      <option name="presentableId" value="LOCAL‎00037" />
+      <updated>1652010198453</updated>
+    </task>
+    <task id="LOCAL‎00038" summary="thrown exceptions and other minor tweaks">
+      <created>1652010258467</created>
+      <option name="number" value="LOCAL‎00038" />
+      <option name="presentableId" value="LOCAL‎00038" />
+      <updated>1652010258467</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -309,9 +336,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added @Column annotations to beans" />
-    <MESSAGE value="added &quot;smart dialect&quot; methods to JPA repositories" />
-    <MESSAGE value="changed name of database in application.properties" />
     <MESSAGE value="added specific @Query methods in CouponRepository" />
     <MESSAGE value="rearranged beans" />
     <MESSAGE value="rearranged clr tests" />
@@ -334,6 +358,9 @@
     <MESSAGE value="replaced some exception throws to new 'NotFoundException's" />
     <MESSAGE value="added CompanyAdvice, CouponAdvice, CustomerAdvice and NotFoundAdvice" />
     <MESSAGE value="finished CompanyService" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished CompanyService" />
+    <MESSAGE value="deleted duplicate dependencies of swagger from pom.xml, added comments" />
+    <MESSAGE value="added existsByEmailAndPassword methods for login" />
+    <MESSAGE value="thrown exceptions and other minor tweaks" />
+    <option name="LAST_COMMIT_MESSAGE" value="thrown exceptions and other minor tweaks" />
   </component>
 </project>

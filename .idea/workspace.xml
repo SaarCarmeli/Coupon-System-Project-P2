@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="thrown exceptions and other minor tweaks">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Advices/LoginAdvice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Beans/LoginDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Beans/UserType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Exceptions/LoginException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Security/JWTutil.java" afterDir="false" />
+    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="added JWTutil, LoginDetails (login bean), UserType (enum), LoginController, LoginException and LoginAdvice">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Beans/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Beans/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Beans/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Beans/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Repositories/CompanyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Repositories/CompanyRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Repositories/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Repositories/CustomerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Security/JWTutil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Security/JWTutil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/AdministratorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/AdministratorService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -321,7 +320,19 @@
       <option name="presentableId" value="LOCAL‎00038" />
       <updated>1652010258467</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL‎00039" summary="changed existsByEmailAndPassword methods to existsByIdAndEmailAndPassword">
+      <created>1652011839655</created>
+      <option name="number" value="LOCAL‎00039" />
+      <option name="presentableId" value="LOCAL‎00039" />
+      <updated>1652011839655</updated>
+    </task>
+    <task id="LOCAL‎00040" summary="added JWTutil, LoginDetails (login bean), UserType (enum), LoginController, LoginException and LoginAdvice">
+      <created>1652012022171</created>
+      <option name="number" value="LOCAL‎00040" />
+      <option name="presentableId" value="LOCAL‎00040" />
+      <updated>1652012022171</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -336,8 +347,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added specific @Query methods in CouponRepository" />
-    <MESSAGE value="rearranged beans" />
     <MESSAGE value="rearranged clr tests" />
     <MESSAGE value="minor adjustments" />
     <MESSAGE value="minor adjustments, changed &quot;coupons&quot; to @ManyToMany" />
@@ -361,6 +370,8 @@
     <MESSAGE value="deleted duplicate dependencies of swagger from pom.xml, added comments" />
     <MESSAGE value="added existsByEmailAndPassword methods for login" />
     <MESSAGE value="thrown exceptions and other minor tweaks" />
-    <option name="LAST_COMMIT_MESSAGE" value="thrown exceptions and other minor tweaks" />
+    <MESSAGE value="changed existsByEmailAndPassword methods to existsByIdAndEmailAndPassword" />
+    <MESSAGE value="added JWTutil, LoginDetails (login bean), UserType (enum), LoginController, LoginException and LoginAdvice" />
+    <option name="LAST_COMMIT_MESSAGE" value="added JWTutil, LoginDetails (login bean), UserType (enum), LoginController, LoginException and LoginAdvice" />
   </component>
 </project>

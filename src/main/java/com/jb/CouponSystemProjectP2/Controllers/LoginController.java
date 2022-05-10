@@ -30,12 +30,14 @@ public class LoginController {
                 }
                 throw new LoginException("User is not an admin! Check login details!");
             case Company:
-                if (companyRepository.existsByIdAndEmailAndPassword(loginDetails.getId(), loginDetails.getEmail(), loginDetails.getPassword())) {
+                if (companyRepository.existsByEmailAndPassword(loginDetails.getEmail(), loginDetails.getPassword())) {
+                    loginDetails.setId(companyRepository.findIdByEmailAndPassword(loginDetails.getEmail(), loginDetails.getPassword()));
                     return new ResponseEntity<>(jwtUtil.generateToken(loginDetails), HttpStatus.ACCEPTED);
                 }
                 throw new LoginException();
             case Customer:
-                if (customerRepository.existsByIdAndEmailAndPassword(loginDetails.getId(), loginDetails.getEmail(), loginDetails.getPassword())) {
+                if (customerRepository.existsByEmailAndPassword(loginDetails.getEmail(), loginDetails.getPassword())) {
+                    loginDetails.setId(customerRepository.findIdByEmailAndPassword(loginDetails.getEmail(), loginDetails.getPassword()));
                     return new ResponseEntity<>(jwtUtil.generateToken(loginDetails), HttpStatus.ACCEPTED);
                 }
                 throw new LoginException();

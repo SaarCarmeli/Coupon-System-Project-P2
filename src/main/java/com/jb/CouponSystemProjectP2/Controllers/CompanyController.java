@@ -33,7 +33,7 @@ public class CompanyController {
                         .header("Authorization", jwtUtil.generateToken(token))
                         .build();
             } else {
-                return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED); // todo ???
+                throw new TokenException();//todo custom error
             }
         } catch (ExpiredJwtException | SignatureException | MalformedJwtException e) {
             throw new TokenException(e.getMessage());

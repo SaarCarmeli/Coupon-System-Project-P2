@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="added method to get Id by email and password in CompanyRepository and CustomerRepository, removed Id requirement for existByEmailAndPassword.&#10;LoginController: changed the way userDetails get Id">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Exceptions/TokenException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Advices/LoginAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Advices/LoginAdvice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CompanyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Security/JWTutil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Security/JWTutil.java" afterDir="false" />
-    </list>
+    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="added authorization to first method of CompanyController, changed token validation in JWTutil, added TokenException and advice handle to LoginAdvice" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -347,7 +341,13 @@
       <option name="presentableId" value="LOCAL‎00043" />
       <updated>1652195010329</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL‎00044" summary="added authorization to first method of CompanyController, changed token validation in JWTutil, added TokenException and advice handle to LoginAdvice">
+      <created>1652196197219</created>
+      <option name="number" value="LOCAL‎00044" />
+      <option name="presentableId" value="LOCAL‎00044" />
+      <updated>1652196197219</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -362,7 +362,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="minor adjustments, changed &quot;coupons&quot; to @ManyToMany" />
     <MESSAGE value="added comments" />
     <MESSAGE value="added fixes, not finished" />
     <MESSAGE value="changed package name, added TablePrinter" />
@@ -387,6 +386,7 @@
     <MESSAGE value="added JWTutil, LoginDetails (login bean), UserType (enum), LoginController, LoginException and LoginAdvice" />
     <MESSAGE value="added getIdFromToken method to JWTutil, added @Table annotation to Company and Customer for custom table names, added todos to AdministratorService" />
     <MESSAGE value="added method to get Id by email and password in CompanyRepository and CustomerRepository, removed Id requirement for existByEmailAndPassword.&#10;LoginController: changed the way userDetails get Id" />
-    <option name="LAST_COMMIT_MESSAGE" value="added method to get Id by email and password in CompanyRepository and CustomerRepository, removed Id requirement for existByEmailAndPassword.&#10;LoginController: changed the way userDetails get Id" />
+    <MESSAGE value="added authorization to first method of CompanyController, changed token validation in JWTutil, added TokenException and advice handle to LoginAdvice" />
+    <option name="LAST_COMMIT_MESSAGE" value="added authorization to first method of CompanyController, changed token validation in JWTutil, added TokenException and advice handle to LoginAdvice" />
   </component>
 </project>

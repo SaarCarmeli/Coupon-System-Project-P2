@@ -4,7 +4,12 @@ import com.jb.CouponSystemProjectP2.Beans.Category;
 import com.jb.CouponSystemProjectP2.Beans.Coupon;
 import com.jb.CouponSystemProjectP2.Exceptions.CompanyException;
 import com.jb.CouponSystemProjectP2.Exceptions.CouponNotFoundException;
+import com.jb.CouponSystemProjectP2.Exceptions.TokenException;
+import com.jb.CouponSystemProjectP2.Security.JWTutil;
 import com.jb.CouponSystemProjectP2.Services.CompanyService;
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.MalformedJwtException;
+import io.jsonwebtoken.security.SignatureException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,11 +21,23 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class CompanyController {
     private final CompanyService companyService;
-// -------------------CREATE--------------------
+    private final JWTutil jwtUtil;
+
+    // -------------------CREATE--------------------
     @PostMapping("/add/coupon")
-    public ResponseEntity<?> createNewCoupon(@RequestBody Coupon coupon) throws CompanyException {
-        companyService.createCoupon(coupon);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    public ResponseEntity<?> createNewCoupon(@RequestHeader(name = "Authorization") String token, @RequestBody Coupon coupon) throws CompanyException, TokenException {
+        try {
+            if (jwtUtil.isTokenValid(token)) {
+                companyService.createCoupon(coupon);
+                return ResponseEntity.accepted()
+                        .header("Authorization", jwtUtil.generateToken(token))
+                        .build();
+            } else {
+                return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED); // todo ???
+            }
+        } catch (ExpiredJwtException | SignatureException | MalformedJwtException e) {
+            throw new TokenException(e.getMessage());
+        }
     }
 
     //---------------READ----------------------

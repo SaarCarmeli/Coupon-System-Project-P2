@@ -44,23 +44,19 @@ public class JWTutil {
                 .compact();
     }
 
-    public Claims extractAllClaims(String token) throws ExpiredJwtException, SignatureException {
+    public Claims extractAllClaims(String token) throws ExpiredJwtException, SignatureException, MalformedJwtException{
         JwtParser jwtParser = Jwts.parserBuilder()
                 .setSigningKey(this.decodedSecretKey)
                 .build();
         return jwtParser.parseClaimsJws(token.replace("Bearer ", "")).getBody();
     }
 
-    public boolean isTokenExpired(String token) throws SignatureException {
-        try {
-            extractAllClaims(token.replace("Bearer ", ""));
-            return false;
-        } catch (ExpiredJwtException e) {
-            return true;
-        }
+    public boolean isTokenValid(String token) throws ExpiredJwtException, SignatureException, MalformedJwtException {
+        final Claims claims = extractAllClaims(token.replace("Bearer ", ""));
+        return true;
     }
 
-    public int getIdFromToken(String token) {
+    public int getIdFromToken(String token) throws ExpiredJwtException, SignatureException, MalformedJwtException{
         Claims claims = extractAllClaims(token.replace("Bearer ", ""));
         return (int) claims.get("id");
     }

@@ -59,4 +59,9 @@ public class JWTutil {
             return true;
         }
     }
+
+    public int getIdFromToken(String token) {
+        Claims claims = extractAllClaims(token.replace("Bearer ", ""));
+        return (int) claims.get("id");
+    }
 }

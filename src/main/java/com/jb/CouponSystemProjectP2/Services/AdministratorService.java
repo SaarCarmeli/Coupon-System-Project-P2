@@ -50,6 +50,7 @@ public class AdministratorService implements AdministratorServiceDAO {
     @Override
     public void updateCompany(Company company) throws CompanyNotFoundException {
         // todo restrict update to company.id and company.name
+        // todo restrict ability to create two companies with the same email and password
         if (companyRepository.existsById(company.getId())) {
             companyRepository.save(company);
         } else {
@@ -95,6 +96,7 @@ public class AdministratorService implements AdministratorServiceDAO {
     @Override
     public void updateCustomer(Customer customer) throws CustomerNotFoundException {
         // todo restrict update to customer.id
+        // todo restrict ability to create two customers with the same email and password
         if (customerRepository.existsById(customer.getId())) {
             customerRepository.save(customer);
         } else {

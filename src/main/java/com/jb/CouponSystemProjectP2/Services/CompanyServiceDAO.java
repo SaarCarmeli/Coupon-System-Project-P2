@@ -9,11 +9,11 @@ import com.jb.CouponSystemProjectP2.Exceptions.CouponNotFoundException;
 import java.util.List;
 
 public interface CompanyServiceDAO {
-    void createCoupon(Coupon coupon) throws CompanyException;
-    List<Coupon> readAllCompanyCoupons() throws CouponNotFoundException;
-    List<Coupon> readCompanyCouponsByCategory(Category category) throws CouponNotFoundException;
-    List<Coupon> readCompanyCouponsByMaxPrice(double price) throws CouponNotFoundException;
-    void updateCoupon(Coupon coupon) throws CouponNotFoundException;
-    void deleteCouponById(int id) throws CouponNotFoundException;
-    Company readCompanyDetails();
+    void createCoupon(int companyId, Coupon coupon) throws CompanyException;
+    List<Coupon> readAllCompanyCoupons(int companyId) throws CouponNotFoundException;
+    List<Coupon> readCompanyCouponsByCategory(int companyId, Category category) throws CouponNotFoundException;
+    List<Coupon> readCompanyCouponsByMaxPrice(int companyId, double price) throws CouponNotFoundException;
+    void updateCoupon(int companyId, Coupon coupon) throws CouponNotFoundException;
+    void deleteCouponById(int couponId) throws CouponNotFoundException;
+    Company readCompanyDetails(int companyId);
 }

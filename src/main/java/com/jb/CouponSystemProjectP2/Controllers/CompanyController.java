@@ -28,7 +28,7 @@ public class CompanyController {
     public ResponseEntity<?> createNewCoupon(@RequestHeader(name = "Authorization") String token, @RequestBody Coupon coupon) throws CompanyException, TokenException {
         try {
             if (jwtUtil.isTokenValid(token)) {
-                companyService.createCoupon(coupon);
+                companyService.createCoupon(jwtUtil.getIdFromToken(token), coupon);
                 return ResponseEntity.accepted()
                         .header("Authorization", jwtUtil.generateToken(token))
                         .build();
@@ -42,37 +42,49 @@ public class CompanyController {
 
     //---------------READ----------------------
     @GetMapping("/get-all-coupons")
-    public ResponseEntity<?> getAllCoupons() throws CouponNotFoundException {
-        return new ResponseEntity<>(companyService.readAllCompanyCoupons(), HttpStatus.OK);
-    }
-
-    @GetMapping("/get/company-detail")
-    public ResponseEntity<?> getCompanyDetail() {
-        return new ResponseEntity<>(companyService.readCompanyDetails(), HttpStatus.OK);
+    public ResponseEntity<?> getAllCoupons(@RequestHeader(name = "Authorization") String token) throws CouponNotFoundException {
+        return ResponseEntity.ok()
+                .header("Authorization", jwtUtil.generateToken(token))
+                .body(companyService.readAllCompanyCoupons(jwtUtil.getIdFromToken(token)));
     }
 
     @GetMapping("/coupon/{category}")
-    public ResponseEntity<?> getCouponsByCategory(@PathVariable Category category) throws CouponNotFoundException {
-        return new ResponseEntity<>(companyService.readCompanyCouponsByCategory(category), HttpStatus.OK);
+    public ResponseEntity<?> getCouponsByCategory(@RequestHeader(name = "Authorization") String token, @PathVariable Category category) throws CouponNotFoundException {
+        return ResponseEntity.ok()
+                .header("Authorization", jwtUtil.generateToken(token))
+                .body(companyService.readCompanyCouponsByCategory(jwtUtil.getIdFromToken(token), category));
     }
 
 
     @GetMapping("/coupon/{price}")
-    public ResponseEntity<?> getCouponsByMaxPrice(@PathVariable double price) throws CouponNotFoundException {
-        return new ResponseEntity<>(companyService.readCompanyCouponsByMaxPrice(price), HttpStatus.OK);
+    public ResponseEntity<?> getCouponsByMaxPrice(@RequestHeader(name = "Authorization") String token, @PathVariable double price) throws CouponNotFoundException {
+        return ResponseEntity.ok()
+                .header("Authorization", jwtUtil.generateToken(token))
+                .body(companyService.readCompanyCouponsByMaxPrice(jwtUtil.getIdFromToken(token), price));
+    }
+
+    @GetMapping("/get/company-detail")
+    public ResponseEntity<?> getCompanyDetail(@RequestHeader(name = "Authorization") String token) {
+        return ResponseEntity.ok()
+                .header("Authorization", jwtUtil.generateToken(token))
+                .body(companyService.readCompanyDetails(jwtUtil.getIdFromToken(token)));
     }
 
     //-------------------------UPDATE------------------
     @PutMapping("/update-coupon")
-    @ResponseStatus(code = HttpStatus.ACCEPTED)
-    public void updateCoupon(@RequestBody Coupon coupon) throws CouponNotFoundException {
-        companyService.updateCoupon(coupon);
+    public ResponseEntity<?> updateCoupon(@RequestHeader(name = "Authorization") String token, @RequestBody Coupon coupon) throws CouponNotFoundException {
+        companyService.updateCoupon(jwtUtil.getIdFromToken(token), coupon);
+        return ResponseEntity.accepted()
+                .header("Authorization", jwtUtil.generateToken(token))
+                .build();
     }
 
     // ----------------------DELETE---------------------
     @DeleteMapping("/delete-coupon/{id}")
-    @ResponseStatus(code = HttpStatus.ACCEPTED)
-    public void deleteCouponById(@PathVariable int id) throws CouponNotFoundException {
-        companyService.deleteCouponById(id);
+    public ResponseEntity<?> deleteCouponById(@RequestHeader(name = "Authorization") String token, @PathVariable int couponId) throws CouponNotFoundException {
+        companyService.deleteCouponById(couponId);
+        return ResponseEntity.accepted()
+                .header("Authorization", jwtUtil.generateToken(token))
+                .build();
     }
 }

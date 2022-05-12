@@ -57,7 +57,7 @@ public class JWTutil {
     }
 
     public int getIdFromToken(String token) throws ExpiredJwtException, SignatureException, MalformedJwtException{
-        Claims claims = extractAllClaims(token.replace("Bearer ", ""));
+        final Claims claims = extractAllClaims(token.replace("Bearer ", ""));
         return (int) claims.get("id");
     }
 }

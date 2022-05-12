@@ -17,15 +17,14 @@ import java.util.List;
 public class CompanyService implements CompanyServiceDAO {
     private final CompanyRepository companyRepository;
     private final CouponRepository couponRepository;
-    private int loggedCompanyId;
 
     @Override
-    public void createCoupon(Coupon coupon) throws CompanyException {
-        if (couponRepository.existsByTitleAndCompanyId(coupon.getTitle(), this.loggedCompanyId)) {
+    public void createCoupon(int companyId, Coupon coupon) throws CompanyException {
+        if (couponRepository.existsByTitleAndCompanyId(coupon.getTitle(), companyId)) {
             throw new CompanyException(
-                    "Failed to create 'coupon', as 'coupon' by title= " + coupon.getTitle() + ", and by company_Id= " + this.loggedCompanyId + " already exists!");
+                    "Failed to create 'coupon', as 'coupon' by title= " + coupon.getTitle() + ", and by company_Id= " + companyId + " already exists!");
         }
-        Company loggedCompany = companyRepository.getById(this.loggedCompanyId);
+        Company loggedCompany = companyRepository.getById(companyId);
         List<Coupon> companyCoupons = loggedCompany.getCoupons();
         companyCoupons.add(coupon);
         loggedCompany.setCoupons(companyCoupons);
@@ -33,8 +32,8 @@ public class CompanyService implements CompanyServiceDAO {
     }
 
     @Override
-    public List<Coupon> readAllCompanyCoupons() throws CouponNotFoundException {
-        List<Coupon> couponList = couponRepository.findByCompanyId(this.loggedCompanyId);
+    public List<Coupon> readAllCompanyCoupons(int companyId) throws CouponNotFoundException {
+        List<Coupon> couponList = couponRepository.findByCompanyId(companyId);
         if (!couponList.isEmpty()) {
             return couponList;
         }
@@ -42,8 +41,8 @@ public class CompanyService implements CompanyServiceDAO {
     }
 
     @Override
-    public List<Coupon> readCompanyCouponsByCategory(Category category) throws CouponNotFoundException {
-        List<Coupon> couponList = couponRepository.findByCompanyIdAndCategory(this.loggedCompanyId, category);
+    public List<Coupon> readCompanyCouponsByCategory(int companyId, Category category) throws CouponNotFoundException {
+        List<Coupon> couponList = couponRepository.findByCompanyIdAndCategory(companyId, category);
         if (!couponList.isEmpty()) {
             return couponList;
         }
@@ -51,8 +50,8 @@ public class CompanyService implements CompanyServiceDAO {
     }
 
     @Override
-    public List<Coupon> readCompanyCouponsByMaxPrice(double price) throws CouponNotFoundException {
-        List<Coupon> couponList = couponRepository.findByCompanyIdAndPriceLessThan(this.loggedCompanyId, price);
+    public List<Coupon> readCompanyCouponsByMaxPrice(int companyId, double price) throws CouponNotFoundException {
+        List<Coupon> couponList = couponRepository.findByCompanyIdAndPriceLessThan(companyId, price);
         if (!couponList.isEmpty()) {
             return couponList;
         }
@@ -60,8 +59,9 @@ public class CompanyService implements CompanyServiceDAO {
     }
 
     @Override
-    public void updateCoupon(Coupon coupon) throws CouponNotFoundException {
+    public void updateCoupon(int id, Coupon coupon) throws CouponNotFoundException {
         // todo restrict update to coupon.company_id and coupon.id
+        // todo check that coupon belongs to the company that logged in
         if (couponRepository.existsById(coupon.getId())) {
             couponRepository.save(coupon);
         } else {
@@ -70,16 +70,17 @@ public class CompanyService implements CompanyServiceDAO {
     }
 
     @Override
-    public void deleteCouponById(int id) throws CouponNotFoundException {
-        if (couponRepository.existsById(id)){
-            couponRepository.deleteById(id);
+    public void deleteCouponById(int couponId) throws CouponNotFoundException {
+        // todo check that coupon belongs to logged-in company
+        if (couponRepository.existsById(couponId)) {
+            couponRepository.deleteById(couponId);
         } else {
-            throw new CouponNotFoundException("Failed to delete 'coupon', as 'coupon' by ID= " + id + " does not exist!");
+            throw new CouponNotFoundException("Failed to delete 'coupon', as 'coupon' by ID= " + couponId + " does not exist!");
         }
     }
 
     @Override
-    public Company readCompanyDetails() {
-        return companyRepository.getById(this.loggedCompanyId);
+    public Company readCompanyDetails(int companyId) {
+        return companyRepository.getById(companyId);
     }
 }

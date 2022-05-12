@@ -6,9 +6,9 @@ import com.jb.CouponSystemProjectP2.Exceptions.CompanyException;
 import com.jb.CouponSystemProjectP2.Exceptions.CompanyNotFoundException;
 import com.jb.CouponSystemProjectP2.Exceptions.CustomerException;
 import com.jb.CouponSystemProjectP2.Exceptions.CustomerNotFoundException;
+import com.jb.CouponSystemProjectP2.Security.JWTutil;
 import com.jb.CouponSystemProjectP2.Services.AdministratorService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,66 +17,87 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/admin")
 @RequiredArgsConstructor
 public class AdministratorController {
-    private final AdministratorService couponService;
+    private final AdministratorService administratorService;
+    private final JWTutil jwtUtil;
 
     //           --------------------GET------------------
     @GetMapping("/get-companies")
-    public ResponseEntity<?> getAllCompanies() throws CompanyException, CompanyNotFoundException {
-        return new ResponseEntity<>(couponService.readAllCompanies(), HttpStatus.OK);
+    public ResponseEntity<?> getAllCompanies(@RequestHeader(name = "Authorization") String token) throws CompanyNotFoundException {
+        return ResponseEntity.ok()
+                .header("Authorization", jwtUtil.generateToken(token))
+                .body(administratorService.readAllCompanies());
     }
 
     @GetMapping("/get-customers")
-    public ResponseEntity<?> getAllCustomers() throws CompanyException, CustomerException, CustomerNotFoundException {
-        return new ResponseEntity<>(couponService.readAllCustomers(), HttpStatus.OK);
+    public ResponseEntity<?> getAllCustomers(@RequestHeader(name = "Authorization") String token) throws CustomerNotFoundException {
+        return ResponseEntity.ok()
+                .header("Authorization", jwtUtil.generateToken(token))
+                .body(administratorService.readAllCustomers());
     }
 
     @GetMapping("/company/{id}")
-    public ResponseEntity<?> getCompanyById(@PathVariable int id) throws CompanyException, CompanyNotFoundException {
-        return new ResponseEntity<>(couponService.readCompanyById(id), HttpStatus.OK);
+    public ResponseEntity<?> getCompanyById(@RequestHeader(name = "Authorization") String token, @PathVariable int id) throws CompanyNotFoundException {
+        return ResponseEntity.ok()
+                .header("Authorization", jwtUtil.generateToken(token))
+                .body(administratorService.readCompanyById(id));
     }
 
     @GetMapping("/customer/{id}")
-    public ResponseEntity<?> getCustomerById(@PathVariable int id) throws CustomerException, CustomerNotFoundException {
-        return new ResponseEntity<>(couponService.readCustomerById(id), HttpStatus.OK);
+    public ResponseEntity<?> getCustomerById(@RequestHeader(name = "Authorization") String token, @PathVariable int id) throws CustomerNotFoundException {
+        return ResponseEntity.ok()
+                .header("Authorization", jwtUtil.generateToken(token))
+                .body(administratorService.readCustomerById(id));
     }
 
     //          -------------------CREATE-------------------
     @PostMapping("/add/company")
-    public ResponseEntity<?> createNewCompany(@RequestBody Company company) throws CompanyException {
-        couponService.createCompany(company);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    public ResponseEntity<?> createNewCompany(@RequestHeader(name = "Authorization") String token, @RequestBody Company company) throws CompanyException {
+        administratorService.createCompany(company);
+        return ResponseEntity.accepted()
+                .header("Authorization", jwtUtil.generateToken(token))
+                .build();
     }
 
 
     @PostMapping("/add/customer")
-    public ResponseEntity<?> createNewCustomer(@RequestBody Customer customer) throws CustomerException {
-        couponService.createCustomer(customer);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    public ResponseEntity<?> createNewCustomer(@RequestHeader(name = "Authorization") String token, @RequestBody Customer customer) throws CustomerException {
+        administratorService.createCustomer(customer);
+        return ResponseEntity.accepted()
+                .header("Authorization", jwtUtil.generateToken(token))
+                .build();
     }
 
     //          -------------------UPDATE----------------------
     @PutMapping("/update-company")
-    @ResponseStatus(code = HttpStatus.ACCEPTED)
-    public void updateCompany(@RequestBody Company company) throws CompanyNotFoundException {
-        couponService.updateCompany(company);
+    public ResponseEntity<?> updateCompany(@RequestHeader(name = "Authorization") String token, @RequestBody Company company) throws CompanyNotFoundException {
+        administratorService.updateCompany(company);
+        return ResponseEntity.accepted()
+                .header("Authorization", jwtUtil.generateToken(token))
+                .build();
     }
 
     @PutMapping("/update-customer")
-    @ResponseStatus(code = HttpStatus.ACCEPTED)
-    public void updateCustomer(@RequestBody Customer customer) throws CustomerNotFoundException {
-        couponService.updateCustomer(customer);
+    public ResponseEntity<?> updateCustomer(@RequestHeader(name = "Authorization") String token, @RequestBody Customer customer) throws CustomerNotFoundException {
+        administratorService.updateCustomer(customer);
+        return ResponseEntity.accepted()
+                .header("Authorization", jwtUtil.generateToken(token))
+                .build();
     }
 
     //              -----------------DELETE------------------
     @DeleteMapping("/delete-company/{id}")
-    @ResponseStatus(code = HttpStatus.ACCEPTED)
-    public void deleteCompany(@PathVariable int id) throws CompanyNotFoundException {
-        couponService.deleteCompanyById(id);
+    public ResponseEntity<?> deleteCompany(@RequestHeader(name = "Authorization") String token, @PathVariable int id) throws CompanyNotFoundException {
+        administratorService.deleteCompanyById(id);
+        return ResponseEntity.accepted()
+                .header("Authorization", jwtUtil.generateToken(token))
+                .build();
     }
 
     @DeleteMapping("/delete-customer/{id}")
-    @ResponseStatus(code = HttpStatus.ACCEPTED)
-    public void deleteCustomer(@PathVariable int id) throws CustomerNotFoundException {
-        couponService.deleteCustomerById(id);
+    public ResponseEntity<?> deleteCustomer(@RequestHeader(name = "Authorization") String token, @PathVariable int id) throws CustomerNotFoundException {
+        administratorService.deleteCustomerById(id);
+        return ResponseEntity.accepted()
+                .header("Authorization", jwtUtil.generateToken(token))
+                .build();
     }
 }

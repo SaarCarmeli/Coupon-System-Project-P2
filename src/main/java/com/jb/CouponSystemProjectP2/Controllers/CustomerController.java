@@ -22,29 +22,39 @@ public class CustomerController {
     //--------------------READ------------------
     @GetMapping("/get-all-customer-coupons")
     public ResponseEntity<?> getAllCustomerCoupons(@RequestHeader(name = "Authorization") String token) throws CouponNotFoundException {
-        return new ResponseEntity<>(customerService.readAllCustomerCoupons(), HttpStatus.OK);
+        return ResponseEntity.ok()
+                .header("Authorization", jwtUtil.generateToken(token))
+                .body(customerService.readAllCustomerCoupons(jwtUtil.getIdFromToken(token)));
     }
 
     @GetMapping("/customer-coupons/{category}")
     public ResponseEntity<?> getCustomerCouponsByCategory(@RequestHeader(name = "Authorization") String token, @PathVariable Category category) throws CouponNotFoundException {
-        return new ResponseEntity<>(customerService.readCustomerCouponsByCategory(category), HttpStatus.OK);
+        return ResponseEntity.ok()
+                .header("Authorization", jwtUtil.generateToken(token))
+                .body(customerService.readCustomerCouponsByCategory(jwtUtil.getIdFromToken(token), category));
     }
 
     @GetMapping("/customer-coupons/{price}")
     public ResponseEntity<?> getCustomerCouponsByMaxPrice(@RequestHeader(name = "Authorization") String token, @PathVariable double price) throws CouponNotFoundException {
-        return new ResponseEntity<>(customerService.readCustomerCouponsByMaxPrice(price), HttpStatus.OK);
+        return ResponseEntity.ok()
+                .header("Authorization", jwtUtil.generateToken(token))
+                .body(customerService.readCustomerCouponsByMaxPrice(jwtUtil.getIdFromToken(token), price));
     }
 
 
     @GetMapping("/get/customer-detail")
     public ResponseEntity<?> getCustomerDetail(@RequestHeader(name = "Authorization") String token) {
-        return new ResponseEntity<>(customerService.readCustomerDetails(), HttpStatus.OK);
+        return ResponseEntity.ok()
+                .header("Authorization", jwtUtil.generateToken(token))
+                .body(customerService.readCustomerDetails(jwtUtil.getIdFromToken(token)));
     }
 
     @PostMapping("/purchase-coupon")
     public ResponseEntity<?> purchaseCoupon(@RequestHeader(name = "Authorization") String token, @RequestBody Coupon coupon) throws CouponException, CustomerException, CouponNotFoundException {
-        customerService.purchaseCoupon(coupon);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        customerService.purchaseCoupon(jwtUtil.getIdFromToken(token), coupon);
+        return ResponseEntity.accepted()
+                .header("Authorization", jwtUtil.generateToken(token))
+                .build();
     }
 }
 

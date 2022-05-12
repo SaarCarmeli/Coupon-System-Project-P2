@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="added Authorization and getIdFromToken in CompanyController, changed CompanyService accordingly">
+    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="added Authorization to AdministratorController">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/AdministratorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/AdministratorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CompanyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/CustomerServiceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/CustomerServiceDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -364,7 +364,13 @@
       <option name="presentableId" value="LOCAL‎00046" />
       <updated>1652347754109</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL‎00047" summary="added Authorization to AdministratorController">
+      <created>1652349327446</created>
+      <option name="number" value="LOCAL‎00047" />
+      <option name="presentableId" value="LOCAL‎00047" />
+      <updated>1652349327446</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -379,7 +385,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed package name, added TablePrinter" />
     <MESSAGE value="changed package name" />
     <MESSAGE value="added advice package + ErrorDetails class" />
     <MESSAGE value="added AdministratorService and AdministratorServiceDAO, added custom exceptions" />
@@ -404,6 +409,7 @@
     <MESSAGE value="added authorization to first method of CompanyController, changed token validation in JWTutil, added TokenException and advice handle to LoginAdvice" />
     <MESSAGE value="made email &quot;unique&quot; in Company and Customer, minor change with thrown exception un CompanyController" />
     <MESSAGE value="added Authorization and getIdFromToken in CompanyController, changed CompanyService accordingly" />
-    <option name="LAST_COMMIT_MESSAGE" value="added Authorization and getIdFromToken in CompanyController, changed CompanyService accordingly" />
+    <MESSAGE value="added Authorization to AdministratorController" />
+    <option name="LAST_COMMIT_MESSAGE" value="added Authorization to AdministratorController" />
   </component>
 </project>

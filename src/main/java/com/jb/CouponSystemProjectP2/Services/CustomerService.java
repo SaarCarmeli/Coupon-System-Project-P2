@@ -21,10 +21,9 @@ import java.util.List;
 public class CustomerService implements CustomerServiceDAO {
     private final CustomerRepository customerRepository;
     private final CouponRepository couponRepository;
-    private int loggedCustomerId; // todo initialize
 
     @Override
-    public void purchaseCoupon(Coupon coupon) throws CouponException, CustomerException, CouponNotFoundException {
+    public void purchaseCoupon(int customerId, Coupon coupon) throws CouponException, CustomerException, CouponNotFoundException {
         if (!couponRepository.exists(Example.of(coupon))) {
             throw new CouponNotFoundException("Failed to purchase 'coupon', as 'coupon' does not exist!");
         }
@@ -34,12 +33,12 @@ public class CustomerService implements CustomerServiceDAO {
         if (coupon.getEndDate().before(Date.from(Instant.now()))) {
             throw new CouponException("Failed to purchase 'coupon', as 'coupon' is expired!");
         }
-        List<Coupon> customerCoupons = customerRepository.getById(loggedCustomerId).getCoupons();
+        List<Coupon> customerCoupons = customerRepository.getById(customerId).getCoupons();
         if (customerCoupons.stream().anyMatch(customerCoupon -> customerCoupon.equals(coupon))) {
             throw new CustomerException("Failed to purchase 'coupon', as 'coupon' is already owned by customer!");
         }
         customerCoupons.add(coupon);
-        Customer customer = customerRepository.getById(this.loggedCustomerId);
+        Customer customer = customerRepository.getById(customerId);
         customer.setCoupons(customerCoupons);
         customerRepository.save(customer);
 
@@ -48,8 +47,8 @@ public class CustomerService implements CustomerServiceDAO {
     }
 
     @Override
-    public List<Coupon> readAllCustomerCoupons() throws CouponNotFoundException {
-        List<Coupon> couponList = couponRepository.findByCustomerId(this.loggedCustomerId);
+    public List<Coupon> readAllCustomerCoupons(int customerId) throws CouponNotFoundException {
+        List<Coupon> couponList = couponRepository.findByCustomerId(customerId);
         if (!couponList.isEmpty()) {
             return couponList;
         }
@@ -57,8 +56,8 @@ public class CustomerService implements CustomerServiceDAO {
     }
 
     @Override
-    public List<Coupon> readCustomerCouponsByCategory(Category category) throws CouponNotFoundException {
-        List<Coupon> couponList = couponRepository.findByCustomerIdAndCategory(this.loggedCustomerId, category);
+    public List<Coupon> readCustomerCouponsByCategory(int customerId, Category category) throws CouponNotFoundException {
+        List<Coupon> couponList = couponRepository.findByCustomerIdAndCategory(customerId, category);
         if (!couponList.isEmpty()) {
             return couponList;
         }
@@ -66,8 +65,8 @@ public class CustomerService implements CustomerServiceDAO {
     }
 
     @Override
-    public List<Coupon> readCustomerCouponsByMaxPrice(double price) throws CouponNotFoundException {
-        List<Coupon> couponList = couponRepository.findByCustomerIdAndPriceLessThan(this.loggedCustomerId, price);
+    public List<Coupon> readCustomerCouponsByMaxPrice(int customerId, double price) throws CouponNotFoundException {
+        List<Coupon> couponList = couponRepository.findByCustomerIdAndPriceLessThan(customerId, price);
         if (!couponList.isEmpty()) {
             return couponList;
         }
@@ -75,7 +74,7 @@ public class CustomerService implements CustomerServiceDAO {
     }
 
     @Override
-    public Customer readCustomerDetails() {
-        return customerRepository.getById(this.loggedCustomerId);
+    public Customer readCustomerDetails(int customerId) {
+        return customerRepository.getById(customerId);
     }
 }

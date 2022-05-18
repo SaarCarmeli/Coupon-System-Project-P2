@@ -17,7 +17,7 @@ import java.util.Map;
 @Service
 public class JWTutil {
     private String signatureAlgorithm = SignatureAlgorithm.HS256.getJcaName();
-    private String secretKey = "yek+gnol+tib+2+xis+evif+6+owt+s+5+raas+5+dna+viva+6+si+siht+2";
+    private String secretKey = "7235753878214125442A472D4B6150645367566B597033733676397924423F45";
     private Key decodedSecretKey = new SecretKeySpec(Base64.getDecoder().decode(this.secretKey), this.signatureAlgorithm);
 
     public String generateToken(LoginDetails loginDetails) {

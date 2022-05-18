@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="added Authorization to AdministratorController">
+    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="added Authorization to CustomerController and edited CustomerService to receive id from token">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Threads/DailyJob.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/CustomerServiceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/CustomerServiceDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Security/JWTutil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Security/JWTutil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -370,7 +369,13 @@
       <option name="presentableId" value="LOCAL‎00047" />
       <updated>1652349327446</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL‎00048" summary="added Authorization to CustomerController and edited CustomerService to receive id from token">
+      <created>1652355705520</created>
+      <option name="number" value="LOCAL‎00048" />
+      <option name="presentableId" value="LOCAL‎00048" />
+      <updated>1652355705520</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -385,7 +390,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed package name" />
     <MESSAGE value="added advice package + ErrorDetails class" />
     <MESSAGE value="added AdministratorService and AdministratorServiceDAO, added custom exceptions" />
     <MESSAGE value="changed CompanyService, CustomerService to suit program architecture demands. added CompanyServiceDAO and CustomerServiceDAO." />
@@ -410,6 +414,7 @@
     <MESSAGE value="made email &quot;unique&quot; in Company and Customer, minor change with thrown exception un CompanyController" />
     <MESSAGE value="added Authorization and getIdFromToken in CompanyController, changed CompanyService accordingly" />
     <MESSAGE value="added Authorization to AdministratorController" />
-    <option name="LAST_COMMIT_MESSAGE" value="added Authorization to AdministratorController" />
+    <MESSAGE value="added Authorization to CustomerController and edited CustomerService to receive id from token" />
+    <option name="LAST_COMMIT_MESSAGE" value="added Authorization to CustomerController and edited CustomerService to receive id from token" />
   </component>
 </project>

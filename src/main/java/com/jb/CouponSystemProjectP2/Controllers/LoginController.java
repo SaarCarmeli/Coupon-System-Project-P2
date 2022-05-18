@@ -24,19 +24,19 @@ public class LoginController {
     @PostMapping("/login") // http://localhost:8080/user/login
     public ResponseEntity<?> login(@RequestBody LoginDetails loginDetails) throws LoginException {
         switch (loginDetails.getUserType()) {
-            case Admin:
+            case ADMIN:
                 if (loginDetails.getEmail().equals("admin@admin.com") && loginDetails.getPassword().equals("admin")) {
                     return new ResponseEntity<>(jwtUtil.generateToken(loginDetails), HttpStatus.ACCEPTED);
                 }
                 throw new LoginException("User is not an admin! Check login details!");
-            case Company:
+            case COMPANY:
                 if (companyRepository.existsByEmailAndPassword(loginDetails.getEmail(), loginDetails.getPassword())) {
                     LoginDetails newLoginDetails = loginDetails;
                     newLoginDetails.setId(companyRepository.findIdByEmailAndPassword(loginDetails.getEmail(), loginDetails.getPassword()));
                     return new ResponseEntity<>(jwtUtil.generateToken(newLoginDetails), HttpStatus.ACCEPTED);
                 }
                 throw new LoginException();
-            case Customer:
+            case CUSTOMER:
                 if (customerRepository.existsByEmailAndPassword(loginDetails.getEmail(), loginDetails.getPassword())) {
                     LoginDetails newLoginDetails = loginDetails;
                     newLoginDetails.setId(customerRepository.findIdByEmailAndPassword(loginDetails.getEmail(), loginDetails.getPassword()));

@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-
-    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="changed CompanyService, CustomerService to suit program architecture demands. added CompanyServiceDAO and CustomerServiceDAO.">
+    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="added Authorization to AdministratorController">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Beans/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Beans/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CompanyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CouponController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CustomerController.java" afterDir="false" />
-    </list>
-    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="commented Controllers until fixing">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/CustomerServiceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/CustomerServiceDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +18,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -52,6 +47,17 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.jb.CouponSystemProjectP2.Exceptions" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="CouponSystemProjectSaarAndAvivP2Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -226,7 +232,145 @@
       <option name="presentableId" value="LOCAL‎00024" />
       <updated>1650990582880</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL‎00025" summary="changed CascadeType in Customer to MERGE">
+      <created>1651573592649</created>
+      <option name="number" value="LOCAL‎00025" />
+      <option name="presentableId" value="LOCAL‎00025" />
+      <updated>1651573592649</updated>
+    </task>
+    <task id="LOCAL‎00026" summary="changed exception message">
+      <created>1651658237604</created>
+      <option name="number" value="LOCAL‎00026" />
+      <option name="presentableId" value="LOCAL‎00026" />
+      <updated>1651658237604</updated>
+    </task>
+    <task id="LOCAL‎00027" summary="added purchase coupon method to CustomerService, added CouponException">
+      <created>1651660652834</created>
+      <option name="number" value="LOCAL‎00027" />
+      <option name="presentableId" value="LOCAL‎00027" />
+      <updated>1651660652834</updated>
+    </task>
+    <task id="LOCAL‎00028" summary="added purchase coupon method to CustomerService, added CouponException">
+      <created>1651660751834</created>
+      <option name="number" value="LOCAL‎00028" />
+      <option name="presentableId" value="LOCAL‎00028" />
+      <updated>1651660751834</updated>
+    </task>
+    <task id="LOCAL‎00029" summary="finished CustomerService">
+      <created>1651661585714</created>
+      <option name="number" value="LOCAL‎00029" />
+      <option name="presentableId" value="LOCAL‎00029" />
+      <updated>1651661585714</updated>
+    </task>
+    <task id="LOCAL‎00030" summary="finished CustomerService">
+      <created>1651665427828</created>
+      <option name="number" value="LOCAL‎00030" />
+      <option name="presentableId" value="LOCAL‎00030" />
+      <updated>1651665427828</updated>
+    </task>
+    <task id="LOCAL‎00031" summary="minor spacing in AdministratorService">
+      <created>1651665535995</created>
+      <option name="number" value="LOCAL‎00031" />
+      <option name="presentableId" value="LOCAL‎00031" />
+      <updated>1651665535995</updated>
+    </task>
+    <task id="LOCAL‎00032" summary="added some of the methods for CompanyService">
+      <created>1651681400818</created>
+      <option name="number" value="LOCAL‎00032" />
+      <option name="presentableId" value="LOCAL‎00032" />
+      <updated>1651681400818</updated>
+    </task>
+    <task id="LOCAL‎00033" summary="replaced some exception throws to new 'NotFoundException's">
+      <created>1651682871029</created>
+      <option name="number" value="LOCAL‎00033" />
+      <option name="presentableId" value="LOCAL‎00033" />
+      <updated>1651682871029</updated>
+    </task>
+    <task id="LOCAL‎00034" summary="added CompanyAdvice, CouponAdvice, CustomerAdvice and NotFoundAdvice">
+      <created>1651683566372</created>
+      <option name="number" value="LOCAL‎00034" />
+      <option name="presentableId" value="LOCAL‎00034" />
+      <updated>1651683566372</updated>
+    </task>
+    <task id="LOCAL‎00035" summary="finished CompanyService">
+      <created>1651844550101</created>
+      <option name="number" value="LOCAL‎00035" />
+      <option name="presentableId" value="LOCAL‎00035" />
+      <updated>1651844550101</updated>
+    </task>
+    <task id="LOCAL‎00036" summary="deleted duplicate dependencies of swagger from pom.xml, added comments">
+      <created>1651845155172</created>
+      <option name="number" value="LOCAL‎00036" />
+      <option name="presentableId" value="LOCAL‎00036" />
+      <updated>1651845155172</updated>
+    </task>
+    <task id="LOCAL‎00037" summary="added existsByEmailAndPassword methods for login">
+      <created>1652010198453</created>
+      <option name="number" value="LOCAL‎00037" />
+      <option name="presentableId" value="LOCAL‎00037" />
+      <updated>1652010198453</updated>
+    </task>
+    <task id="LOCAL‎00038" summary="thrown exceptions and other minor tweaks">
+      <created>1652010258467</created>
+      <option name="number" value="LOCAL‎00038" />
+      <option name="presentableId" value="LOCAL‎00038" />
+      <updated>1652010258467</updated>
+    </task>
+    <task id="LOCAL‎00039" summary="changed existsByEmailAndPassword methods to existsByIdAndEmailAndPassword">
+      <created>1652011839655</created>
+      <option name="number" value="LOCAL‎00039" />
+      <option name="presentableId" value="LOCAL‎00039" />
+      <updated>1652011839655</updated>
+    </task>
+    <task id="LOCAL‎00040" summary="added JWTutil, LoginDetails (login bean), UserType (enum), LoginController, LoginException and LoginAdvice">
+      <created>1652012022171</created>
+      <option name="number" value="LOCAL‎00040" />
+      <option name="presentableId" value="LOCAL‎00040" />
+      <updated>1652012022171</updated>
+    </task>
+    <task id="LOCAL‎00041" summary="added getIdFromToken method to JWTutil, added @Table annotation to Company and Customer for custom table names, added todos to AdministratorService">
+      <created>1652187868056</created>
+      <option name="number" value="LOCAL‎00041" />
+      <option name="presentableId" value="LOCAL‎00041" />
+      <updated>1652187868056</updated>
+    </task>
+    <task id="LOCAL‎00042" summary="added method to get Id by email and password in CompanyRepository and CustomerRepository, removed Id requirement for existByEmailAndPassword.&#10;LoginController: changed the way userDetails get Id">
+      <created>1652188063018</created>
+      <option name="number" value="LOCAL‎00042" />
+      <option name="presentableId" value="LOCAL‎00042" />
+      <updated>1652188063018</updated>
+    </task>
+    <task id="LOCAL‎00043" summary="added method to get Id by email and password in CompanyRepository and CustomerRepository, removed Id requirement for existByEmailAndPassword.&#10;LoginController: changed the way userDetails get Id">
+      <created>1652195010313</created>
+      <option name="number" value="LOCAL‎00043" />
+      <option name="presentableId" value="LOCAL‎00043" />
+      <updated>1652195010329</updated>
+    </task>
+    <task id="LOCAL‎00044" summary="added authorization to first method of CompanyController, changed token validation in JWTutil, added TokenException and advice handle to LoginAdvice">
+      <created>1652196197219</created>
+      <option name="number" value="LOCAL‎00044" />
+      <option name="presentableId" value="LOCAL‎00044" />
+      <updated>1652196197219</updated>
+    </task>
+    <task id="LOCAL‎00045" summary="made email &quot;unique&quot; in Company and Customer, minor change with thrown exception un CompanyController">
+      <created>1652200501157</created>
+      <option name="number" value="LOCAL‎00045" />
+      <option name="presentableId" value="LOCAL‎00045" />
+      <updated>1652200501157</updated>
+    </task>
+    <task id="LOCAL‎00046" summary="added Authorization and getIdFromToken in CompanyController, changed CompanyService accordingly">
+      <created>1652347754109</created>
+      <option name="number" value="LOCAL‎00046" />
+      <option name="presentableId" value="LOCAL‎00046" />
+      <updated>1652347754109</updated>
+    </task>
+    <task id="LOCAL‎00047" summary="added Authorization to AdministratorController">
+      <created>1652349327446</created>
+      <option name="number" value="LOCAL‎00047" />
+      <option name="presentableId" value="LOCAL‎00047" />
+      <updated>1652349327446</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -239,27 +383,33 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="First commit" />
-    <MESSAGE value="added deleteByEndDateAfter method for CouponRepository" />
-    <MESSAGE value="added @Column annotations to beans" />
-    <MESSAGE value="added &quot;smart dialect&quot; methods to JPA repositories" />
-    <MESSAGE value="changed name of database in application.properties" />
-    <MESSAGE value="added specific @Query methods in CouponRepository" />
-    <MESSAGE value="rearranged beans" />
-    <MESSAGE value="rearranged clr tests" />
-    <MESSAGE value="minor adjustments" />
-    <MESSAGE value="minor adjustments, changed &quot;coupons&quot; to @ManyToMany" />
-    <MESSAGE value="added comments" />
-    <MESSAGE value="added fixes, not finished" />
-    <MESSAGE value="changed package name, added TablePrinter" />
     <MESSAGE value="changed package name" />
     <MESSAGE value="added advice package + ErrorDetails class" />
     <MESSAGE value="added AdministratorService and AdministratorServiceDAO, added custom exceptions" />
     <MESSAGE value="changed CompanyService, CustomerService to suit program architecture demands. added CompanyServiceDAO and CustomerServiceDAO." />
     <MESSAGE value="commented Controllers until fixing" />
-    <option name="LAST_COMMIT_MESSAGE" value="commented Controllers until fixing" />
+    <MESSAGE value="changed CascadeType in Customer to MERGE" />
+    <MESSAGE value="changed exception message" />
+    <MESSAGE value="added purchase coupon method to CustomerService, added CouponException" />
+    <MESSAGE value="finished CustomerService" />
+    <MESSAGE value="minor spacing in AdministratorService" />
+    <MESSAGE value="added some of the methods for CompanyService" />
+    <MESSAGE value="replaced some exception throws to new 'NotFoundException's" />
+    <MESSAGE value="added CompanyAdvice, CouponAdvice, CustomerAdvice and NotFoundAdvice" />
+    <MESSAGE value="finished CompanyService" />
+    <MESSAGE value="deleted duplicate dependencies of swagger from pom.xml, added comments" />
+    <MESSAGE value="added existsByEmailAndPassword methods for login" />
+    <MESSAGE value="thrown exceptions and other minor tweaks" />
+    <MESSAGE value="changed existsByEmailAndPassword methods to existsByIdAndEmailAndPassword" />
+    <MESSAGE value="added JWTutil, LoginDetails (login bean), UserType (enum), LoginController, LoginException and LoginAdvice" />
+    <MESSAGE value="added getIdFromToken method to JWTutil, added @Table annotation to Company and Customer for custom table names, added todos to AdministratorService" />
+    <MESSAGE value="added method to get Id by email and password in CompanyRepository and CustomerRepository, removed Id requirement for existByEmailAndPassword.&#10;LoginController: changed the way userDetails get Id" />
+    <MESSAGE value="added authorization to first method of CompanyController, changed token validation in JWTutil, added TokenException and advice handle to LoginAdvice" />
+    <MESSAGE value="made email &quot;unique&quot; in Company and Customer, minor change with thrown exception un CompanyController" />
+    <MESSAGE value="added Authorization and getIdFromToken in CompanyController, changed CompanyService accordingly" />
+    <MESSAGE value="added Authorization to AdministratorController" />
+    <option name="LAST_COMMIT_MESSAGE" value="added Authorization to AdministratorController" />
   </component>
 </project>

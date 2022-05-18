@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "customers")
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
@@ -20,7 +21,7 @@ public class Customer {
     private String firstName;
     @Column(length = 45, nullable = false)
     private String lastName;
-    @Column(length = 45, nullable = false)
+    @Column(length = 45, nullable = false, unique = true)
     private String email;
     @Column(length = 45, nullable = false)
     private String password;

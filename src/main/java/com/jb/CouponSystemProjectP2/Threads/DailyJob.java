@@ -14,7 +14,6 @@ public class DailyJob {
     CouponRepository couponRepository;
     Date date;
 
-
     @Async
     @Scheduled(cron = "0 30 0 * * ?", zone = "Asia/Jerusalem")
     public void deleteExpiredCoupons() {

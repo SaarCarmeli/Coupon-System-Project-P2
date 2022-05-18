@@ -16,14 +16,14 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/company")
+@RequestMapping("/company") // http://localhost:8080/company
 @RequiredArgsConstructor
 public class CompanyController {
     private final CompanyService companyService;
     private final JWTutil jwtUtil;
 
     // -------------------CREATE--------------------
-    @PostMapping("/add/coupon")
+    @PostMapping("/coupons/add") // http://localhost:8080/company/coupons/add
     public ResponseEntity<?> createNewCoupon(@RequestHeader(name = "Authorization") String token, @RequestBody Coupon coupon) throws CompanyException, TokenException {
         try {
             if (jwtUtil.isTokenValid(token)) {
@@ -40,29 +40,29 @@ public class CompanyController {
     }
 
     //---------------READ----------------------
-    @GetMapping("/get-all-coupons")
-    public ResponseEntity<?> getAllCoupons(@RequestHeader(name = "Authorization") String token) throws CouponNotFoundException {
+    @GetMapping("/coupons/all") // http://localhost:8080/company/coupons/all
+    public ResponseEntity<?> getAllCompanyCoupons(@RequestHeader(name = "Authorization") String token) throws CouponNotFoundException {
         return ResponseEntity.ok()
                 .header("Authorization", jwtUtil.generateToken(token))
                 .body(companyService.readAllCompanyCoupons(jwtUtil.getIdFromToken(token)));
     }
 
-    @GetMapping("/coupon/{category}")
-    public ResponseEntity<?> getCouponsByCategory(@RequestHeader(name = "Authorization") String token, @PathVariable Category category) throws CouponNotFoundException {
+    @GetMapping("/coupons/cat/{category}") // http://localhost:8080/company/coupons/cat/{category}
+    public ResponseEntity<?> getCompanyCouponsByCategory(@RequestHeader(name = "Authorization") String token, @PathVariable Category category) throws CouponNotFoundException {
         return ResponseEntity.ok()
                 .header("Authorization", jwtUtil.generateToken(token))
                 .body(companyService.readCompanyCouponsByCategory(jwtUtil.getIdFromToken(token), category));
     }
 
 
-    @GetMapping("/coupon/{price}")
-    public ResponseEntity<?> getCouponsByMaxPrice(@RequestHeader(name = "Authorization") String token, @PathVariable double price) throws CouponNotFoundException {
+    @GetMapping("/coupons/max/{price}") // http://localhost:8080/company/coupons/max/{price}
+    public ResponseEntity<?> getCompanyCouponsByMaxPrice(@RequestHeader(name = "Authorization") String token, @PathVariable double price) throws CouponNotFoundException {
         return ResponseEntity.ok()
                 .header("Authorization", jwtUtil.generateToken(token))
                 .body(companyService.readCompanyCouponsByMaxPrice(jwtUtil.getIdFromToken(token), price));
     }
 
-    @GetMapping("/get/company-detail")
+    @GetMapping("/details") // http://localhost:8080/company/details
     public ResponseEntity<?> getCompanyDetail(@RequestHeader(name = "Authorization") String token) {
         return ResponseEntity.ok()
                 .header("Authorization", jwtUtil.generateToken(token))
@@ -70,7 +70,7 @@ public class CompanyController {
     }
 
     //-------------------------UPDATE------------------
-    @PutMapping("/update-coupon")
+    @PutMapping("/coupons/update") // http://localhost:8080/company/coupons/update
     public ResponseEntity<?> updateCoupon(@RequestHeader(name = "Authorization") String token, @RequestBody Coupon coupon) throws CouponNotFoundException {
         companyService.updateCoupon(jwtUtil.getIdFromToken(token), coupon);
         return ResponseEntity.accepted()
@@ -79,7 +79,7 @@ public class CompanyController {
     }
 
     // ----------------------DELETE---------------------
-    @DeleteMapping("/delete-coupon/{id}")
+    @DeleteMapping("/coupons/delete/{id}") // http://localhost:8080/company/coupons/delete/{id}
     public ResponseEntity<?> deleteCouponById(@RequestHeader(name = "Authorization") String token, @PathVariable int couponId) throws CouponNotFoundException {
         companyService.deleteCouponById(couponId);
         return ResponseEntity.accepted()

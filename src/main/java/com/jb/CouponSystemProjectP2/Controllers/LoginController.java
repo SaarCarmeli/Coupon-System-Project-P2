@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/user") // http://localhost:8080/user
 @RequiredArgsConstructor
 public class LoginController {
     private final JWTutil jwtUtil;
     private final CompanyRepository companyRepository;
     private final CustomerRepository customerRepository;
 
-    @PostMapping("/login")
+    @PostMapping("/login") // http://localhost:8080/user/login
     public ResponseEntity<?> login(@RequestBody LoginDetails loginDetails) throws LoginException {
         switch (loginDetails.getUserType()) {
             case Admin:

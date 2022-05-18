@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="added Authorization to CustomerController and edited CustomerService to receive id from token">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Threads/DailyJob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Security/JWTutil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Security/JWTutil.java" afterDir="false" />
+    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="fixed JWT 256 bit key problem, added DailyJob">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/AdministratorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/AdministratorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CompanyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/LoginController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,12 +87,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1649175235970</updated>
-    </task>
-    <task id="LOCAL‎00001" summary="First commit">
-      <created>1649175586533</created>
-      <option name="number" value="LOCAL‎00001" />
-      <option name="presentableId" value="LOCAL‎00001" />
-      <updated>1649175586533</updated>
     </task>
     <task id="LOCAL‎00002" summary="First commit">
       <created>1649175844607</created>
@@ -375,7 +370,19 @@
       <option name="presentableId" value="LOCAL‎00048" />
       <updated>1652355705520</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL‎00049" summary="fixed JWT 256 bit key problem, added DailyJob">
+      <created>1652888516863</created>
+      <option name="number" value="LOCAL‎00049" />
+      <option name="presentableId" value="LOCAL‎00049" />
+      <updated>1652888516863</updated>
+    </task>
+    <task id="LOCAL‎00050" summary="fixed JWT 256 bit key problem, added DailyJob">
+      <created>1652888573517</created>
+      <option name="number" value="LOCAL‎00050" />
+      <option name="presentableId" value="LOCAL‎00050" />
+      <updated>1652888573517</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -390,7 +397,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added advice package + ErrorDetails class" />
     <MESSAGE value="added AdministratorService and AdministratorServiceDAO, added custom exceptions" />
     <MESSAGE value="changed CompanyService, CustomerService to suit program architecture demands. added CompanyServiceDAO and CustomerServiceDAO." />
     <MESSAGE value="commented Controllers until fixing" />
@@ -415,6 +421,7 @@
     <MESSAGE value="added Authorization and getIdFromToken in CompanyController, changed CompanyService accordingly" />
     <MESSAGE value="added Authorization to AdministratorController" />
     <MESSAGE value="added Authorization to CustomerController and edited CustomerService to receive id from token" />
-    <option name="LAST_COMMIT_MESSAGE" value="added Authorization to CustomerController and edited CustomerService to receive id from token" />
+    <MESSAGE value="fixed JWT 256 bit key problem, added DailyJob" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed JWT 256 bit key problem, added DailyJob" />
   </component>
 </project>

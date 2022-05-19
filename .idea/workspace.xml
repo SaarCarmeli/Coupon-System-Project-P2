@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="fixed findCouponByCategory methods for customer and company in CouponRepository to receive String parameter instead of Enum, fixed Services accordingly to pass String to respective methods" />
+    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="changed UserType to use all-capital letters, edited LoginController switch accordingly">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Exceptions/UnauthorizedUserException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/AdministratorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/AdministratorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CompanyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Security/JWTutil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Security/JWTutil.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,18 +90,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1649175235970</updated>
-    </task>
-    <task id="LOCAL‎00004" summary="added deleteByEndDateAfter method for CouponRepository">
-      <created>1650469220048</created>
-      <option name="number" value="LOCAL‎00004" />
-      <option name="presentableId" value="LOCAL‎00004" />
-      <updated>1650469220048</updated>
-    </task>
-    <task id="LOCAL‎00005" summary="added @Column annotations to beans">
-      <created>1650553098014</created>
-      <option name="number" value="LOCAL‎00005" />
-      <option name="presentableId" value="LOCAL‎00005" />
-      <updated>1650553098014</updated>
     </task>
     <task id="LOCAL‎00006" summary="added &quot;smart dialect&quot; methods to JPA repositories">
       <created>1650555963428</created>
@@ -377,7 +373,19 @@
       <option name="presentableId" value="LOCAL‎00052" />
       <updated>1652890414921</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL‎00053" summary="fixed findCouponByCategory methods for customer and company in CouponRepository to receive String parameter instead of Enum, fixed Services accordingly to pass String to respective methods">
+      <created>1652890505958</created>
+      <option name="number" value="LOCAL‎00053" />
+      <option name="presentableId" value="LOCAL‎00053" />
+      <updated>1652890505958</updated>
+    </task>
+    <task id="LOCAL‎00054" summary="changed UserType to use all-capital letters, edited LoginController switch accordingly">
+      <created>1652890730233</created>
+      <option name="number" value="LOCAL‎00054" />
+      <option name="presentableId" value="LOCAL‎00054" />
+      <updated>1652890730233</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -392,7 +400,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="commented Controllers until fixing" />
     <MESSAGE value="changed CascadeType in Customer to MERGE" />
     <MESSAGE value="changed exception message" />
     <MESSAGE value="added purchase coupon method to CustomerService, added CouponException" />
@@ -417,6 +424,7 @@
     <MESSAGE value="fixed JWT 256 bit key problem, added DailyJob" />
     <MESSAGE value="edited controller paths so all paths are now unique" />
     <MESSAGE value="fixed findCouponByCategory methods for customer and company in CouponRepository to receive String parameter instead of Enum, fixed Services accordingly to pass String to respective methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed findCouponByCategory methods for customer and company in CouponRepository to receive String parameter instead of Enum, fixed Services accordingly to pass String to respective methods" />
+    <MESSAGE value="changed UserType to use all-capital letters, edited LoginController switch accordingly" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed UserType to use all-capital letters, edited LoginController switch accordingly" />
   </component>
 </project>

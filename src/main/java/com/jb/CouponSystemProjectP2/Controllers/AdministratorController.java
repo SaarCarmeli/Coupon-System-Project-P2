@@ -2,10 +2,8 @@ package com.jb.CouponSystemProjectP2.Controllers;
 
 import com.jb.CouponSystemProjectP2.Beans.Company;
 import com.jb.CouponSystemProjectP2.Beans.Customer;
-import com.jb.CouponSystemProjectP2.Exceptions.CompanyException;
-import com.jb.CouponSystemProjectP2.Exceptions.CompanyNotFoundException;
-import com.jb.CouponSystemProjectP2.Exceptions.CustomerException;
-import com.jb.CouponSystemProjectP2.Exceptions.CustomerNotFoundException;
+import com.jb.CouponSystemProjectP2.Beans.UserType;
+import com.jb.CouponSystemProjectP2.Exceptions.*;
 import com.jb.CouponSystemProjectP2.Security.JWTutil;
 import com.jb.CouponSystemProjectP2.Services.AdministratorService;
 import lombok.RequiredArgsConstructor;
@@ -22,28 +20,40 @@ public class AdministratorController {
 
     //           --------------------GET------------------
     @GetMapping("/all/companies") // http://localhost:8080/admin/all/companies
-    public ResponseEntity<?> getAllCompanies(@RequestHeader(name = "Authorization") String token) throws CompanyNotFoundException {
+    public ResponseEntity<?> getAllCompanies(@RequestHeader(name = "Authorization") String token) throws CompanyNotFoundException, UnauthorizedUserException {
+        if (!jwtUtil.getUserTypeFromToken(token).equals(UserType.ADMIN)){
+            throw new UnauthorizedUserException();
+        }
         return ResponseEntity.ok()
                 .header("Authorization", jwtUtil.generateToken(token))
                 .body(administratorService.readAllCompanies());
     }
 
     @GetMapping("/all/customers") // http://localhost:8080/admin/all/customers
-    public ResponseEntity<?> getAllCustomers(@RequestHeader(name = "Authorization") String token) throws CustomerNotFoundException {
+    public ResponseEntity<?> getAllCustomers(@RequestHeader(name = "Authorization") String token) throws CustomerNotFoundException, UnauthorizedUserException {
+        if (!jwtUtil.getUserTypeFromToken(token).equals(UserType.ADMIN)){
+            throw new UnauthorizedUserException();
+        }
         return ResponseEntity.ok()
                 .header("Authorization", jwtUtil.generateToken(token))
                 .body(administratorService.readAllCustomers());
     }
 
     @GetMapping("/company/{id}") // http://localhost:8080/admin/company/{id}
-    public ResponseEntity<?> getCompanyById(@RequestHeader(name = "Authorization") String token, @PathVariable int id) throws CompanyNotFoundException {
+    public ResponseEntity<?> getCompanyById(@RequestHeader(name = "Authorization") String token, @PathVariable int id) throws CompanyNotFoundException, UnauthorizedUserException {
+        if (!jwtUtil.getUserTypeFromToken(token).equals(UserType.ADMIN)){
+            throw new UnauthorizedUserException();
+        }
         return ResponseEntity.ok()
                 .header("Authorization", jwtUtil.generateToken(token))
                 .body(administratorService.readCompanyById(id));
     }
 
     @GetMapping("/customer/{id}") // http://localhost:8080/admin/customer/{id}
-    public ResponseEntity<?> getCustomerById(@RequestHeader(name = "Authorization") String token, @PathVariable int id) throws CustomerNotFoundException {
+    public ResponseEntity<?> getCustomerById(@RequestHeader(name = "Authorization") String token, @PathVariable int id) throws CustomerNotFoundException, UnauthorizedUserException {
+        if (!jwtUtil.getUserTypeFromToken(token).equals(UserType.ADMIN)){
+            throw new UnauthorizedUserException();
+        }
         return ResponseEntity.ok()
                 .header("Authorization", jwtUtil.generateToken(token))
                 .body(administratorService.readCustomerById(id));
@@ -51,7 +61,10 @@ public class AdministratorController {
 
     //          -------------------CREATE-------------------
     @PostMapping("/add/company") // http://localhost:8080/admin/add/company
-    public ResponseEntity<?> createNewCompany(@RequestHeader(name = "Authorization") String token, @RequestBody Company company) throws CompanyException {
+    public ResponseEntity<?> createNewCompany(@RequestHeader(name = "Authorization") String token, @RequestBody Company company) throws CompanyException, UnauthorizedUserException {
+        if (!jwtUtil.getUserTypeFromToken(token).equals(UserType.ADMIN)){
+            throw new UnauthorizedUserException();
+        }
         administratorService.createCompany(company);
         return ResponseEntity.accepted()
                 .header("Authorization", jwtUtil.generateToken(token))
@@ -59,7 +72,10 @@ public class AdministratorController {
     }
 
     @PostMapping("/add/customer") // http://localhost:8080/admin/add/customer
-    public ResponseEntity<?> createNewCustomer(@RequestHeader(name = "Authorization") String token, @RequestBody Customer customer) throws CustomerException {
+    public ResponseEntity<?> createNewCustomer(@RequestHeader(name = "Authorization") String token, @RequestBody Customer customer) throws CustomerException, UnauthorizedUserException {
+        if (!jwtUtil.getUserTypeFromToken(token).equals(UserType.ADMIN)){
+            throw new UnauthorizedUserException();
+        }
         administratorService.createCustomer(customer);
         return ResponseEntity.accepted()
                 .header("Authorization", jwtUtil.generateToken(token))
@@ -68,7 +84,10 @@ public class AdministratorController {
 
     //          -------------------UPDATE----------------------
     @PutMapping("/update/company") // http://localhost:8080/admin/update/company
-    public ResponseEntity<?> updateCompany(@RequestHeader(name = "Authorization") String token, @RequestBody Company company) throws CompanyNotFoundException {
+    public ResponseEntity<?> updateCompany(@RequestHeader(name = "Authorization") String token, @RequestBody Company company) throws CompanyNotFoundException, UnauthorizedUserException {
+        if (!jwtUtil.getUserTypeFromToken(token).equals(UserType.ADMIN)){
+            throw new UnauthorizedUserException();
+        }
         administratorService.updateCompany(company);
         return ResponseEntity.accepted()
                 .header("Authorization", jwtUtil.generateToken(token))
@@ -76,7 +95,10 @@ public class AdministratorController {
     }
 
     @PutMapping("/update/customer") // http://localhost:8080/admin/update/customer
-    public ResponseEntity<?> updateCustomer(@RequestHeader(name = "Authorization") String token, @RequestBody Customer customer) throws CustomerNotFoundException {
+    public ResponseEntity<?> updateCustomer(@RequestHeader(name = "Authorization") String token, @RequestBody Customer customer) throws CustomerNotFoundException, UnauthorizedUserException {
+        if (!jwtUtil.getUserTypeFromToken(token).equals(UserType.ADMIN)){
+            throw new UnauthorizedUserException();
+        }
         administratorService.updateCustomer(customer);
         return ResponseEntity.accepted()
                 .header("Authorization", jwtUtil.generateToken(token))
@@ -85,7 +107,10 @@ public class AdministratorController {
 
     //              -----------------DELETE------------------
     @DeleteMapping("/delete/company/{id}") // http://localhost:8080/admin/delete/company/{id}
-    public ResponseEntity<?> deleteCompany(@RequestHeader(name = "Authorization") String token, @PathVariable int id) throws CompanyNotFoundException {
+    public ResponseEntity<?> deleteCompany(@RequestHeader(name = "Authorization") String token, @PathVariable int id) throws CompanyNotFoundException, UnauthorizedUserException {
+        if (!jwtUtil.getUserTypeFromToken(token).equals(UserType.ADMIN)){
+            throw new UnauthorizedUserException();
+        }
         administratorService.deleteCompanyById(id);
         return ResponseEntity.accepted()
                 .header("Authorization", jwtUtil.generateToken(token))
@@ -93,7 +118,10 @@ public class AdministratorController {
     }
 
     @DeleteMapping("/delete/customer/{id}") // http://localhost:8080/admin/delete/customer/{id}
-    public ResponseEntity<?> deleteCustomer(@RequestHeader(name = "Authorization") String token, @PathVariable int id) throws CustomerNotFoundException {
+    public ResponseEntity<?> deleteCustomer(@RequestHeader(name = "Authorization") String token, @PathVariable int id) throws CustomerNotFoundException, UnauthorizedUserException {
+        if (!jwtUtil.getUserTypeFromToken(token).equals(UserType.ADMIN)){
+            throw new UnauthorizedUserException();
+        }
         administratorService.deleteCustomerById(id);
         return ResponseEntity.accepted()
                 .header("Authorization", jwtUtil.generateToken(token))

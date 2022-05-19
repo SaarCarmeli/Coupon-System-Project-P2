@@ -35,14 +35,14 @@ public class LoginController {
                     newLoginDetails.setId(companyRepository.findIdByEmailAndPassword(loginDetails.getEmail(), loginDetails.getPassword()));
                     return new ResponseEntity<>(jwtUtil.generateToken(newLoginDetails), HttpStatus.ACCEPTED);
                 }
-                throw new LoginException();
+                throw new LoginException("Company user not found!");
             case CUSTOMER:
                 if (customerRepository.existsByEmailAndPassword(loginDetails.getEmail(), loginDetails.getPassword())) {
                     LoginDetails newLoginDetails = loginDetails;
                     newLoginDetails.setId(customerRepository.findIdByEmailAndPassword(loginDetails.getEmail(), loginDetails.getPassword()));
                     return new ResponseEntity<>(jwtUtil.generateToken(newLoginDetails), HttpStatus.ACCEPTED);
                 }
-                throw new LoginException();
+                throw new LoginException("Customer user not found!");
             default:
                 throw new LoginException("Invalid user type! Check login details!");
         }

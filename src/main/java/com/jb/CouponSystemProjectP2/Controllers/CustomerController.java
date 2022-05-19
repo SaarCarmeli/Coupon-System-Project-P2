@@ -2,55 +2,71 @@ package com.jb.CouponSystemProjectP2.Controllers;
 
 import com.jb.CouponSystemProjectP2.Beans.Category;
 import com.jb.CouponSystemProjectP2.Beans.Coupon;
+import com.jb.CouponSystemProjectP2.Beans.UserType;
 import com.jb.CouponSystemProjectP2.Exceptions.CouponException;
 import com.jb.CouponSystemProjectP2.Exceptions.CouponNotFoundException;
 import com.jb.CouponSystemProjectP2.Exceptions.CustomerException;
+import com.jb.CouponSystemProjectP2.Exceptions.UnauthorizedUserException;
 import com.jb.CouponSystemProjectP2.Security.JWTutil;
 import com.jb.CouponSystemProjectP2.Services.CustomerService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/customer")
+@RequestMapping("/customer") // http://localhost:8080/customer
 @RequiredArgsConstructor
 public class CustomerController {
     private final CustomerService customerService;
     private final JWTutil jwtUtil;
 
     //--------------------READ------------------
-    @GetMapping("/get-all-customer-coupons")
-    public ResponseEntity<?> getAllCustomerCoupons(@RequestHeader(name = "Authorization") String token) throws CouponNotFoundException {
+    @GetMapping("/coupons/all") // http://localhost:8080/customer/coupons/all
+    public ResponseEntity<?> getAllCustomerCoupons(@RequestHeader(name = "Authorization") String token) throws CouponNotFoundException, UnauthorizedUserException {
+        if (!jwtUtil.getUserTypeFromToken(token).equals(UserType.CUSTOMER)){
+            throw new UnauthorizedUserException();
+        }
         return ResponseEntity.ok()
                 .header("Authorization", jwtUtil.generateToken(token))
                 .body(customerService.readAllCustomerCoupons(jwtUtil.getIdFromToken(token)));
     }
 
-    @GetMapping("/customer-coupons/{category}")
-    public ResponseEntity<?> getCustomerCouponsByCategory(@RequestHeader(name = "Authorization") String token, @PathVariable Category category) throws CouponNotFoundException {
+    @GetMapping("/coupons/cat/{category}") // http://localhost:8080/customer/coupons/cat/{category}
+    public ResponseEntity<?> getCustomerCouponsByCategory(@RequestHeader(name = "Authorization") String token, @PathVariable Category category) throws CouponNotFoundException, UnauthorizedUserException {
+        if (!jwtUtil.getUserTypeFromToken(token).equals(UserType.CUSTOMER)){
+            throw new UnauthorizedUserException();
+        }
         return ResponseEntity.ok()
                 .header("Authorization", jwtUtil.generateToken(token))
                 .body(customerService.readCustomerCouponsByCategory(jwtUtil.getIdFromToken(token), category));
     }
 
-    @GetMapping("/customer-coupons/{price}")
-    public ResponseEntity<?> getCustomerCouponsByMaxPrice(@RequestHeader(name = "Authorization") String token, @PathVariable double price) throws CouponNotFoundException {
+    @GetMapping("/coupons/max/{price}") // http://localhost:8080/customer/coupons/max/{price}
+    public ResponseEntity<?> getCustomerCouponsByMaxPrice(@RequestHeader(name = "Authorization") String token, @PathVariable double price) throws CouponNotFoundException, UnauthorizedUserException {
+        if (!jwtUtil.getUserTypeFromToken(token).equals(UserType.CUSTOMER)){
+            throw new UnauthorizedUserException();
+        }
         return ResponseEntity.ok()
                 .header("Authorization", jwtUtil.generateToken(token))
                 .body(customerService.readCustomerCouponsByMaxPrice(jwtUtil.getIdFromToken(token), price));
     }
 
 
-    @GetMapping("/get/customer-detail")
-    public ResponseEntity<?> getCustomerDetail(@RequestHeader(name = "Authorization") String token) {
+    @GetMapping("/details") // http://localhost:8080/customer/details
+    public ResponseEntity<?> getCustomerDetail(@RequestHeader(name = "Authorization") String token) throws UnauthorizedUserException {
+        if (!jwtUtil.getUserTypeFromToken(token).equals(UserType.CUSTOMER)){
+            throw new UnauthorizedUserException();
+        }
         return ResponseEntity.ok()
                 .header("Authorization", jwtUtil.generateToken(token))
                 .body(customerService.readCustomerDetails(jwtUtil.getIdFromToken(token)));
     }
 
-    @PostMapping("/purchase-coupon")
-    public ResponseEntity<?> purchaseCoupon(@RequestHeader(name = "Authorization") String token, @RequestBody Coupon coupon) throws CouponException, CustomerException, CouponNotFoundException {
+    @PostMapping("/coupons/purchase") // http://localhost:8080/customer/coupons/purchase
+    public ResponseEntity<?> purchaseCoupon(@RequestHeader(name = "Authorization") String token, @RequestBody Coupon coupon) throws CouponException, CustomerException, CouponNotFoundException, UnauthorizedUserException {
+        if (!jwtUtil.getUserTypeFromToken(token).equals(UserType.CUSTOMER)){
+            throw new UnauthorizedUserException();
+        }
         customerService.purchaseCoupon(jwtUtil.getIdFromToken(token), coupon);
         return ResponseEntity.accepted()
                 .header("Authorization", jwtUtil.generateToken(token))

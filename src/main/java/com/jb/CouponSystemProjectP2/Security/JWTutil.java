@@ -1,6 +1,7 @@
 package com.jb.CouponSystemProjectP2.Security;
 
 import com.jb.CouponSystemProjectP2.Beans.LoginDetails;
+import com.jb.CouponSystemProjectP2.Beans.UserType;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.SignatureException;
 import org.springframework.stereotype.Service;
@@ -17,12 +18,13 @@ import java.util.Map;
 @Service
 public class JWTutil {
     private String signatureAlgorithm = SignatureAlgorithm.HS256.getJcaName();
-    private String secretKey = "yek+gnol+tib+2+xis+evif+6+owt+s+5+raas+5+dna+viva+6+si+siht+2";
+    private String secretKey = "7235753878214125442A472D4B6150645367566B597033733676397924423F45";
     private Key decodedSecretKey = new SecretKeySpec(Base64.getDecoder().decode(this.secretKey), this.signatureAlgorithm);
 
     public String generateToken(LoginDetails loginDetails) {
         Map<String, Object> claims = new HashMap<>();
         claims.put("UserType", loginDetails.getUserType());
+        claims.put("Id", loginDetails.getId());
         return createToken(claims, loginDetails.getEmail());
     }
 
@@ -30,6 +32,7 @@ public class JWTutil {
         Map<String, Object> newClaims = new HashMap<>();
         Claims oldClaims = extractAllClaims(token.replace("Bearer ", ""));
         newClaims.put("UserType", oldClaims.get("UserType"));
+        newClaims.put("Id", oldClaims.get("Id"));
         return createToken(newClaims, oldClaims.getSubject());
     }
 
@@ -44,7 +47,7 @@ public class JWTutil {
                 .compact();
     }
 
-    public Claims extractAllClaims(String token) throws ExpiredJwtException, SignatureException, MalformedJwtException{
+    public Claims extractAllClaims(String token) throws ExpiredJwtException, SignatureException, MalformedJwtException {
         JwtParser jwtParser = Jwts.parserBuilder()
                 .setSigningKey(this.decodedSecretKey)
                 .build();
@@ -56,8 +59,13 @@ public class JWTutil {
         return true;
     }
 
-    public int getIdFromToken(String token) throws ExpiredJwtException, SignatureException, MalformedJwtException{
+    public int getIdFromToken(String token) throws ExpiredJwtException, SignatureException, MalformedJwtException {
         final Claims claims = extractAllClaims(token.replace("Bearer ", ""));
-        return (int) claims.get("id");
+        return (int) claims.get("Id");
+    }
+
+    public UserType getUserTypeFromToken(String token) throws ExpiredJwtException, SignatureException, MalformedJwtException {
+        final Claims claims = extractAllClaims(token.replace("Bearer ", ""));
+        return (UserType) claims.get("UserType");
     }
 }

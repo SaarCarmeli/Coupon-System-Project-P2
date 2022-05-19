@@ -14,35 +14,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/user") // http://localhost:8080/user
 @RequiredArgsConstructor
 public class LoginController {
     private final JWTutil jwtUtil;
     private final CompanyRepository companyRepository;
     private final CustomerRepository customerRepository;
 
-    @PostMapping("/login")
+    @PostMapping("/login") // http://localhost:8080/user/login
     public ResponseEntity<?> login(@RequestBody LoginDetails loginDetails) throws LoginException {
         switch (loginDetails.getUserType()) {
-            case Admin:
+            case ADMIN:
                 if (loginDetails.getEmail().equals("admin@admin.com") && loginDetails.getPassword().equals("admin")) {
                     return new ResponseEntity<>(jwtUtil.generateToken(loginDetails), HttpStatus.ACCEPTED);
                 }
                 throw new LoginException("User is not an admin! Check login details!");
-            case Company:
+            case COMPANY:
                 if (companyRepository.existsByEmailAndPassword(loginDetails.getEmail(), loginDetails.getPassword())) {
                     LoginDetails newLoginDetails = loginDetails;
                     newLoginDetails.setId(companyRepository.findIdByEmailAndPassword(loginDetails.getEmail(), loginDetails.getPassword()));
                     return new ResponseEntity<>(jwtUtil.generateToken(newLoginDetails), HttpStatus.ACCEPTED);
                 }
-                throw new LoginException();
-            case Customer:
+                throw new LoginException("Company user not found!");
+            case CUSTOMER:
                 if (customerRepository.existsByEmailAndPassword(loginDetails.getEmail(), loginDetails.getPassword())) {
                     LoginDetails newLoginDetails = loginDetails;
                     newLoginDetails.setId(customerRepository.findIdByEmailAndPassword(loginDetails.getEmail(), loginDetails.getPassword()));
                     return new ResponseEntity<>(jwtUtil.generateToken(newLoginDetails), HttpStatus.ACCEPTED);
                 }
-                throw new LoginException();
+                throw new LoginException("Customer user not found!");
             default:
                 throw new LoginException("Invalid user type! Check login details!");
         }

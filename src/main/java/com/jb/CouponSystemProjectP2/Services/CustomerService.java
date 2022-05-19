@@ -57,7 +57,7 @@ public class CustomerService implements CustomerServiceDAO {
 
     @Override
     public List<Coupon> readCustomerCouponsByCategory(int customerId, Category category) throws CouponNotFoundException {
-        List<Coupon> couponList = couponRepository.findByCustomerIdAndCategory(customerId, category);
+        List<Coupon> couponList = couponRepository.findByCustomerIdAndCategory(customerId, category.name());
         if (!couponList.isEmpty()) {
             return couponList;
         }

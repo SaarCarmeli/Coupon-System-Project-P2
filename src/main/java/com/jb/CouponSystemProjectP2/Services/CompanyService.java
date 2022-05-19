@@ -42,7 +42,7 @@ public class CompanyService implements CompanyServiceDAO {
 
     @Override
     public List<Coupon> readCompanyCouponsByCategory(int companyId, Category category) throws CouponNotFoundException {
-        List<Coupon> couponList = couponRepository.findByCompanyIdAndCategory(companyId, category);
+        List<Coupon> couponList = couponRepository.findByCompanyIdAndCategory(companyId, category.name());
         if (!couponList.isEmpty()) {
             return couponList;
         }

@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="changed UserType to use all-capital letters, edited LoginController switch accordingly">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Exceptions/UnauthorizedUserException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/AdministratorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/AdministratorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CompanyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Security/JWTutil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Security/JWTutil.java" afterDir="false" />
+    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="added user type verification to Controller methods via JWTutil get user type from token method, added corresponding exception">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Advices/UnauthorizedUserAdvice.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,12 +84,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1649175235970</updated>
-    </task>
-    <task id="LOCAL‎00006" summary="added &quot;smart dialect&quot; methods to JPA repositories">
-      <created>1650555963428</created>
-      <option name="number" value="LOCAL‎00006" />
-      <option name="presentableId" value="LOCAL‎00006" />
-      <updated>1650555963428</updated>
     </task>
     <task id="LOCAL‎00007" summary="changed name of database in application.properties">
       <created>1650634706498</created>
@@ -385,7 +373,13 @@
       <option name="presentableId" value="LOCAL‎00054" />
       <updated>1652890730233</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL‎00055" summary="added user type verification to Controller methods via JWTutil get user type from token method, added corresponding exception">
+      <created>1652949332903</created>
+      <option name="number" value="LOCAL‎00055" />
+      <option name="presentableId" value="LOCAL‎00055" />
+      <updated>1652949332903</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -400,7 +394,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed CascadeType in Customer to MERGE" />
     <MESSAGE value="changed exception message" />
     <MESSAGE value="added purchase coupon method to CustomerService, added CouponException" />
     <MESSAGE value="finished CustomerService" />
@@ -425,6 +418,7 @@
     <MESSAGE value="edited controller paths so all paths are now unique" />
     <MESSAGE value="fixed findCouponByCategory methods for customer and company in CouponRepository to receive String parameter instead of Enum, fixed Services accordingly to pass String to respective methods" />
     <MESSAGE value="changed UserType to use all-capital letters, edited LoginController switch accordingly" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed UserType to use all-capital letters, edited LoginController switch accordingly" />
+    <MESSAGE value="added user type verification to Controller methods via JWTutil get user type from token method, added corresponding exception" />
+    <option name="LAST_COMMIT_MESSAGE" value="added user type verification to Controller methods via JWTutil get user type from token method, added corresponding exception" />
   </component>
 </project>

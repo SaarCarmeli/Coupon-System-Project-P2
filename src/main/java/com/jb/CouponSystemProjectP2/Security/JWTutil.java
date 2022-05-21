@@ -66,6 +66,6 @@ public class JWTutil {
 
     public UserType getUserTypeFromToken(String token) throws ExpiredJwtException, SignatureException, MalformedJwtException {
         final Claims claims = extractAllClaims(token.replace("Bearer ", ""));
-        return (UserType) claims.get("UserType");
+        return UserType.valueOf((String) claims.get("UserType"));
     }
 }

@@ -23,6 +23,9 @@ public class TestInit implements CommandLineRunner {
     private final CompanyRepository companyRepository;
     private final CustomerRepository customerRepository;
 
+
+    // use only in read cus it may influence on forwards tests
+    //for create/update/delete we must create inside the test the new Entity.
     @Override
     public void run(String... args) throws Exception {
         // Companies (3):

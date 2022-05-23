@@ -11,7 +11,15 @@ class AdministratorControllerTest {
     }
 
     @Test
+    void cannotGetAllCompanies() {
+    }
+
+    @Test
     void getAllCustomers() {
+    }
+
+    @Test
+    void canNotGetAllCustomers() {
     }
 
     @Test

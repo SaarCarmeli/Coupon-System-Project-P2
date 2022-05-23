@@ -40,12 +40,9 @@ public class AdministratorService implements AdministratorServiceDAO {
 
     @Override
     public List<Company> readAllCompanies() throws CompanyNotFoundException {
-        List<Company> companyList = companyRepository.findAll();
-        if (!companyList.isEmpty()) {
-            return companyList;
-        }
-        throw new CompanyNotFoundException("Failed to read 'companies', as there are no 'companies' in the database!");
+        return companyRepository.findAll();
     }
+
 
     @Override
     public void updateCompany(Company company) throws CompanyNotFoundException {
@@ -86,12 +83,8 @@ public class AdministratorService implements AdministratorServiceDAO {
 
     @Override
     public List<Customer> readAllCustomers() throws CustomerNotFoundException {
-        List<Customer> customerList = customerRepository.findAll();
-        if (!customerList.isEmpty()) {
-            return customerList;
+        return customerRepository.findAll();
         }
-        throw new CustomerNotFoundException("Failed to read 'customers', as there are no 'customers' in the database!");
-    }
 
     @Override
     public void updateCustomer(Customer customer) throws CustomerNotFoundException {

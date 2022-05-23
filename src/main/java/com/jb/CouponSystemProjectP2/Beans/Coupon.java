@@ -12,6 +12,7 @@ import java.sql.Date;
 @Setter
 @Getter
 @Builder
+@ToString
 public class Coupon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

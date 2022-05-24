@@ -6,6 +6,7 @@ import com.jb.CouponSystemProjectP2.Exceptions.CompanyException;
 import com.jb.CouponSystemProjectP2.Exceptions.CompanyNotFoundException;
 import com.jb.CouponSystemProjectP2.Exceptions.CustomerException;
 import com.jb.CouponSystemProjectP2.Exceptions.CustomerNotFoundException;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 

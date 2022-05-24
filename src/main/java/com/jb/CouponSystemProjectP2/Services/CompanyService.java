@@ -8,13 +8,20 @@ import com.jb.CouponSystemProjectP2.Exceptions.CouponNotFoundException;
 import com.jb.CouponSystemProjectP2.Repositories.CompanyRepository;
 import com.jb.CouponSystemProjectP2.Repositories.CouponRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class CompanyService implements CompanyServiceDAO {
+    @Autowired
     private final CompanyRepository companyRepository;
     private final CouponRepository couponRepository;
 
@@ -84,3 +91,4 @@ public class CompanyService implements CompanyServiceDAO {
         return companyRepository.getById(companyId);
     }
 }
+

@@ -1,9 +1,7 @@
 package com.jb.CouponSystemProjectP2.CLR;
 
 
-import com.jb.CouponSystemProjectP2.Beans.Category;
 import com.jb.CouponSystemProjectP2.Beans.Company;
-import com.jb.CouponSystemProjectP2.Beans.Coupon;
 import com.jb.CouponSystemProjectP2.Beans.Customer;
 import com.jb.CouponSystemProjectP2.Exceptions.CompanyException;
 import com.jb.CouponSystemProjectP2.Exceptions.CompanyNotFoundException;
@@ -12,22 +10,16 @@ import com.jb.CouponSystemProjectP2.Exceptions.CustomerNotFoundException;
 import com.jb.CouponSystemProjectP2.Services.AdministratorService;
 import com.jb.CouponSystemProjectP2.Util.TablePrinter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
 
-import java.sql.Date;
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
 
-@Component
-@Order(3)
+//@Component
+@Order(2)
 @RequiredArgsConstructor
 public class AdminCRUDTests implements CommandLineRunner {
-    @Autowired
-    AdministratorService administratorService;
+    private final AdministratorService administratorService;
 
     @Override
     public void run(String... args) throws Exception {
@@ -129,7 +121,7 @@ public class AdminCRUDTests implements CommandLineRunner {
         System.out.println("Customer has been successfully created, test success");
         System.out.println("==================================================== \n");
 
-
+        //@FailedToCreateCustomerTest
         System.out.println("8. Test if a customer is not created");
         Customer customer1 = Customer.builder()
                 .email("customer@test.com")
@@ -239,6 +231,8 @@ public class AdminCRUDTests implements CommandLineRunner {
         });
         if (administratorService.readAllCompanies().isEmpty()) {
             System.out.println("Test successfully passed \n");
+           administratorService.clearAllCompaniesInTheDataBase();
+           administratorService.clearAllCouponsInTheDataBase();
         } else {
             System.out.println("That shouldn't have been happened");
         }
@@ -270,6 +264,7 @@ public class AdminCRUDTests implements CommandLineRunner {
         });
         if (administratorService.readAllCustomers().isEmpty()) {
             System.out.println("Test successfully passed \n");
+            administratorService.clearAllCustomersInTheDataBase();
         } else {
             System.out.println("That shouldn't have been happened");
         }

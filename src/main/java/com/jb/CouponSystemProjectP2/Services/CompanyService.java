@@ -20,7 +20,7 @@ public class CompanyService implements CompanyServiceDAO {
 
     @Override
     public void createCoupon(int companyId, Coupon coupon) throws CompanyException {
-        if (couponRepository.existsByTitleAndCompanyId(coupon.getTitle(), companyId)) {
+        if (couponRepository.existsByTitleAndCompanyId(coupon.getTitle(), companyId) == 1) {
             throw new CompanyException(
                     "Failed to create 'coupon', as 'coupon' by title= " + coupon.getTitle() + ", and by company_Id= " + companyId + " already exists!");
         }

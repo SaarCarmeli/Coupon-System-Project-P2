@@ -6,11 +6,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import javax.transaction.Transactional;
 import java.sql.Date;
 import java.util.List;
 
+@Transactional
 public interface CouponRepository extends JpaRepository<Coupon, Integer> {
-    void deleteByEndDateAfter(Date endDate);
+    void deleteByEndDateBefore(Date endDate);
 
     @Query(value = "SELECT EXISTS (SELECT * FROM `coupon_project_p2`.`coupons` WHERE `title` = :title AND `company_id` = :companyId )", nativeQuery = true)
     byte existsByTitleAndCompanyId(@Param("title") String title, @Param("companyId") int company_id);

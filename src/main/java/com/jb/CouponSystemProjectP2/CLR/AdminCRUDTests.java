@@ -13,7 +13,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 @Component
@@ -231,9 +230,9 @@ public class AdminCRUDTests implements CommandLineRunner {
             }
         });
         if (administratorService.readAllCompanies().isEmpty()) {
-            System.out.println("Test successfully passed \n");
-           administratorService.clearAllCompaniesInTheDataBase();
-           administratorService.clearAllCouponsInTheDataBase();
+            System.out.println("Test successfully passed,there is no Companies in the data base \n");
+            administratorService.clearAllCompaniesInTheDataBase();
+            administratorService.clearAllCouponsInTheDataBase();
         } else {
             System.out.println("That shouldn't have been happened");
         }
@@ -264,7 +263,7 @@ public class AdminCRUDTests implements CommandLineRunner {
             }
         });
         if (administratorService.readAllCustomers().isEmpty()) {
-            System.out.println("Test successfully passed \n");
+            System.out.println("Test successfully passed there is no Customers in the data base\n");
             administratorService.clearAllCustomersInTheDataBase();
         } else {
             System.out.println("That shouldn't have been happened");

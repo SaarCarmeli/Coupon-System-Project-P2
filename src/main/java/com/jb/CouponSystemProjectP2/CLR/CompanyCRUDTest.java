@@ -9,6 +9,7 @@ import com.jb.CouponSystemProjectP2.Exceptions.CompanyNotFoundException;
 import com.jb.CouponSystemProjectP2.Exceptions.CouponException;
 import com.jb.CouponSystemProjectP2.Exceptions.CouponNotFoundException;
 import com.jb.CouponSystemProjectP2.Services.CompanyService;
+import com.jb.CouponSystemProjectP2.Threads.DailyJob;
 import com.jb.CouponSystemProjectP2.Util.TablePrinter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CompanyCRUDTest implements CommandLineRunner {
     private final CompanyService companyService;
+
 
     @Override
     public void run(String... args) throws Exception {
@@ -128,8 +130,8 @@ public class CompanyCRUDTest implements CommandLineRunner {
                 .title("New hamburger restaurant")
                 .description("10% off on 2 burgers with drinks")
                 .image("hamburger.jpeg")
-                .startDate(Date.valueOf(LocalDate.now().minus(90, ChronoUnit.DAYS)))
-                .endDate(Date.valueOf(LocalDate.now().minus(10, ChronoUnit.DAYS)))
+                .startDate(Date.valueOf(LocalDate.now()))
+                .endDate(Date.valueOf(LocalDate.now().plus(90, ChronoUnit.DAYS)))
                 .build();
         companyService.updateCoupon(1, updateTestCoupon1);
         TablePrinter.print(updateTestCoupon1);
@@ -172,20 +174,47 @@ public class CompanyCRUDTest implements CommandLineRunner {
             System.out.println("Test successfully failed");
             System.out.println("==================================================== \n");
         }
-            //@readCompanyDetailsTest
-            System.out.println("13. Read company details test");
-            TablePrinter.print(companyService.readCompanyDetails(1));
-            System.out.println("Test successfully passed");
-            System.out.println("==================================================== \n");
 
-            //@failedToReadCompanyDetailsTest
-            System.out.println("14. Failed to read company details test");
+//        //@dailyJobTest-Thread
+//        System.out.println("==================================================== \n");
+//        System.out.println("13. Daily Job test");
+//        Coupon expiredCouponTest = Coupon.builder()
+//                .id(14)
+//                .amount(3)
+//                .price(59.99)
+//                .category(Category.SOFTWARE)
+//                .title("coupon under test")
+//                .description("testing coupon")
+//                .image("test.jpeg")
+//                .startDate(Date.valueOf(LocalDate.now()))
+//                .endDate(Date.valueOf(LocalDate.now().minus(50, ChronoUnit.DAYS)))
+//                .build();
+//        companyService.createCoupon(1, expiredCouponTest);
+//        try {
+//            companyService.readCompanyCouponsByCategory(1, Category.SOFTWARE);
+//        } catch (CouponNotFoundException exception) {
+//            System.out.println(exception.getMessage());
+//            System.out.println("Test successfully failed");
+//            System.out.println("==================================================== \n");
+//        }
+
+        //@readCompanyDetailsTest
+        System.out.println("13. Read company details test");
+        TablePrinter.print(companyService.readCompanyDetails(1));
+        System.out.println("Test successfully passed");
+        System.out.println("==================================================== \n");
+
+        //@failedToReadCompanyDetailsTest
+        System.out.println("14. Failed to read company details test");
         try {
             companyService.readCompanyDetails(4);
-        }catch (CompanyNotFoundException exception){
+        } catch (CompanyNotFoundException exception) {
             System.out.println(exception.getMessage());
             System.out.println("Test successfully failed");
             System.out.println("==================================================== \n");
         }
+
+
+      //  System.out.println(Thread.currentThread().isAlive());
     }
 }

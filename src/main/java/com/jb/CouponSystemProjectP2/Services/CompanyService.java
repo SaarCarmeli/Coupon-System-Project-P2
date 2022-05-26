@@ -4,6 +4,7 @@ import com.jb.CouponSystemProjectP2.Beans.Category;
 import com.jb.CouponSystemProjectP2.Beans.Company;
 import com.jb.CouponSystemProjectP2.Beans.Coupon;
 import com.jb.CouponSystemProjectP2.Exceptions.CompanyException;
+import com.jb.CouponSystemProjectP2.Exceptions.CompanyNotFoundException;
 import com.jb.CouponSystemProjectP2.Exceptions.CouponNotFoundException;
 import com.jb.CouponSystemProjectP2.Repositories.CompanyRepository;
 import com.jb.CouponSystemProjectP2.Repositories.CouponRepository;
@@ -27,7 +28,7 @@ public class CompanyService implements CompanyServiceDAO {
 
     @Override
     public void createCoupon(int companyId, Coupon coupon) throws CompanyException {
-        if (couponRepository.existsByTitleAndCompanyId(coupon.getTitle(), companyId)) {
+        if (couponRepository.existsByTitleAndCompanyId(coupon.getTitle(), companyId) == 1) {
             throw new CompanyException(
                     "Failed to create 'coupon', as 'coupon' by title= " + coupon.getTitle() + ", and by company_Id= " + companyId + " already exists!");
         }
@@ -87,8 +88,11 @@ public class CompanyService implements CompanyServiceDAO {
     }
 
     @Override
-    public Company readCompanyDetails(int companyId) {
-        return companyRepository.getById(companyId);
+    public Company readCompanyDetails(int companyId) throws CompanyNotFoundException {
+        if (companyRepository.existsById(companyId)) {
+            return companyRepository.getById(companyId);
+        } else {
+            throw new CompanyNotFoundException("Failed to read 'company' details , as 'company' by ID= " + companyId + " does not exist!");
+        }
     }
 }
-

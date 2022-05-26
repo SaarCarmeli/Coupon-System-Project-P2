@@ -4,6 +4,7 @@ import com.jb.CouponSystemProjectP2.Beans.Category;
 import com.jb.CouponSystemProjectP2.Beans.Company;
 import com.jb.CouponSystemProjectP2.Beans.Coupon;
 import com.jb.CouponSystemProjectP2.Exceptions.CompanyException;
+import com.jb.CouponSystemProjectP2.Exceptions.CompanyNotFoundException;
 import com.jb.CouponSystemProjectP2.Exceptions.CouponNotFoundException;
 
 import java.util.List;
@@ -15,5 +16,5 @@ public interface CompanyServiceDAO {
     List<Coupon> readCompanyCouponsByMaxPrice(int companyId, double price) throws CouponNotFoundException;
     void updateCoupon(int companyId, Coupon coupon) throws CouponNotFoundException;
     void deleteCouponById(int couponId) throws CouponNotFoundException;
-    Company readCompanyDetails(int companyId);
+    Company readCompanyDetails(int companyId)throws CompanyNotFoundException;
 }

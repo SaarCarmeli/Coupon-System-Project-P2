@@ -13,7 +13,7 @@ public interface CouponRepository extends JpaRepository<Coupon, Integer> {
     void deleteByEndDateAfter(Date endDate);
 
     @Query(value = "SELECT EXISTS (SELECT * FROM `coupon_project_p2`.`coupons` WHERE `title` = :title AND `company_id` = :companyId )", nativeQuery = true)
-    boolean existsByTitleAndCompanyId(@Param("title") String title, @Param("companyId") int company_id);
+    byte existsByTitleAndCompanyId(@Param("title") String title, @Param("companyId") int company_id);
 
     @Query(value = "SELECT * FROM `coupon_project_p2`.`coupons` WHERE `company_id` = :companyId", nativeQuery = true)
     List<Coupon> findByCompanyId(@Param("companyId") int companyId);

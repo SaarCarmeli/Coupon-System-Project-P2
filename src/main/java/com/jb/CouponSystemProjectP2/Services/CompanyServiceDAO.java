@@ -14,6 +14,6 @@ public interface CompanyServiceDAO {
     List<Coupon> readCompanyCouponsByCategory(int companyId, Category category) throws CouponNotFoundException;
     List<Coupon> readCompanyCouponsByMaxPrice(int companyId, double price) throws CouponNotFoundException;
     void updateCoupon(int companyId, Coupon coupon) throws CouponNotFoundException;
-    void deleteCouponById(int couponId) throws CouponNotFoundException;
+    void deleteCouponById(int companyId, int couponId) throws CouponNotFoundException;
     Company readCompanyDetails(int companyId);
 }

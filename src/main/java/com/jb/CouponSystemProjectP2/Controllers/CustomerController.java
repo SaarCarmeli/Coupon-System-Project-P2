@@ -3,10 +3,7 @@ package com.jb.CouponSystemProjectP2.Controllers;
 import com.jb.CouponSystemProjectP2.Beans.Category;
 import com.jb.CouponSystemProjectP2.Beans.Coupon;
 import com.jb.CouponSystemProjectP2.Beans.UserType;
-import com.jb.CouponSystemProjectP2.Exceptions.CouponException;
-import com.jb.CouponSystemProjectP2.Exceptions.CouponNotFoundException;
-import com.jb.CouponSystemProjectP2.Exceptions.CustomerException;
-import com.jb.CouponSystemProjectP2.Exceptions.UnauthorizedUserException;
+import com.jb.CouponSystemProjectP2.Exceptions.*;
 import com.jb.CouponSystemProjectP2.Security.JWTutil;
 import com.jb.CouponSystemProjectP2.Services.CustomerService;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +19,7 @@ public class CustomerController {
 
     //--------------------READ------------------
     @GetMapping("/coupons/all") // http://localhost:8080/customer/coupons/all
-    public ResponseEntity<?> getAllCustomerCoupons(@RequestHeader(name = "Authorization") String token) throws CouponNotFoundException, UnauthorizedUserException {
+    public ResponseEntity<?> getAllCustomerCoupons(@RequestHeader(name = "Authorization") String token) throws CouponNotFoundException, UnauthorizedUserException, CustomerNotFoundException {
         if (!jwtUtil.getUserTypeFromToken(token).equals(UserType.CUSTOMER)){
             throw new UnauthorizedUserException();
         }
@@ -53,7 +50,7 @@ public class CustomerController {
 
 
     @GetMapping("/details") // http://localhost:8080/customer/details
-    public ResponseEntity<?> getCustomerDetail(@RequestHeader(name = "Authorization") String token) throws UnauthorizedUserException {
+    public ResponseEntity<?> getCustomerDetail(@RequestHeader(name = "Authorization") String token) throws UnauthorizedUserException, CustomerNotFoundException {
         if (!jwtUtil.getUserTypeFromToken(token).equals(UserType.CUSTOMER)){
             throw new UnauthorizedUserException();
         }

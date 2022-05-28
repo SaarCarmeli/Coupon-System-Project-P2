@@ -6,6 +6,7 @@ import com.jb.CouponSystemProjectP2.Beans.Customer;
 import com.jb.CouponSystemProjectP2.Exceptions.CouponException;
 import com.jb.CouponSystemProjectP2.Exceptions.CouponNotFoundException;
 import com.jb.CouponSystemProjectP2.Exceptions.CustomerException;
+import com.jb.CouponSystemProjectP2.Exceptions.CustomerNotFoundException;
 import com.jb.CouponSystemProjectP2.Repositories.CouponRepository;
 import com.jb.CouponSystemProjectP2.Repositories.CustomerRepository;
 import lombok.RequiredArgsConstructor;
@@ -51,7 +52,10 @@ public class CustomerService implements CustomerServiceDAO {
     }
 
     @Override
-    public List<Coupon> readAllCustomerCoupons(int customerId) throws CouponNotFoundException {
+    public List<Coupon> readAllCustomerCoupons(int customerId) throws CouponNotFoundException, CustomerNotFoundException {
+        if (!customerRepository.existsById(customerId)) {
+            throw new CustomerNotFoundException("Failed to read 'customer' coupons, as 'customer' by ID= "+customerId+" does not exist!");
+        }
         List<Coupon> couponList = couponRepository.findByCustomerId(customerId);
         if (!couponList.isEmpty()) {
             return couponList;
@@ -78,8 +82,11 @@ public class CustomerService implements CustomerServiceDAO {
     }
 
     @Override
-    public Customer readCustomerDetails(int customerId) {
-        return customerRepository.getById(customerId);
+    public Customer readCustomerDetails(int customerId) throws CustomerNotFoundException {
+        if (customerRepository.existsById(customerId))
+            return customerRepository.getById(customerId);
+        else {
+            throw new CustomerNotFoundException("Failed to read 'customer' details , as 'customer' by ID= " + customerId + " does not exist!");
+        }
     }
-
 }

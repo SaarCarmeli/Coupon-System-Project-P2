@@ -21,6 +21,6 @@ public class DailyJob {
     //@Scheduled(cron = "* * * * * ?", zone = "Asia/Jerusalem")
     public void deleteExpiredCoupons() {
         date = Date.valueOf(LocalDate.now());
-        couponRepository.deleteByEndDateAfter(date);
+        couponRepository.deleteByEndDateBefore(date);
     }
 }

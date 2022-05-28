@@ -26,23 +26,23 @@ public interface CouponRepository extends JpaRepository<Coupon, Integer> {
     @Query(value = "SELECT * FROM `coupon_project_p2`.`coupons` WHERE `company_id` = :companyId AND `price` < :price", nativeQuery = true)
     List<Coupon> findByCompanyIdAndPriceLessThan(@Param("companyId") int companyId, @Param("price") double price);
 
-    @Query(value = "SELECT c.coupon_id, c.amount, c.category, c.description, c.end_date, c.image, c.price, c.start_date, c.title, c.company_id" +
+    @Query(value = "SELECT c.coupon_id, c.amount, c.category, c.description, c.end_date, c.image, c.price, c.start_date, c.title, c.company_id " +
             "FROM `coupon_project_p2`.`coupons` AS c " +
-            "JOIN `coupon_project_p2`.`customers_coupons` AS cc ON cc.coupons_coupon_id = c.coupon_id" +
+            "JOIN `coupon_project_p2`.`customers_coupons` AS cc ON cc.coupons_coupon_id = c.coupon_id " +
             "WHERE cc.customer_customer_id = :customerId",
             nativeQuery = true)
     List<Coupon> findByCustomerId(@Param("customerId") int customerId);
 
-    @Query(value = "SELECT c.coupon_id, c.amount, c.category, c.description, c.end_date, c.image, c.price, c.start_date, c.title, c.company_id" +
+    @Query(value = "SELECT c.coupon_id, c.amount, c.category, c.description, c.end_date, c.image, c.price, c.start_date, c.title, c.company_id " +
             "FROM `coupon_project_p2`.`coupons` AS c " +
-            "JOIN `coupon_project_p2`.`customers_coupons` AS cc ON cc.coupons_coupon_id = c.coupon_id" +
+            "JOIN `coupon_project_p2`.`customers_coupons` AS cc ON cc.coupons_coupon_id = c.coupon_id " +
             "WHERE cc.customer_customer_id = :customerId AND c.category = :category",
             nativeQuery = true)
     List<Coupon> findByCustomerIdAndCategory(@Param("customerId") int customerId, @Param("category") String category);
 
-    @Query(value = "SELECT c.coupon_id, c.amount, c.category, c.description, c.end_date, c.image, c.price, c.start_date, c.title, c.company_id" +
+    @Query(value = "SELECT c.coupon_id, c.amount, c.category, c.description, c.end_date, c.image, c.price, c.start_date, c.title, c.company_id " +
             "FROM `coupon_project_p2`.`coupons` AS c " +
-            "JOIN `coupon_project_p2`.`customers_coupons` AS cc ON cc.coupons_coupon_id = c.coupon_id" +
+            "JOIN `coupon_project_p2`.`customers_coupons` AS cc ON cc.coupons_coupon_id = c.coupon_id " +
             "WHERE cc.customer_customer_id = :customerId AND c.price < :price",
             nativeQuery = true)
     List<Coupon> findByCustomerIdAndPriceLessThan(@Param("customerId") int customerId, @Param("price") double price);

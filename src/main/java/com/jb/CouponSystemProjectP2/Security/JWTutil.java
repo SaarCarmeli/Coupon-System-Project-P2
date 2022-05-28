@@ -17,9 +17,9 @@ import java.util.Map;
 
 @Service
 public class JWTutil {
-    private String signatureAlgorithm = SignatureAlgorithm.HS256.getJcaName();
-    private String secretKey = "7235753878214125442A472D4B6150645367566B597033733676397924423F45";
-    private Key decodedSecretKey = new SecretKeySpec(Base64.getDecoder().decode(this.secretKey), this.signatureAlgorithm);
+    private final String signatureAlgorithm = SignatureAlgorithm.HS256.getJcaName();
+    private final String secretKey = "7235753878214125442A472D4B6150645367566B597033733676397924423F45";
+    private final Key decodedSecretKey = new SecretKeySpec(Base64.getDecoder().decode(this.secretKey), this.signatureAlgorithm);
 
     public String generateToken(LoginDetails loginDetails) {
         Map<String, Object> claims = new HashMap<>();

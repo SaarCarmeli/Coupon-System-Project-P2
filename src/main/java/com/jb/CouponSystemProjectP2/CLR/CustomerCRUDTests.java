@@ -126,8 +126,3 @@ public class CustomerCRUDTests implements CommandLineRunner {
         }
     }
 }
-//  void purchaseCoupon(int customerId, Coupon coupon) throws CouponException, CustomerException, CouponNotFoundException;
-//    List<Coupon> readAllCustomerCoupons(int customerId) throws CouponNotFoundException;
-//    List<Coupon> readCustomerCouponsByCategory(int customerId, Category category) throws CouponNotFoundException;
-//    List<Coupon> readCustomerCouponsByMaxPrice(int customerId, double price) throws CouponNotFoundException;
-//    Customer readCustomerDetails(int customerId);

@@ -10,14 +10,9 @@ import com.jb.CouponSystemProjectP2.Exceptions.CustomerNotFoundException;
 import com.jb.CouponSystemProjectP2.Repositories.CouponRepository;
 import com.jb.CouponSystemProjectP2.Repositories.CustomerRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
-
-import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
 import java.sql.Date;
-import java.sql.SQLException;
 import java.time.Instant;
 import java.util.List;
 

@@ -10,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -108,6 +107,8 @@ public class CustomerCRUDTests implements CommandLineRunner {
             System.out.println("Test successfully passed");
             System.out.println("==================================================== \n");
         //@failedToReadCustomerCouponsByMaxPrice
+//todo:make method
+
 
         //@readCustomerDetails
         System.out.println("9.Read customer details test");

@@ -9,12 +9,7 @@ import com.jb.CouponSystemProjectP2.Exceptions.CustomerNotFoundException;
 import com.jb.CouponSystemProjectP2.Repositories.CompanyRepository;
 import com.jb.CouponSystemProjectP2.Repositories.CustomerRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
-
-import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,7 +18,7 @@ import java.util.Optional;
 public class AdministratorService implements AdministratorServiceDAO {
     private final CompanyRepository companyRepository;
     private final CustomerRepository customerRepository;
-    private final EntityManager entityManager;
+
 
     @Override
     public void createCompany(Company company) throws CompanyException {
@@ -45,7 +40,11 @@ public class AdministratorService implements AdministratorServiceDAO {
 
     @Override
     public List<Company> readAllCompanies() throws CompanyNotFoundException {
-        return companyRepository.findAll();
+        List<Company> companyList = companyRepository.findAll();
+        if (!companyList.isEmpty()) {
+            return companyList;
+        }
+        throw new CompanyNotFoundException("Failed to read 'companies' , as there no 'companies' in the database!");
     }
 
 
@@ -88,7 +87,12 @@ public class AdministratorService implements AdministratorServiceDAO {
 
     @Override
     public List<Customer> readAllCustomers() throws CustomerNotFoundException {
-        return customerRepository.findAll();
+        List<Customer> customerList = customerRepository.findAll();
+        if (!customerList.isEmpty()) {
+            return customerList;
+        }
+        throw new CustomerNotFoundException("Failed to read 'customers' , as there no 'customers' in the database!");
+        //return customerRepository.findAll();
     }
 
     @Override
@@ -109,23 +113,5 @@ public class AdministratorService implements AdministratorServiceDAO {
         } else {
             throw new CustomerNotFoundException("Failed to delete 'customer', as 'customer' by ID= " + id + " does not exist!");
         }
-    }
-
-    @Transactional
-    public void clearAllCompaniesInTheDataBase() throws SQLException {
-        String query = "TRUNCATE TABLE coupon_project_p2.companies;";
-        entityManager.createNativeQuery(query).executeUpdate();
-    }
-
-    @Transactional
-    public void clearAllCustomersInTheDataBase() throws SQLException {
-        String query = "TRUNCATE TABLE coupon_project_p2.customers;";
-        entityManager.createNativeQuery(query).executeUpdate();
-    }
-
-    @Transactional
-    public void clearAllCouponsInTheDataBase() throws SQLException {
-        String query = "TRUNCATE TABLE coupon_project_p2.coupons;";
-        entityManager.createNativeQuery(query).executeUpdate();
     }
 }

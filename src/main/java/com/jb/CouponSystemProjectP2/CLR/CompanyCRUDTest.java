@@ -175,29 +175,6 @@ public class CompanyCRUDTest implements CommandLineRunner {
             System.out.println("==================================================== \n");
         }
 
-//        //@dailyJobTest-Thread
-//        System.out.println("==================================================== \n");
-//        System.out.println("13. Daily Job test");
-//        Coupon expiredCouponTest = Coupon.builder()
-//                .id(14)
-//                .amount(3)
-//                .price(59.99)
-//                .category(Category.SOFTWARE)
-//                .title("coupon under test")
-//                .description("testing coupon")
-//                .image("test.jpeg")
-//                .startDate(Date.valueOf(LocalDate.now()))
-//                .endDate(Date.valueOf(LocalDate.now().minus(50, ChronoUnit.DAYS)))
-//                .build();
-//        companyService.createCoupon(1, expiredCouponTest);
-//        try {
-//            companyService.readCompanyCouponsByCategory(1, Category.SOFTWARE);
-//        } catch (CouponNotFoundException exception) {
-//            System.out.println(exception.getMessage());
-//            System.out.println("Test successfully failed");
-//            System.out.println("==================================================== \n");
-//        }
-
         //@readCompanyDetailsTest
         System.out.println("13. Read company details test");
         TablePrinter.print(companyService.readCompanyDetails(1));
@@ -213,8 +190,5 @@ public class CompanyCRUDTest implements CommandLineRunner {
             System.out.println("Test successfully failed");
             System.out.println("==================================================== \n");
         }
-
-
-      //  System.out.println(Thread.currentThread().isAlive());
     }
 }

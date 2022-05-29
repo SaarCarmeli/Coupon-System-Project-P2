@@ -5,7 +5,6 @@ import com.jb.CouponSystemProjectP2.Beans.LoginDetails;
 import com.jb.CouponSystemProjectP2.Beans.UserType;
 import com.jb.CouponSystemProjectP2.Security.JWTutil;
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.JwtParser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;

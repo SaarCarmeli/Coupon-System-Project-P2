@@ -10,9 +10,11 @@ import com.jb.CouponSystemProjectP2.Exceptions.CustomerNotFoundException;
 import com.jb.CouponSystemProjectP2.Services.AdministratorService;
 import com.jb.CouponSystemProjectP2.Util.TablePrinter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+
 import java.util.List;
 
 @Component
@@ -20,6 +22,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AdminCRUDTests implements CommandLineRunner {
     private final AdministratorService administratorService;
+    private final AdminTestMethods adminTestMethods;
 
     @Override
     public void run(String... args) throws Exception {
@@ -225,25 +228,25 @@ public class AdminCRUDTests implements CommandLineRunner {
         testCompanies.forEach(item -> {
             try {
                 administratorService.deleteCompanyById(item.getId());
-            } catch (Exception exception) {
+            } catch (CompanyNotFoundException exception) { //
                 System.out.println(exception.getMessage());
             }
         });
-        if (administratorService.readAllCompanies().isEmpty()) {
-            System.out.println("Test successfully passed,there is no Companies in the data base \n");
-            administratorService.clearAllCompaniesInTheDataBase();
-            administratorService.clearAllCouponsInTheDataBase();
-        } else {
-            System.out.println("That shouldn't have been happened");
+        adminTestMethods.clearAllCompaniesInTheDataBase();
+        adminTestMethods.clearAllCouponsInTheDataBase();
+        try {
+            administratorService.readAllCompanies();
+        } catch (CompanyNotFoundException exception) {
+            System.out.println(exception.getMessage());
         }
         testCompanies.forEach(item -> {
             try {
                 administratorService.createCompany(item);
             } catch (CompanyException exception) {
-                System.out.println(exception.getMessage());
-                System.out.println("Test successfully Failed \n");
+                System.out.println(exception.getMessage()+"\n");
             }
         });
+                System.out.println("Test successfully Failed \n");
 
         //@ReadAllCustomersTest
         System.out.println("==================================================== \n");
@@ -258,23 +261,23 @@ public class AdminCRUDTests implements CommandLineRunner {
         testCustomers.forEach(item -> {
             try {
                 administratorService.deleteCustomerById(item.getId());
-            } catch (Exception exception) {
+            } catch (CustomerNotFoundException exception) {
                 System.out.println(exception.getMessage());
             }
         });
-        if (administratorService.readAllCustomers().isEmpty()) {
-            System.out.println("Test successfully passed there is no Customers in the data base\n");
-            administratorService.clearAllCustomersInTheDataBase();
-        } else {
-            System.out.println("That shouldn't have been happened");
+        adminTestMethods.clearAllCustomersInTheDataBase();
+        try {
+            administratorService.readAllCustomers();
+        } catch (CustomerNotFoundException exception) {
+            System.out.println(exception.getMessage());
         }
         testCustomers.forEach(item -> {
             try {
                 administratorService.createCustomer(item);
             } catch (CustomerException exception) {
                 System.out.println(exception.getMessage());
-                System.out.println("Test successfully Failed \n");
             }
         });
+                System.out.println("Test successfully Failed \n");
     }
 }

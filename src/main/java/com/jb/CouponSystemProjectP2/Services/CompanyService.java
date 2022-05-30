@@ -47,7 +47,7 @@ public class CompanyService implements CompanyServiceDAO {
         List<Coupon> companyCoupons = loggedCompany.getCoupons();
         companyCoupons.add(coupon);
         loggedCompany.setCoupons(companyCoupons);
-        companyRepository.save(loggedCompany); // todo check if does not create duplicate coupons
+        companyRepository.save(loggedCompany);
     }
 
     /**

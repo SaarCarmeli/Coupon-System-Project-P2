@@ -49,11 +49,13 @@ public class AdministratorService implements AdministratorServiceDAO {
 
 
     @Override
-    public void updateCompany(Company company) throws CompanyNotFoundException {
-        // todo restrict update to company.id and company.name
-        // todo restrict ability to create two companies with the same email and password
+    public void updateCompany(Company company) throws CompanyNotFoundException, CompanyException {
         if (companyRepository.existsById(company.getId())) {
-            companyRepository.save(company);
+            if (!companyRepository.existsByEmail(company.getEmail())) {
+                companyRepository.save(company);
+            } else {
+                throw new CompanyException("Failed to update 'company', as 'company' by email= " + company.getEmail() + " already exists!");
+            }
         } else {
             throw new CompanyNotFoundException("Failed to update 'company', as 'company' by ID= " + company.getId() + " does not exist!");
         }
@@ -96,11 +98,13 @@ public class AdministratorService implements AdministratorServiceDAO {
     }
 
     @Override
-    public void updateCustomer(Customer customer) throws CustomerNotFoundException {
-        // todo restrict update to customer.id
-        // todo restrict ability to create two customers with the same email and password
+    public void updateCustomer(Customer customer) throws CustomerNotFoundException, CustomerException {
         if (customerRepository.existsById(customer.getId())) {
-            customerRepository.save(customer);
+            if (customerRepository.existsByEmail(customer.getEmail())) {
+                customerRepository.save(customer);
+            } else {
+                throw new CustomerException("Failed to update 'customer', as 'customer' by email= " + customer.getEmail() + " already exists!");
+            }
         } else {
             throw new CustomerNotFoundException("Failed to update 'customer', as 'customer' by ID= " + customer.getId() + " does not exist!");
         }

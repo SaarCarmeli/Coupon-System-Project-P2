@@ -91,7 +91,7 @@ public class AdministratorController {
 
     //          -------------------UPDATE----------------------
     @PutMapping("/update/company") // http://localhost:8080/admin/update/company
-    public ResponseEntity<?> updateCompany(@RequestHeader(name = "Authorization") String token, @RequestBody Company company) throws CompanyNotFoundException, UnauthorizedUserException {
+    public ResponseEntity<?> updateCompany(@RequestHeader(name = "Authorization") String token, @RequestBody Company company) throws CompanyNotFoundException, UnauthorizedUserException, CompanyException {
         if (!jwtUtil.getUserTypeFromToken(token).equals(UserType.ADMIN)){
             throw new UnauthorizedUserException();
         }
@@ -102,7 +102,7 @@ public class AdministratorController {
     }
 
     @PutMapping("/update/customer") // http://localhost:8080/admin/update/customer
-    public ResponseEntity<?> updateCustomer(@RequestHeader(name = "Authorization") String token, @RequestBody Customer customer) throws CustomerNotFoundException, UnauthorizedUserException {
+    public ResponseEntity<?> updateCustomer(@RequestHeader(name = "Authorization") String token, @RequestBody Customer customer) throws CustomerNotFoundException, UnauthorizedUserException, CustomerException {
         if (!jwtUtil.getUserTypeFromToken(token).equals(UserType.ADMIN)){
             throw new UnauthorizedUserException();
         }

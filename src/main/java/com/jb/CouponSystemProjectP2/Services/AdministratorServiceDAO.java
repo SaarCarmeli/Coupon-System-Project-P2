@@ -14,12 +14,12 @@ public interface AdministratorServiceDAO {
     void createCompany(Company company) throws CompanyException;
     Company readCompanyById(int id) throws CompanyNotFoundException;
     List<Company> readAllCompanies() throws CompanyNotFoundException;
-    void updateCompany(Company company) throws CompanyNotFoundException;
+    void updateCompany(Company company) throws CompanyNotFoundException, CompanyException;
     void deleteCompanyById(int id) throws CompanyNotFoundException;
 
     void createCustomer(Customer customer) throws CustomerException;
     Customer readCustomerById(int id) throws CustomerNotFoundException;
     List<Customer> readAllCustomers() throws CustomerNotFoundException;
-    void updateCustomer(Customer customer) throws CustomerNotFoundException;
+    void updateCustomer(Customer customer) throws CustomerNotFoundException, CustomerException;
     void deleteCustomerById(int id) throws CustomerNotFoundException;
 }

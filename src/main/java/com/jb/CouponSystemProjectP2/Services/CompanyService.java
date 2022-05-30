@@ -4,12 +4,20 @@ import com.jb.CouponSystemProjectP2.Beans.Category;
 import com.jb.CouponSystemProjectP2.Beans.Company;
 import com.jb.CouponSystemProjectP2.Beans.Coupon;
 import com.jb.CouponSystemProjectP2.Exceptions.CompanyException;
+import com.jb.CouponSystemProjectP2.Exceptions.CompanyNotFoundException;
 import com.jb.CouponSystemProjectP2.Exceptions.CouponNotFoundException;
 import com.jb.CouponSystemProjectP2.Repositories.CompanyRepository;
 import com.jb.CouponSystemProjectP2.Repositories.CouponRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -18,6 +26,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class CompanyService implements CompanyServiceDAO {
+    @Autowired
     private final CompanyRepository companyRepository;
     private final CouponRepository couponRepository;
 
@@ -130,7 +139,11 @@ public class CompanyService implements CompanyServiceDAO {
      * @return Company entity
      */
     @Override
-    public Company readCompanyDetails(int companyId) {
-        return companyRepository.getById(companyId);
+    public Company readCompanyDetails(int companyId) throws CompanyNotFoundException {
+        if (companyRepository.existsById(companyId)) {
+            return companyRepository.getById(companyId);
+        } else {
+            throw new CompanyNotFoundException("Failed to read 'company' details , as 'company' by ID= " + companyId + " does not exist!");
+        }
     }
 }

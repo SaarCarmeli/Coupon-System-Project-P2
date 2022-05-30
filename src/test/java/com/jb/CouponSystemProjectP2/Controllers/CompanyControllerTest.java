@@ -1,39 +1,40 @@
-package com.jb.CouponSystemProjectP2.CLR;
+package com.jb.CouponSystemProjectP2.Controllers;
 
 import com.jb.CouponSystemProjectP2.Beans.Category;
 import com.jb.CouponSystemProjectP2.Beans.Company;
 import com.jb.CouponSystemProjectP2.Beans.Coupon;
-import com.jb.CouponSystemProjectP2.Beans.Customer;
 import com.jb.CouponSystemProjectP2.Repositories.CompanyRepository;
-import com.jb.CouponSystemProjectP2.Repositories.CustomerRepository;
+import com.jb.CouponSystemProjectP2.Repositories.CouponRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.MockitoAnnotations;
+import org.springframework.web.client.RestTemplate;
 
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
-@Component
-@Order(1)
+
 @RequiredArgsConstructor
-public class TestInit implements CommandLineRunner {
-    private final CompanyRepository companyRepository;
-    private final CustomerRepository customerRepository;
+class CompanyControllerTest {
+    private static AutoCloseable autoCloseable;
+    CompanyRepository companyRepository;
+    CouponRepository couponRepository;
 
 
-    // use only in read cus it may influence on forwards tests
-    //for create/update/delete we must create inside the test the new Entity.
-    @Override
-    public void run(String... args) throws Exception {
-        // Companies (3):
+    @BeforeEach
+    void setUp() {
+        autoCloseable = MockitoAnnotations.openMocks(this);
         Company princessCruises = Company.builder()
                 .name("Princess Cruises")
                 .email("princess@cruises.com")
                 .password("crs123")
                 .build();
+
         Company apple = Company.builder()
                 .name("Apple")
                 .email("apple@apple.com")
@@ -44,22 +45,7 @@ public class TestInit implements CommandLineRunner {
                 .email("amazon@amazon.com")
                 .password("jungle")
                 .build();
-
-        // Customers (2):
-        Customer jeffery = Customer.builder()
-                .firstName("Jeffery")
-                .lastName("Jefferson")
-                .email("jeff@gmail.com")
-                .password("123456789")
-                .build();
-        Customer jennifer = Customer.builder()
-                .firstName("Jennifer")
-                .lastName("miller")
-                .email("jen@gmail.com")
-                .password("987654321")
-                .build();
-
-        // Coupons (8):
+        //companyRepository.saveAll(List.of(apple,amazon,princessCruises));
         Coupon pcCoupon1 = Coupon.builder()
                 .amount(2)
                 .price(999.99)
@@ -143,14 +129,45 @@ public class TestInit implements CommandLineRunner {
                 .endDate(Date.valueOf(LocalDate.now().plus(75, ChronoUnit.DAYS)))
                 .build();
 
+
         princessCruises.setCoupons(List.of(pcCoupon1, pcCoupon2));
         apple.setCoupons(List.of(apCoupon1));
         amazon.setCoupons(List.of(amCoupon1, amCoupon2, amCoupon3, amCoupon4, amCoupon5));
 
-        jeffery.setCoupons(List.of(pcCoupon1, apCoupon1, amCoupon1, amCoupon3, amCoupon4));
-        jennifer.setCoupons(List.of(pcCoupon1, pcCoupon2, amCoupon2, amCoupon4, amCoupon5));
-
         companyRepository.saveAll(List.of(princessCruises, apple, amazon));
-        customerRepository.saveAll(List.of(jeffery, jennifer));
+    }
+
+    @AfterEach
+    static void afterEach() throws Exception {
+        autoCloseable.close();
+
+    }
+
+    @Test
+    void createCoupon() {
+    }
+
+    @Test
+    void readAllCompanyCoupons() {
+    }
+
+    @Test
+    void readCompanyCouponsByCategory() {
+    }
+
+    @Test
+    void readCompanyCouponsByMaxPrice() {
+    }
+
+    @Test
+    void updateCoupon() {
+    }
+
+    @Test
+    void deleteCouponById() {
+    }
+
+    @Test
+    void readCompanyDetails() {
     }
 }

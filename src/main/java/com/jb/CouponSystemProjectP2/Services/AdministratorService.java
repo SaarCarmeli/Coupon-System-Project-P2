@@ -10,7 +10,6 @@ import com.jb.CouponSystemProjectP2.Repositories.CompanyRepository;
 import com.jb.CouponSystemProjectP2.Repositories.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -19,6 +18,7 @@ import java.util.Optional;
 public class AdministratorService implements AdministratorServiceDAO {
     private final CompanyRepository companyRepository;
     private final CustomerRepository customerRepository;
+
 
     @Override
     public void createCompany(Company company) throws CompanyException {
@@ -44,8 +44,9 @@ public class AdministratorService implements AdministratorServiceDAO {
         if (!companyList.isEmpty()) {
             return companyList;
         }
-        throw new CompanyNotFoundException("Failed to read 'companies', as there are no 'companies' in the database!");
+        throw new CompanyNotFoundException("Failed to read 'companies' , as there no 'companies' in the database!");
     }
+
 
     @Override
     public void updateCompany(Company company) throws CompanyNotFoundException {
@@ -90,7 +91,8 @@ public class AdministratorService implements AdministratorServiceDAO {
         if (!customerList.isEmpty()) {
             return customerList;
         }
-        throw new CustomerNotFoundException("Failed to read 'customers', as there are no 'customers' in the database!");
+        throw new CustomerNotFoundException("Failed to read 'customers' , as there no 'customers' in the database!");
+        //return customerRepository.findAll();
     }
 
     @Override

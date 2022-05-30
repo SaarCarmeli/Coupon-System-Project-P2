@@ -18,6 +18,13 @@ public class AdministratorController {
     private final AdministratorService administratorService;
     private final JWTutil jwtUtil;
 
+    /**
+     *
+     * @param token
+     * @return
+     * @throws CompanyNotFoundException
+     * @throws UnauthorizedUserException
+     */
     //           --------------------GET------------------
     @GetMapping("/all/companies") // http://localhost:8080/admin/all/companies
     public ResponseEntity<?> getAllCompanies(@RequestHeader(name = "Authorization") String token) throws CompanyNotFoundException, UnauthorizedUserException {

@@ -3,10 +3,7 @@ package com.jb.CouponSystemProjectP2.Controllers;
 import com.jb.CouponSystemProjectP2.Beans.Category;
 import com.jb.CouponSystemProjectP2.Beans.Coupon;
 import com.jb.CouponSystemProjectP2.Beans.UserType;
-import com.jb.CouponSystemProjectP2.Exceptions.CompanyException;
-import com.jb.CouponSystemProjectP2.Exceptions.CouponNotFoundException;
-import com.jb.CouponSystemProjectP2.Exceptions.TokenException;
-import com.jb.CouponSystemProjectP2.Exceptions.UnauthorizedUserException;
+import com.jb.CouponSystemProjectP2.Exceptions.*;
 import com.jb.CouponSystemProjectP2.Security.JWTutil;
 import com.jb.CouponSystemProjectP2.Services.CompanyService;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -77,7 +74,7 @@ public class CompanyController {
     }
 
     @GetMapping("/details") // http://localhost:8080/company/details
-    public ResponseEntity<?> getCompanyDetail(@RequestHeader(name = "Authorization") String token) throws UnauthorizedUserException {
+    public ResponseEntity<?> getCompanyDetail(@RequestHeader(name = "Authorization") String token) throws UnauthorizedUserException, CompanyNotFoundException {
         if (!jwtUtil.getUserTypeFromToken(token).equals(UserType.COMPANY)){
             throw new UnauthorizedUserException();
         }

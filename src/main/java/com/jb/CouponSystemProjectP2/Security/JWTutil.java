@@ -54,11 +54,6 @@ public class JWTutil {
         return jwtParser.parseClaimsJws(token.replace("Bearer ", "")).getBody();
     }
 
-    public boolean isTokenValid(String token) throws ExpiredJwtException, SignatureException, MalformedJwtException {
-        final Claims claims = extractAllClaims(token.replace("Bearer ", ""));
-        return true;
-    }
-
     public int getIdFromToken(String token) throws ExpiredJwtException, SignatureException, MalformedJwtException {
         final Claims claims = extractAllClaims(token.replace("Bearer ", ""));
         return (int) claims.get("Id");

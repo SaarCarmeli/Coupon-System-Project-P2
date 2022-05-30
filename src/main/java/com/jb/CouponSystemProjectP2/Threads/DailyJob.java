@@ -9,15 +9,20 @@ import org.springframework.scheduling.annotation.Scheduled;
 import java.sql.Date;
 import java.time.LocalDate;
 
+/**
+ * A thread class to schedule deletion of expired coupons on a daily basis.
+ */
 @EnableAsync
 @EnableScheduling
 public class DailyJob {
     CouponRepository couponRepository;
     Date date;
 
+    /**
+     * An asynchronous (thread) method to delete expired coupons every day in  00:00:01
+     */
     @Async
-    @Scheduled(cron = "0 30 0 * * ?", zone = "Asia/Jerusalem")
-    //@Scheduled(cron = "* * * * * ?", zone = "Asia/Jerusalem")
+    @Scheduled(cron = "0 1 0 * * ?", zone = "Asia/Jerusalem")
     public void deleteExpiredCoupons() {
         date = Date.valueOf(LocalDate.now());
         couponRepository.deleteByEndDateBefore(date);

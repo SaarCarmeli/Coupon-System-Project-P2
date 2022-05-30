@@ -1,6 +1,5 @@
 package com.jb.CouponSystemProjectP2.Repositories;
 
-import com.jb.CouponSystemProjectP2.Beans.Category;
 import com.jb.CouponSystemProjectP2.Beans.Coupon;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -16,6 +15,9 @@ public interface CouponRepository extends JpaRepository<Coupon, Integer> {
 
     @Query(value = "SELECT EXISTS (SELECT * FROM `coupon_project_p2`.`coupons` WHERE `title` = :title AND `company_id` = :companyId )", nativeQuery = true)
     byte existsByTitleAndCompanyId(@Param("title") String title, @Param("companyId") int company_id);
+
+    @Query(value = "SELECT EXISTS (SELECT * FROM `coupon_project_p2`.`coupons` WHERE `coupon_id` = :couponId AND `company_id` = :companyId )", nativeQuery = true)
+    byte existsByCouponIdAndCompanyId(@Param("couponId") int couponId, @Param("companyId") int companyId);
 
     @Query(value = "SELECT * FROM `coupon_project_p2`.`coupons` WHERE `company_id` = :companyId", nativeQuery = true)
     List<Coupon> findByCompanyId(@Param("companyId") int companyId);

@@ -101,7 +101,7 @@ public class CompanyController {
         if (!jwtUtil.getUserTypeFromToken(token).equals(UserType.COMPANY)){
             throw new UnauthorizedUserException();
         }
-        companyService.deleteCouponById(couponId);
+        companyService.deleteCouponById(jwtUtil.getIdFromToken(token), couponId);
         return ResponseEntity.accepted()
                 .header("Authorization", jwtUtil.generateToken(token))
                 .build();

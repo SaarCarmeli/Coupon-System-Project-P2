@@ -11,6 +11,8 @@ import javax.transaction.Transactional;
 public interface CompanyRepository extends JpaRepository<Company,Integer> {
     boolean existsByNameOrEmail(String name, String email);
     boolean existsByEmailAndPassword(String email, String password);
+    boolean existsByEmail(String email);
+
     @Query(value = "SELECT company_id FROM `coupon_project_p2`.`companies` WHERE `email` = :email AND `password` = :password", nativeQuery = true)
     int findIdByEmailAndPassword(@Param("email") String email, @Param("password") String password);
 }

@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -36,7 +37,7 @@ public class CustomerCRUDTests implements CommandLineRunner {
                 .startDate(Date.valueOf(LocalDate.now()))
                 .endDate(Date.valueOf(LocalDate.now().plus(5, ChronoUnit.DAYS)))
                 .build();
-        System.out.println("Coupon " + testCoupon.getTitle().replace("Coupon", "") + " amount before purchase = " + testCoupon.getAmount());
+        System.out.println("Coupon " + testCoupon.getTitle().replace("Coupon", "") + "amount before purchase = " + testCoupon.getAmount());
         customerService.purchaseCoupon(1, testCoupon);
         System.out.println("Coupon " + testCoupon.getTitle().replace("Coupon", "") + "new amount = " + testCoupon.getAmount());
         System.out.println("Test successfully passed");
@@ -103,12 +104,20 @@ public class CustomerCRUDTests implements CommandLineRunner {
         //@readCustomerCouponsByMaxPriceTest
         System.out.println("7.Read customer coupons by max price (500) test");
 
-            TablePrinter.print(customerService.readCustomerCouponsByMaxPrice(1, 500));
-            System.out.println("Test successfully passed");
-            System.out.println("==================================================== \n");
-        //@failedToReadCustomerCouponsByMaxPrice
-//todo:make method
+        TablePrinter.print(customerService.readCustomerCouponsByMaxPrice(1, 500));
+        System.out.println("Test successfully passed");
+        System.out.println("==================================================== \n");
 
+        //@failedToReadCustomerCouponsByMaxPrice
+        System.out.println("8.Failed to read customer coupons by max price (5) test");
+        try {
+            customerService.readCustomerCouponsByMaxPrice(1, 5);
+
+        } catch (CouponNotFoundException exception) {
+            System.out.println(exception.getMessage());
+            System.out.println("Test successfully failed");
+            System.out.println("==================================================== \n");
+        }
 
         //@readCustomerDetails
         System.out.println("9.Read customer details test");

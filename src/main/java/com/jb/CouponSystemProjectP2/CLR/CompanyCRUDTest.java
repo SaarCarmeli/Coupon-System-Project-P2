@@ -160,7 +160,7 @@ public class CompanyCRUDTest implements CommandLineRunner {
         }
         //@deleteCouponByIdTest
         System.out.println("11. Delete coupon by id = 9 test");
-        companyService.deleteCouponById(9);
+        companyService.deleteCouponById(1,9);
         TablePrinter.print(companyService.readAllCompanyCoupons(1));
         System.out.println("Test successfully passed");
         System.out.println("==================================================== \n");
@@ -168,7 +168,7 @@ public class CompanyCRUDTest implements CommandLineRunner {
         //@FailedToDeleteCouponTest
         System.out.println("12. Failed to delete coupon by id test");
         try {
-            companyService.deleteCouponById(9);
+            companyService.deleteCouponById(1,9);
         } catch (CouponNotFoundException exception) {
             System.out.println(exception.getMessage());
             System.out.println("Test successfully failed");

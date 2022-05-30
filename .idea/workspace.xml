@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="added UnauthorizedUserAdvice">
+    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="added existsByEmail method to CompanyRepository for email check in updateCompany (AdministratorService)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Repositories/CouponRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Repositories/CouponRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Security/JWTutil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Security/JWTutil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/CLR/CompanyCRUDTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/CLR/CompanyCRUDTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/CLR/CustomerCRUDTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/CLR/CustomerCRUDTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/CLR/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/CLR/LoginTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +32,22 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -47,12 +64,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
-  }
-}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.jb.CouponSystemProjectP2.Exceptions" />
@@ -60,8 +71,10 @@
   </component>
   <component name="RunManager">
     <configuration name="CouponSystemProjectSaarAndAvivP2Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.jb.CouponSystemProjectP2.CouponSystemProjectSaarAndAvivP2Application" />
-      <module name="Coupon-System-Project-P2" />
+      <module name="Coupon-System-Project-Saar-and-Aviv-P2" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.jb.CouponSystemProjectP2.*" />
@@ -86,24 +99,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1649175235970</updated>
-    </task>
-    <task id="LOCAL‎00008" summary="added specific @Query methods in CouponRepository">
-      <created>1650635797760</created>
-      <option name="number" value="LOCAL‎00008" />
-      <option name="presentableId" value="LOCAL‎00008" />
-      <updated>1650635797760</updated>
-    </task>
-    <task id="LOCAL‎00009" summary="added specific @Query methods in CouponRepository">
-      <created>1650646425098</created>
-      <option name="number" value="LOCAL‎00009" />
-      <option name="presentableId" value="LOCAL‎00009" />
-      <updated>1650646425098</updated>
-    </task>
-    <task id="LOCAL‎00010" summary="rearranged beans">
-      <created>1650650550890</created>
-      <option name="number" value="LOCAL‎00010" />
-      <option name="presentableId" value="LOCAL‎00010" />
-      <updated>1650650550890</updated>
     </task>
     <task id="LOCAL‎00011" summary="rearranged beans">
       <created>1650716379787</created>
@@ -381,7 +376,25 @@
       <option name="presentableId" value="LOCAL‎00056" />
       <updated>1652951218691</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL‎00057" summary="deleted TokenException, changed LoginAdvice to handle MalformedJwtException, SignatureException and ExpiredJwtException instead.&#10;deleted redundant token validation in createNewCoupon method in CompanyController&#10;deleted redundant isTokenValid method in JWTutil class">
+      <created>1653898641914</created>
+      <option name="number" value="LOCAL‎00057" />
+      <option name="presentableId" value="LOCAL‎00057" />
+      <updated>1653898641915</updated>
+    </task>
+    <task id="LOCAL‎00058" summary="added email check to updateCustomer and updateCompany methods in AdministratorService (can not update email if another customer/company has that email)">
+      <created>1653899181611</created>
+      <option name="number" value="LOCAL‎00058" />
+      <option name="presentableId" value="LOCAL‎00058" />
+      <updated>1653899181611</updated>
+    </task>
+    <task id="LOCAL‎00059" summary="added existsByEmail method to CompanyRepository for email check in updateCompany (AdministratorService)">
+      <created>1653899343491</created>
+      <option name="number" value="LOCAL‎00059" />
+      <option name="presentableId" value="LOCAL‎00059" />
+      <updated>1653899343491</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -394,11 +407,9 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added purchase coupon method to CustomerService, added CouponException" />
-    <MESSAGE value="finished CustomerService" />
-    <MESSAGE value="minor spacing in AdministratorService" />
     <MESSAGE value="added some of the methods for CompanyService" />
     <MESSAGE value="replaced some exception throws to new 'NotFoundException's" />
     <MESSAGE value="added CompanyAdvice, CouponAdvice, CustomerAdvice and NotFoundAdvice" />
@@ -421,6 +432,9 @@
     <MESSAGE value="changed UserType to use all-capital letters, edited LoginController switch accordingly" />
     <MESSAGE value="added user type verification to Controller methods via JWTutil get user type from token method, added corresponding exception" />
     <MESSAGE value="added UnauthorizedUserAdvice" />
-    <option name="LAST_COMMIT_MESSAGE" value="added UnauthorizedUserAdvice" />
+    <MESSAGE value="deleted TokenException, changed LoginAdvice to handle MalformedJwtException, SignatureException and ExpiredJwtException instead.&#10;deleted redundant token validation in createNewCoupon method in CompanyController&#10;deleted redundant isTokenValid method in JWTutil class" />
+    <MESSAGE value="added email check to updateCustomer and updateCompany methods in AdministratorService (can not update email if another customer/company has that email)" />
+    <MESSAGE value="added existsByEmail method to CompanyRepository for email check in updateCompany (AdministratorService)" />
+    <option name="LAST_COMMIT_MESSAGE" value="added existsByEmail method to CompanyRepository for email check in updateCompany (AdministratorService)" />
   </component>
 </project>

@@ -7,7 +7,6 @@ import com.jb.CouponSystemProjectP2.Exceptions.CompanyException;
 import com.jb.CouponSystemProjectP2.Exceptions.CompanyNotFoundException;
 import com.jb.CouponSystemProjectP2.Exceptions.CouponNotFoundException;
 
-import java.sql.Date;
 import java.util.List;
 
 public interface CompanyServiceDAO {

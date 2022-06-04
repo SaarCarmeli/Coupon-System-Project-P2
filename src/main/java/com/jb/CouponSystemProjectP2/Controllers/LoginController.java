@@ -27,9 +27,10 @@ public class LoginController {
     /**
      * A method to grant users access to the methods of the Coupon system by returning a JSON Web Token (JWT) after
      * authentication of user authorization.
+     *
      * @param loginDetails Include user email, password and user type. User ID is retrieved from the database for Customer and Company users.
-     * @return
-     * @throws LoginException
+     * @return JSON Web Token (JWT) with user login details
+     * @throws LoginException Thrown if user is not found within type or if type does not exist
      */
     @PostMapping("/login") // http://localhost:8080/user/login
     public ResponseEntity<?> login(@RequestBody LoginDetails loginDetails) throws LoginException {

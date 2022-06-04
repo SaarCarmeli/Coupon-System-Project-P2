@@ -6,7 +6,6 @@ import com.jb.CouponSystemProjectP2.Beans.Customer;
 import com.jb.CouponSystemProjectP2.Exceptions.CouponException;
 import com.jb.CouponSystemProjectP2.Exceptions.CouponNotFoundException;
 import com.jb.CouponSystemProjectP2.Exceptions.CustomerException;
-import com.jb.CouponSystemProjectP2.Exceptions.CustomerNotFoundException;
 import com.jb.CouponSystemProjectP2.Repositories.CouponRepository;
 import com.jb.CouponSystemProjectP2.Repositories.CustomerRepository;
 import lombok.RequiredArgsConstructor;

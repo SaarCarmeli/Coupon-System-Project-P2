@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Java class for containing error titles and descriptions for use by advice classes
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter

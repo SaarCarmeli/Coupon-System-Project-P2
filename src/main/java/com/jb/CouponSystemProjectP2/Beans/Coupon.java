@@ -5,6 +5,13 @@ import lombok.*;
 import javax.persistence.*;
 import java.sql.Date;
 
+/**
+ * A Coupon entity has a unique ID number, is issued by a Company and can be purchased by Customers.
+ * A Coupon has a price, category (enum), title, description and image which define it.
+ * An amount number determines how many can be purchased.
+ * A Coupon's start date is the date it is created on
+ * A Coupon's end date is its expiration date.
+ */
 @Entity
 @Table(name = "coupons")
 @AllArgsConstructor

@@ -11,9 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.security.SignatureException;
 
+/**
+ * Exception handler class for LoginException, MalformedJwtException, SignatureException snd ExpiredJwtException
+ * Returns 401 Unauthorized HTTP status response
+ */
 @RestController
 @ControllerAdvice
 public class LoginAdvice {
+    /**
+     * Handles exceptions for REST response and returns error details
+     *
+     * @param e Exception
+     * @return Error details
+     */
     @ExceptionHandler(value = {LoginException.class, MalformedJwtException.class, SignatureException.class, ExpiredJwtException.class})
     @ResponseStatus(code = HttpStatus.UNAUTHORIZED)
     public ErrorDetails handleException(Exception e) {

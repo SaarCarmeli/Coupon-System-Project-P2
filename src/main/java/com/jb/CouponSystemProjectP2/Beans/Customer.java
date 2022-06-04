@@ -5,6 +5,9 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * A Customer entity has a unique ID number, a first name, last name, email, password and can buy Coupons.
+ */
 @Entity
 @Table(name = "customers")
 @AllArgsConstructor

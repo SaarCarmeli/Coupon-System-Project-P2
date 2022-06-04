@@ -8,9 +8,17 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * A configuration class for the use of Swagger 2
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
+    /**
+     * A configuration method for Swagger 2
+     *
+     * @return new initialized Docket
+     */
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2).select()

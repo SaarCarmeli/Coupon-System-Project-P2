@@ -11,9 +11,9 @@ import com.jb.CouponSystemProjectP2.Exceptions.CustomerNotFoundException;
 import java.util.List;
 
 public interface CustomerServiceDAO {
-    void purchaseCoupon(int customerId, Coupon coupon) throws CouponException, CustomerException, CouponNotFoundException;
+    void purchaseCoupon(int customerId, Coupon coupon) throws CouponException, CustomerException, CouponNotFoundException, CustomerNotFoundException;
     List<Coupon> readAllCustomerCoupons(int customerId) throws CouponNotFoundException, CustomerNotFoundException;
-    List<Coupon> readCustomerCouponsByCategory(int customerId, Category category) throws CouponNotFoundException;
-    List<Coupon> readCustomerCouponsByMaxPrice(int customerId, double price) throws CouponNotFoundException;
+    List<Coupon> readCustomerCouponsByCategory(int customerId, Category category) throws CouponNotFoundException, CustomerNotFoundException;
+    List<Coupon> readCustomerCouponsByMaxPrice(int customerId, double price) throws CouponNotFoundException, CustomerNotFoundException;
     Customer readCustomerDetails(int customerId) throws CustomerNotFoundException;
 }

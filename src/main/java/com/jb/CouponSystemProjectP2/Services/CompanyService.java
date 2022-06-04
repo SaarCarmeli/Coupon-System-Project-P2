@@ -4,7 +4,6 @@ import com.jb.CouponSystemProjectP2.Beans.Category;
 import com.jb.CouponSystemProjectP2.Beans.Company;
 import com.jb.CouponSystemProjectP2.Beans.Coupon;
 import com.jb.CouponSystemProjectP2.Exceptions.CompanyException;
-import com.jb.CouponSystemProjectP2.Exceptions.CompanyNotFoundException;
 import com.jb.CouponSystemProjectP2.Exceptions.CouponNotFoundException;
 import com.jb.CouponSystemProjectP2.Repositories.CompanyRepository;
 import com.jb.CouponSystemProjectP2.Repositories.CouponRepository;
@@ -12,12 +11,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -31,10 +24,10 @@ public class CompanyService implements CompanyServiceDAO {
     private final CouponRepository couponRepository;
 
     /**
-     * A method to create a new Coupon entity for a Company
+     * A method to create a new Coupon entity for a Company.
      *
      * @param companyId ID of the Company the Coupon belongs to
-     * @param coupon    New Coupon created for the Company
+     * @param coupon    New Coupon created for the Company to add to the database
      * @throws CompanyException Thrown if the Coupon already exists in the Company under the new Coupon's title
      */
     @Override
@@ -139,11 +132,7 @@ public class CompanyService implements CompanyServiceDAO {
      * @return Company entity
      */
     @Override
-    public Company readCompanyDetails(int companyId) throws CompanyNotFoundException {
-        if (companyRepository.existsById(companyId)) {
-            return companyRepository.getById(companyId);
-        } else {
-            throw new CompanyNotFoundException("Failed to read 'company' details , as 'company' by ID= " + companyId + " does not exist!");
-        }
+    public Company readCompanyDetails(int companyId) {
+        return companyRepository.getById(companyId);
     }
 }

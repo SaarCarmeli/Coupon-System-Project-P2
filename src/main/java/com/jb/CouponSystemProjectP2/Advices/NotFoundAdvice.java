@@ -9,9 +9,19 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Exception handler class for CompanyNotFoundException, CouponNotFoundException and CustomerNotFoundException
+ * Returns 404 Not Found HTTP status response
+ */
 @RestController
 @ControllerAdvice
 public class NotFoundAdvice {
+    /**
+     * Handles exceptions for REST response and returns error details
+     *
+     * @param e Exception
+     * @return Error details
+     */
     @ExceptionHandler(value = {CompanyNotFoundException.class, CouponNotFoundException.class, CustomerNotFoundException.class})
     @ResponseStatus(code = HttpStatus.NOT_FOUND)
     public ErrorDetails handleException(Exception e) {

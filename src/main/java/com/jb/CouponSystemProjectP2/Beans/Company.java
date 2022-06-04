@@ -6,6 +6,9 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * A Company entity has a unique ID number, a name, email, password and issues Coupons which can be purchased by Customers.
+ */
 @Entity
 @Table(name = "companies")
 @AllArgsConstructor

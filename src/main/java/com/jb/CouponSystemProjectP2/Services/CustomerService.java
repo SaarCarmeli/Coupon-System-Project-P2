@@ -12,16 +12,29 @@ import com.jb.CouponSystemProjectP2.Repositories.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
+
 import java.sql.Date;
 import java.time.Instant;
 import java.util.List;
 
+/**
+ * A service class implementing all the methods available for Customer user.
+ */
 @Service
 @RequiredArgsConstructor
 public class CustomerService implements CustomerServiceDAO {
     private final CustomerRepository customerRepository;
     private final CouponRepository couponRepository;
 
+    /**
+     * A method to add a new Coupon purchase to a Customer.
+     *
+     * @param customerId ID number of the purchasing Customer
+     * @param coupon     Coupon being purchased
+     * @throws CouponException         Thrown if Coupon is expired or no Coupons are left to buy
+     * @throws CustomerException       Thrown if Customer already owns the Coupon
+     * @throws CouponNotFoundException Thrown if Coupon does not exist
+     */
     @Override
     public void purchaseCoupon(int customerId, Coupon coupon) throws CouponException, CustomerException, CouponNotFoundException {
         if (!couponRepository.exists(Example.of(coupon))) {
@@ -46,11 +59,15 @@ public class CustomerService implements CustomerServiceDAO {
         couponRepository.saveAndFlush(coupon);
     }
 
+    /**
+     * A method that returns all the Customer's Coupons.
+     *
+     * @param customerId ID number of the Customer
+     * @return List of all the Customer's Coupons
+     * @throws CouponNotFoundException Thrown if the List is empty (Customer has no Coupons)
+     */
     @Override
-    public List<Coupon> readAllCustomerCoupons(int customerId) throws CouponNotFoundException, CustomerNotFoundException {
-        if (!customerRepository.existsById(customerId)) {
-            throw new CustomerNotFoundException("Failed to read 'customer' coupons, as 'customer' by ID= "+customerId+" does not exist!");
-        }
+    public List<Coupon> readAllCustomerCoupons(int customerId) throws CouponNotFoundException {
         List<Coupon> couponList = couponRepository.findByCustomerId(customerId);
         if (!couponList.isEmpty()) {
             return couponList;
@@ -58,6 +75,14 @@ public class CustomerService implements CustomerServiceDAO {
         throw new CouponNotFoundException("Failed to read 'customer' coupons, as 'customer' does not own any!");
     }
 
+    /**
+     * A method that returns Customer's Coupons of a certain Category.
+     *
+     * @param customerId ID number of the Customer
+     * @param category   Coupon's Category
+     * @return List of Customer's Coupons of argument Category
+     * @throws CouponNotFoundException Thrown if the List is empty (Customer has no Coupons in that Category)
+     */
     @Override
     public List<Coupon> readCustomerCouponsByCategory(int customerId, Category category) throws CouponNotFoundException {
         List<Coupon> couponList = couponRepository.findByCustomerIdAndCategory(customerId, category.name());
@@ -67,6 +92,14 @@ public class CustomerService implements CustomerServiceDAO {
         throw new CouponNotFoundException("Failed to read 'customer' coupons, as 'customer' does not own any 'coupon' of category= " + category + "!");
     }
 
+    /**
+     * A method that returns Customer's Coupons under a certain price.
+     *
+     * @param customerId ID number of the Customer
+     * @param price      Maximum price
+     * @return List of Customer's Coupons under argument price
+     * @throws CouponNotFoundException Thrown if the List is empty (Customer has no Coupons under the max price)
+     */
     @Override
     public List<Coupon> readCustomerCouponsByMaxPrice(int customerId, double price) throws CouponNotFoundException {
         List<Coupon> couponList = couponRepository.findByCustomerIdAndPriceLessThan(customerId, price);
@@ -76,12 +109,14 @@ public class CustomerService implements CustomerServiceDAO {
         throw new CouponNotFoundException("Failed to read 'customer' coupons, as 'customer' does not own any 'coupon' under price= " + price + "!");
     }
 
+    /**
+     * A method that returns the details of the Customer of a given ID number
+     *
+     * @param customerId ID number of the Customer
+     * @return Customer entity
+     */
     @Override
-    public Customer readCustomerDetails(int customerId) throws CustomerNotFoundException {
-        if (customerRepository.existsById(customerId))
-            return customerRepository.getById(customerId);
-        else {
-            throw new CustomerNotFoundException("Failed to read 'customer' details , as 'customer' by ID= " + customerId + " does not exist!");
-        }
+    public Customer readCustomerDetails(int customerId) {
+        return customerRepository.getById(customerId);
     }
 }

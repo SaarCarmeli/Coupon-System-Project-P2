@@ -74,16 +74,6 @@ public class CustomerCRUDTests implements CommandLineRunner {
         System.out.println("Test successfully passed");
         System.out.println("==================================================== \n");
 
-        //@failedToReadAllCustomerCouponsTest
-        System.out.println("4.Failed to read customer coupons by customer id test");
-        try {
-            TablePrinter.print(customerService.readAllCustomerCoupons(7));
-        } catch (CustomerNotFoundException exception) {
-            System.out.println(exception.getMessage());
-            System.out.println("Test successfully failed");
-            System.out.println("==================================================== \n");
-        }
-
         //@readCustomerCouponsByCategoryTest
         System.out.println("5. Read customer coupons by category (FOOD) test");
         TablePrinter.print(customerService.readCustomerCouponsByCategory(1, Category.FOOD));
@@ -124,15 +114,5 @@ public class CustomerCRUDTests implements CommandLineRunner {
         TablePrinter.print(customerService.readCustomerDetails(1));
         System.out.println("Test successfully passed");
         System.out.println("==================================================== \n");
-
-        //@failedToReadCustomerDetails
-        System.out.println("10.Failed to read customer details test");
-        try {
-            TablePrinter.print(customerService.readCustomerDetails(4));
-        } catch (CustomerNotFoundException exception) {
-            System.out.println(exception.getMessage());
-            System.out.println("Test successfully failed");
-            System.out.println("==================================================== \n");
-        }
     }
 }

@@ -180,15 +180,5 @@ public class CompanyCRUDTest implements CommandLineRunner {
         TablePrinter.print(companyService.readCompanyDetails(1));
         System.out.println("Test successfully passed");
         System.out.println("==================================================== \n");
-
-        //@failedToReadCompanyDetailsTest
-        System.out.println("14. Failed to read company details test");
-        try {
-            companyService.readCompanyDetails(4);
-        } catch (CompanyNotFoundException exception) {
-            System.out.println(exception.getMessage());
-            System.out.println("Test successfully failed");
-            System.out.println("==================================================== \n");
-        }
     }
 }

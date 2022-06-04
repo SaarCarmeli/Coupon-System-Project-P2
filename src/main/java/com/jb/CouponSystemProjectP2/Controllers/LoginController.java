@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * A RESTful web service class for the implementation of a login system. Allows registered users to authenticate their authorization to use the Coupon System.
+ */
 @RestController
 @RequestMapping("/user") // http://localhost:8080/user
 @RequiredArgsConstructor
@@ -21,25 +24,31 @@ public class LoginController {
     private final CompanyRepository companyRepository;
     private final CustomerRepository customerRepository;
 
+    /**
+     * A method to grant users access to the methods of the Coupon system by returning a JSON Web Token (JWT) after
+     * authentication of user authorization.
+     * @param loginDetails Include user email, password and user type. User ID is retrieved from the database for Customer and Company users.
+     * @return
+     * @throws LoginException
+     */
     @PostMapping("/login") // http://localhost:8080/user/login
     public ResponseEntity<?> login(@RequestBody LoginDetails loginDetails) throws LoginException {
-        switch (loginDetails.getUserType()) {
+        LoginDetails newLoginDetails = loginDetails;
+        switch (newLoginDetails.getUserType()) {
             case ADMIN:
-                if (loginDetails.getEmail().equals("admin@admin.com") && loginDetails.getPassword().equals("admin")) {
-                    return new ResponseEntity<>(jwtUtil.generateToken(loginDetails), HttpStatus.ACCEPTED);
+                if (newLoginDetails.getEmail().equals("admin@admin.com") && newLoginDetails.getPassword().equals("admin")) {
+                    return new ResponseEntity<>(jwtUtil.generateToken(newLoginDetails), HttpStatus.ACCEPTED);
                 }
                 throw new LoginException("User is not an admin! Check login details!");
             case COMPANY:
-                if (companyRepository.existsByEmailAndPassword(loginDetails.getEmail(), loginDetails.getPassword())) {
-                    LoginDetails newLoginDetails = loginDetails;
-                    newLoginDetails.setId(companyRepository.findIdByEmailAndPassword(loginDetails.getEmail(), loginDetails.getPassword()));
+                if (companyRepository.existsByEmailAndPassword(newLoginDetails.getEmail(), newLoginDetails.getPassword())) {
+                    newLoginDetails.setId(companyRepository.findIdByEmailAndPassword(newLoginDetails.getEmail(), newLoginDetails.getPassword()));
                     return new ResponseEntity<>(jwtUtil.generateToken(newLoginDetails), HttpStatus.ACCEPTED);
                 }
                 throw new LoginException("Company user not found!");
             case CUSTOMER:
-                if (customerRepository.existsByEmailAndPassword(loginDetails.getEmail(), loginDetails.getPassword())) {
-                    LoginDetails newLoginDetails = loginDetails;
-                    newLoginDetails.setId(customerRepository.findIdByEmailAndPassword(loginDetails.getEmail(), loginDetails.getPassword()));
+                if (customerRepository.existsByEmailAndPassword(newLoginDetails.getEmail(), newLoginDetails.getPassword())) {
+                    newLoginDetails.setId(customerRepository.findIdByEmailAndPassword(newLoginDetails.getEmail(), newLoginDetails.getPassword()));
                     return new ResponseEntity<>(jwtUtil.generateToken(newLoginDetails), HttpStatus.ACCEPTED);
                 }
                 throw new LoginException("Customer user not found!");

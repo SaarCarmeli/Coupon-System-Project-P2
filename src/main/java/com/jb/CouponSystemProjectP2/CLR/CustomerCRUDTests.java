@@ -3,7 +3,6 @@ package com.jb.CouponSystemProjectP2.CLR;
 import com.jb.CouponSystemProjectP2.Beans.Category;
 import com.jb.CouponSystemProjectP2.Beans.Coupon;
 import com.jb.CouponSystemProjectP2.Exceptions.CouponNotFoundException;
-import com.jb.CouponSystemProjectP2.Exceptions.CustomerNotFoundException;
 import com.jb.CouponSystemProjectP2.Services.CustomerService;
 import com.jb.CouponSystemProjectP2.Util.TablePrinter;
 import lombok.RequiredArgsConstructor;

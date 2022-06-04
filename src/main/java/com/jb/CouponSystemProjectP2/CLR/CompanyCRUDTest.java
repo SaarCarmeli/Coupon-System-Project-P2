@@ -2,17 +2,12 @@ package com.jb.CouponSystemProjectP2.CLR;
 
 
 import com.jb.CouponSystemProjectP2.Beans.Category;
-import com.jb.CouponSystemProjectP2.Beans.Company;
 import com.jb.CouponSystemProjectP2.Beans.Coupon;
 import com.jb.CouponSystemProjectP2.Exceptions.CompanyException;
-import com.jb.CouponSystemProjectP2.Exceptions.CompanyNotFoundException;
-import com.jb.CouponSystemProjectP2.Exceptions.CouponException;
 import com.jb.CouponSystemProjectP2.Exceptions.CouponNotFoundException;
 import com.jb.CouponSystemProjectP2.Services.CompanyService;
-import com.jb.CouponSystemProjectP2.Threads.DailyJob;
 import com.jb.CouponSystemProjectP2.Util.TablePrinter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;

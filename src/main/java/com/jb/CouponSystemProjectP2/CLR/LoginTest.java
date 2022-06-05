@@ -35,21 +35,16 @@ public class LoginTest implements CommandLineRunner {
         System.out.println("Test successfully passed");
         System.out.println("==================================================== \n");
 
-//    @failedToExtractAllClaimsFromTokenTest
-
 //    @getIdFromTokenTest
         System.out.println("3. Get id from token test");
         System.out.println("Extracted id -> " + underTest.getIdFromToken(adminToken));
         System.out.println("Test successfully passed");
         System.out.println("==================================================== \n");
-//    @failedToGetIdFromTokenTest
 
 //    @getUserTypeFromTokenTest
         System.out.println("4. Get user type from token test");
         System.out.println("Extracted user type -> " + underTest.getUserTypeFromToken(adminToken));
         System.out.println("Test successfully passed");
         System.out.println("==================================================== \n");
-
-//    @failedToGetUserTypeFromToken
     }
 }

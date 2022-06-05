@@ -74,15 +74,15 @@ public class AdministratorService implements AdministratorServiceDAO {
      *
      * @param company Company entity for update
      * @throws CompanyNotFoundException Thrown if a Company by the argument Company's ID number is not found
-     * @throws CompanyException         Thrown if a Company with the update-company's email already exists
+     * @throws CompanyException         Thrown if another Company with the update-company's email already exists
      */
     @Override
     public void updateCompany(Company company) throws CompanyNotFoundException, CompanyException {
         if (companyRepository.existsById(company.getId())) {
-            if (!companyRepository.existsByEmail(company.getEmail())) {
+            if (!companyRepository.existsByEmailAndIdNot(company.getEmail(), company.getId())) {
                 companyRepository.save(company);
             } else {
-                throw new CompanyException("Failed to update 'company', as 'company' by email= " + company.getEmail() + " already exists!");
+                throw new CompanyException("Failed to update 'company', as another 'company' by email= " + company.getEmail() + " already exists!");
             }
         } else {
             throw new CompanyNotFoundException("Failed to update 'company', as 'company' by ID= " + company.getId() + " does not exist!");
@@ -154,15 +154,15 @@ public class AdministratorService implements AdministratorServiceDAO {
      *
      * @param customer Customer entity for update
      * @throws CustomerNotFoundException Thrown if a Customer by the argument Customer's ID number is not found
-     * @throws CustomerException         Thrown if a Customer with the update-customer's email already exists
+     * @throws CustomerException         Thrown if another Customer with the update-customer's email already exists
      */
     @Override
     public void updateCustomer(Customer customer) throws CustomerNotFoundException, CustomerException {
         if (customerRepository.existsById(customer.getId())) {
-            if (customerRepository.existsByEmail(customer.getEmail())) {
+            if (!customerRepository.existsByEmailAndIdNot(customer.getEmail(), customer.getId())) {
                 customerRepository.save(customer);
             } else {
-                throw new CustomerException("Failed to update 'customer', as 'customer' by email= " + customer.getEmail() + " already exists!");
+                throw new CustomerException("Failed to update 'customer', as another 'customer' by email= " + customer.getEmail() + " already exists!");
             }
         } else {
             throw new CustomerNotFoundException("Failed to update 'customer', as 'customer' by ID= " + customer.getId() + " does not exist!");

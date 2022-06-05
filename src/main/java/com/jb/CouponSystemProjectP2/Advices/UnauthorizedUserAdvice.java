@@ -21,7 +21,7 @@ public class UnauthorizedUserAdvice {
      * @return Error details
      */
     @ExceptionHandler(value = {UnauthorizedUserException.class})
-    @ResponseStatus(code = HttpStatus.METHOD_NOT_ALLOWED)
+    @ResponseStatus(code = HttpStatus.UNAUTHORIZED)
     public ErrorDetails handleException(Exception e) {
         return new ErrorDetails("Unauthorized User!", e.getMessage());
     }

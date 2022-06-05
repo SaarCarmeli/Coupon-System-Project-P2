@@ -145,7 +145,7 @@ public class CompanyController {
      * @throws CouponNotFoundException   Thrown if the Coupon ID number is not found under the logged-Company
      * @throws UnauthorizedUserException Thrown if a client type other than Company attempts to use this method
      */
-    @DeleteMapping("/coupons/delete/{id}") // http://localhost:8080/company/coupons/delete/{id}
+    @DeleteMapping("/coupons/delete/{couponId}") // http://localhost:8080/company/coupons/delete/{couponId}
     public ResponseEntity<?> deleteCouponById(@RequestHeader(name = "Authorization") String token, @PathVariable int couponId) throws CouponNotFoundException, UnauthorizedUserException {
         if (!jwtUtil.getUserTypeFromToken(token).equals(UserType.COMPANY)) {
             throw new UnauthorizedUserException();

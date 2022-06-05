@@ -116,6 +116,6 @@ public class CustomerService implements CustomerServiceDAO {
      */
     @Override
     public Customer readCustomerDetails(int customerId) {
-        return customerRepository.getById(customerId);
+        return customerRepository.findById(customerId).get();
     }
 }

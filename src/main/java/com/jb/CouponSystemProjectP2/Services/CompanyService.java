@@ -133,6 +133,6 @@ public class CompanyService implements CompanyServiceDAO {
      */
     @Override
     public Company readCompanyDetails(int companyId) {
-        return companyRepository.getById(companyId);
+        return companyRepository.findById(companyId).get();
     }
 }

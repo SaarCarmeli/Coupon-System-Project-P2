@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="small fixes">
+    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="added CORSconfiguration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Config/CORSconfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Config/CORSconfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/LoginController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,13 +64,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/Users/Saar/John Bryce - Java Full Stack 822-146/Studies/Java Project - Coupon System Phase 2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Users/Saar/John Bryce - Java Full Stack 822-146/Studies/Java Project - Coupon System Phase 2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.jb.CouponSystemProjectP2.Exceptions" />
@@ -104,12 +106,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1649175235970</updated>
-    </task>
-    <task id="LOCAL‎00015" summary="minor adjustments">
-      <created>1650791093686</created>
-      <option name="number" value="LOCAL‎00015" />
-      <option name="presentableId" value="LOCAL‎00015" />
-      <updated>1650791093686</updated>
     </task>
     <task id="LOCAL‎00016" summary="minor adjustments, changed &quot;coupons&quot; to @ManyToMany">
       <created>1650791138722</created>
@@ -399,7 +395,14 @@
       <option name="presentableId" value="LOCAL‎00063" />
       <updated>1654444689094</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="added CORSconfiguration">
+      <created>1655714815476</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1655714815476</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -414,7 +417,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="deleted duplicate dependencies of swagger from pom.xml, added comments" />
     <MESSAGE value="added existsByEmailAndPassword methods for login" />
     <MESSAGE value="thrown exceptions and other minor tweaks" />
     <MESSAGE value="changed existsByEmailAndPassword methods to existsByIdAndEmailAndPassword" />
@@ -439,6 +441,7 @@
     <MESSAGE value="added javadoc to LoginController, deleted unused imports" />
     <MESSAGE value="fixed email checks for update Company and Customer" />
     <MESSAGE value="small fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="small fixes" />
+    <MESSAGE value="added CORSconfiguration" />
+    <option name="LAST_COMMIT_MESSAGE" value="added CORSconfiguration" />
   </component>
 </project>

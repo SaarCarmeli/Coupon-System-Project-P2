@@ -38,19 +38,25 @@ public class LoginController {
         switch (newLoginDetails.getUserType()) {
             case ADMIN:
                 if (newLoginDetails.getEmail().equals("admin@admin.com") && newLoginDetails.getPassword().equals("admin")) {
-                    return new ResponseEntity<>(jwtUtil.generateToken(newLoginDetails), HttpStatus.ACCEPTED);
+                    return ResponseEntity.accepted()
+                            .header("Authorization", jwtUtil.generateToken(newLoginDetails))
+                            .build();
                 }
                 throw new LoginException("User is not an admin! Check login details!");
             case COMPANY:
                 if (companyRepository.existsByEmailAndPassword(newLoginDetails.getEmail(), newLoginDetails.getPassword())) {
                     newLoginDetails.setId(companyRepository.findIdByEmailAndPassword(newLoginDetails.getEmail(), newLoginDetails.getPassword()));
-                    return new ResponseEntity<>(jwtUtil.generateToken(newLoginDetails), HttpStatus.ACCEPTED);
+                    return ResponseEntity.accepted()
+                            .header("Authorization", jwtUtil.generateToken(newLoginDetails))
+                            .build();
                 }
                 throw new LoginException("Company user not found!");
             case CUSTOMER:
                 if (customerRepository.existsByEmailAndPassword(newLoginDetails.getEmail(), newLoginDetails.getPassword())) {
                     newLoginDetails.setId(customerRepository.findIdByEmailAndPassword(newLoginDetails.getEmail(), newLoginDetails.getPassword()));
-                    return new ResponseEntity<>(jwtUtil.generateToken(newLoginDetails), HttpStatus.ACCEPTED);
+                    return ResponseEntity.accepted()
+                            .header("Authorization", jwtUtil.generateToken(newLoginDetails))
+                            .build();
                 }
                 throw new LoginException("Customer user not found!");
             default:

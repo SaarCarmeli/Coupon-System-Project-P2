@@ -6,6 +6,8 @@ import com.jb.CouponSystemProjectP2.Beans.Coupon;
 import com.jb.CouponSystemProjectP2.Beans.Customer;
 import com.jb.CouponSystemProjectP2.Repositories.CompanyRepository;
 import com.jb.CouponSystemProjectP2.Repositories.CustomerRepository;
+import com.jb.CouponSystemProjectP2.Services.GeneralService;
+import com.jb.CouponSystemProjectP2.Util.TablePrinter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
@@ -22,6 +24,7 @@ import java.util.List;
 public class TestInit implements CommandLineRunner {
     private final CompanyRepository companyRepository;
     private final CustomerRepository customerRepository;
+    private final GeneralService generalService;
 
 
     // use only in read cus it may influence on forwards tests
@@ -152,5 +155,9 @@ public class TestInit implements CommandLineRunner {
 
         companyRepository.saveAll(List.of(princessCruises, apple, amazon));
         customerRepository.saveAll(List.of(jeffery, jennifer));
+
+        System.out.println("===============General SERVICE TEST=====================");
+        System.out.println("Print All Coupons:");
+        TablePrinter.print(generalService.readAllCoupons());
     }
 }

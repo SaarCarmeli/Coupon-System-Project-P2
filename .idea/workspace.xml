@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="added CORSconfiguration">
+    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="added exposeHeader authorization to CORSconfiguration, changed login method to return JWT in header">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/GeneralService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/GeneralServiceDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Config/CORSconfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Config/CORSconfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/CLR/TestInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/CLR/TestInit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -68,7 +69,10 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Users/Saar/John Bryce - Java Full Stack 822-146/Studies/Java Project - Coupon System Phase 2&quot;
+    &quot;last_opened_file_path&quot;: &quot;D:/Users/Saar/John Bryce - Java Full Stack 822-146/Studies/Java Project - Coupon System Phase 2&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -106,12 +110,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1649175235970</updated>
-    </task>
-    <task id="LOCAL‎00016" summary="minor adjustments, changed &quot;coupons&quot; to @ManyToMany">
-      <created>1650791138722</created>
-      <option name="number" value="LOCAL‎00016" />
-      <option name="presentableId" value="LOCAL‎00016" />
-      <updated>1650791138722</updated>
     </task>
     <task id="LOCAL‎00017" summary="added comments">
       <created>1650791168898</created>
@@ -402,7 +400,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655714815476</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="added exposeHeader authorization to CORSconfiguration, changed login method to return JWT in header">
+      <created>1656602769195</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1656602769195</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -417,7 +422,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added existsByEmailAndPassword methods for login" />
     <MESSAGE value="thrown exceptions and other minor tweaks" />
     <MESSAGE value="changed existsByEmailAndPassword methods to existsByIdAndEmailAndPassword" />
     <MESSAGE value="added JWTutil, LoginDetails (login bean), UserType (enum), LoginController, LoginException and LoginAdvice" />
@@ -442,6 +446,7 @@
     <MESSAGE value="fixed email checks for update Company and Customer" />
     <MESSAGE value="small fixes" />
     <MESSAGE value="added CORSconfiguration" />
-    <option name="LAST_COMMIT_MESSAGE" value="added CORSconfiguration" />
+    <MESSAGE value="added exposeHeader authorization to CORSconfiguration, changed login method to return JWT in header" />
+    <option name="LAST_COMMIT_MESSAGE" value="added exposeHeader authorization to CORSconfiguration, changed login method to return JWT in header" />
   </component>
 </project>

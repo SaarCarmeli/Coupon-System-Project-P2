@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/") // http://localhost:8080
 @RequiredArgsConstructor
 public class GeneralController {
     private final GeneralService generalService;
@@ -18,7 +18,7 @@ public class GeneralController {
      *
      * @return 200-Ok HTTP status and a List of all Coupons
      */
-    @GetMapping("/coupons/all")
+    @GetMapping("/coupons/all") // http://localhost:8080/coupons/all
     public ResponseEntity<?> getAllCoupons() {
         return ResponseEntity.ok().body(generalService.readAllCoupons());
     }

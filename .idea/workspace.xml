@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="added exposeHeader authorization to CORSconfiguration, changed login method to return JWT in header">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/GeneralService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Services/GeneralServiceDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/CLR/TestInit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/CLR/TestInit.java" afterDir="false" />
-    </list>
+    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="added GeneralController with readAllCoupons method" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -110,18 +105,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1649175235970</updated>
-    </task>
-    <task id="LOCAL‎00017" summary="added comments">
-      <created>1650791168898</created>
-      <option name="number" value="LOCAL‎00017" />
-      <option name="presentableId" value="LOCAL‎00017" />
-      <updated>1650791168898</updated>
-    </task>
-    <task id="LOCAL‎00018" summary="added fixes, not finished">
-      <created>1650791218257</created>
-      <option name="number" value="LOCAL‎00018" />
-      <option name="presentableId" value="LOCAL‎00018" />
-      <updated>1650791218257</updated>
     </task>
     <task id="LOCAL‎00019" summary="changed package name, added TablePrinter">
       <created>1650791608450</created>
@@ -407,7 +390,21 @@
       <option name="project" value="LOCAL" />
       <updated>1656602769195</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="added GeneralService with readAllCoupons method">
+      <created>1658570191680</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1658570191680</updated>
+    </task>
+    <task id="LOCAL-00067" summary="added GeneralController with readAllCoupons method">
+      <created>1658571100161</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1658571100161</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -422,8 +419,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="thrown exceptions and other minor tweaks" />
-    <MESSAGE value="changed existsByEmailAndPassword methods to existsByIdAndEmailAndPassword" />
     <MESSAGE value="added JWTutil, LoginDetails (login bean), UserType (enum), LoginController, LoginException and LoginAdvice" />
     <MESSAGE value="added getIdFromToken method to JWTutil, added @Table annotation to Company and Customer for custom table names, added todos to AdministratorService" />
     <MESSAGE value="added method to get Id by email and password in CompanyRepository and CustomerRepository, removed Id requirement for existByEmailAndPassword.&#10;LoginController: changed the way userDetails get Id" />
@@ -447,6 +442,8 @@
     <MESSAGE value="small fixes" />
     <MESSAGE value="added CORSconfiguration" />
     <MESSAGE value="added exposeHeader authorization to CORSconfiguration, changed login method to return JWT in header" />
-    <option name="LAST_COMMIT_MESSAGE" value="added exposeHeader authorization to CORSconfiguration, changed login method to return JWT in header" />
+    <MESSAGE value="added GeneralService with readAllCoupons method" />
+    <MESSAGE value="added GeneralController with readAllCoupons method" />
+    <option name="LAST_COMMIT_MESSAGE" value="added GeneralController with readAllCoupons method" />
   </component>
 </project>

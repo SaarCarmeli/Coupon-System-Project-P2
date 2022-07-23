@@ -12,6 +12,11 @@ import java.util.List;
 public class GeneralService implements GeneralServiceDAO {
     private final CouponRepository couponRepository;
 
+    /**
+     * A method that returns all Coupons in the database.
+     *
+     * @return List of all Coupons in the database
+     */
     @Override
     public List<Coupon> readAllCoupons() {
         return couponRepository.findAll();

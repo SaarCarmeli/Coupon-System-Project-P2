@@ -1,8 +1,6 @@
-package com.jb.CouponSystemProjectP2.Controllers;
+package com.jb.CouponSystemProjectP2.ControllersTests;
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class LoginControllerTest {
 

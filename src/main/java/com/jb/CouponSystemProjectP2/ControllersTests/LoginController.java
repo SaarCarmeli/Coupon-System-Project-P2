@@ -1,4 +1,4 @@
-package com.jb.CouponSystemProjectP2.Controllers;
+package com.jb.CouponSystemProjectP2.ControllersTests;
 
 import com.jb.CouponSystemProjectP2.Beans.LoginDetails;
 import com.jb.CouponSystemProjectP2.Exceptions.LoginException;
@@ -6,7 +6,6 @@ import com.jb.CouponSystemProjectP2.Repositories.CompanyRepository;
 import com.jb.CouponSystemProjectP2.Repositories.CustomerRepository;
 import com.jb.CouponSystemProjectP2.Security.JWTutil;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

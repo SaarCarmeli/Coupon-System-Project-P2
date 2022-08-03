@@ -1,4 +1,4 @@
-package com.jb.CouponSystemProjectP2.Controllers;
+package com.jb.CouponSystemProjectP2.ControllersTests;
 
 import com.jb.CouponSystemProjectP2.Beans.Category;
 import com.jb.CouponSystemProjectP2.Beans.Coupon;

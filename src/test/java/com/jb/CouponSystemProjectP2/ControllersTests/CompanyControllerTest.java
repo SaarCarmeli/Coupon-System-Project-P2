@@ -1,4 +1,4 @@
-package com.jb.CouponSystemProjectP2.Controllers;
+package com.jb.CouponSystemProjectP2.ControllersTests;
 
 import com.jb.CouponSystemProjectP2.Beans.Category;
 import com.jb.CouponSystemProjectP2.Beans.Company;
@@ -6,12 +6,10 @@ import com.jb.CouponSystemProjectP2.Beans.Coupon;
 import com.jb.CouponSystemProjectP2.Repositories.CompanyRepository;
 import com.jb.CouponSystemProjectP2.Repositories.CouponRepository;
 import lombok.RequiredArgsConstructor;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockitoAnnotations;
-import org.springframework.web.client.RestTemplate;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -26,7 +24,7 @@ class CompanyControllerTest {
     CouponRepository couponRepository;
 
 
-    @BeforeEach
+    //@BeforeEach
     void setUp() {
         autoCloseable = MockitoAnnotations.openMocks(this);
         Company princessCruises = Company.builder()
@@ -137,10 +135,9 @@ class CompanyControllerTest {
         companyRepository.saveAll(List.of(princessCruises, apple, amazon));
     }
 
-    @AfterEach
-    static void afterEach() throws Exception {
+    //@AfterEach
+    void afterEach() throws Exception {
         autoCloseable.close();
-
     }
 
     @Test

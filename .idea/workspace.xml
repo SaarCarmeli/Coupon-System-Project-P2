@@ -4,9 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="added GeneralController with readAllCoupons method">
+    <list default="true" id="f66804c5-eca9-4fc4-b54f-59d99dd51c23" name="Changes" comment="edit tests class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/jb/CouponSystemProjectP2/CouponSystemProjectSaarAndAvivP2ApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jb/CouponSystemProjectP2/CouponSystemProjectSaarAndAvivP2ApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/AdministratorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/ControllersTests/AdministratorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/ControllersTests/CompanyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/ControllersTests/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/GeneralController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/ControllersTests/GeneralController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/Controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jb/CouponSystemProjectP2/ControllersTests/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jb/CouponSystemProjectP2/Controllers/AdministratorControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jb/CouponSystemProjectP2/ControllersTests/AdministratorControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jb/CouponSystemProjectP2/Controllers/CompanyControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jb/CouponSystemProjectP2/ControllersTests/CompanyControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jb/CouponSystemProjectP2/Controllers/CustomerControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jb/CouponSystemProjectP2/ControllersTests/CustomerControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jb/CouponSystemProjectP2/Controllers/LoginControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/jb/CouponSystemProjectP2/ControllersTests/LoginControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jb/CouponSystemProjectP2/Repositories/CompanyRepositoryTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jb/CouponSystemProjectP2/Repositories/CouponRepositoryTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jb/CouponSystemProjectP2/Repositories/CustomerRepositoryTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jb/CouponSystemProjectP2/Services/AdministratorServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jb/CouponSystemProjectP2/Services/BaseServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jb/CouponSystemProjectP2/Services/CompanyServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/jb/CouponSystemProjectP2/Services/CustomerServiceTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,25 +93,89 @@
       <recent name="com.jb.CouponSystemProjectP2.Exceptions" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="CouponSystemProjectSaarAndAvivP2Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="corretto-11" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="com.jb.CouponSystemProjectP2.CouponSystemProjectSaarAndAvivP2Application" />
+  <component name="RunManager" selected="JUnit.CompanyControllerTest">
+    <configuration name="AdministratorControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Coupon-System-Project-Saar-and-Aviv-P2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.jb.CouponSystemProjectP2.*" />
+          <option name="PATTERN" value="com.jb.CouponSystemProjectP2.ControllersTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.jb.CouponSystemProjectP2.ControllersTests" />
+      <option name="MAIN_CLASS_NAME" value="com.jb.CouponSystemProjectP2.ControllersTests.AdministratorControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CompanyControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Coupon-System-Project-Saar-and-Aviv-P2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jb.CouponSystemProjectP2.ControllersTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jb.CouponSystemProjectP2.ControllersTests" />
+      <option name="MAIN_CLASS_NAME" value="com.jb.CouponSystemProjectP2.ControllersTests.CompanyControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Coupon-System-Project-Saar-and-Aviv-P2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jb.CouponSystemProjectP2.ControllersTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jb.CouponSystemProjectP2.ControllersTests" />
+      <option name="MAIN_CLASS_NAME" value="com.jb.CouponSystemProjectP2.ControllersTests.CustomerControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Coupon-System-Project-Saar-and-Aviv-P2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jb.CouponSystemProjectP2.Services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jb.CouponSystemProjectP2.Services" />
+      <option name="MAIN_CLASS_NAME" value="com.jb.CouponSystemProjectP2.Services.CustomerServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Coupon-System-Project-Saar-and-Aviv-P2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jb.CouponSystemProjectP2.ControllersTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jb.CouponSystemProjectP2.ControllersTests" />
+      <option name="MAIN_CLASS_NAME" value="com.jb.CouponSystemProjectP2.ControllersTests.LoginControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CouponSystemProjectSaarAndAvivP2Application" />
+        <item itemvalue="JUnit.CompanyControllerTest" />
+        <item itemvalue="JUnit.LoginControllerTest" />
+        <item itemvalue="JUnit.CustomerControllerTest" />
+        <item itemvalue="JUnit.AdministratorControllerTest" />
+        <item itemvalue="JUnit.CustomerServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -108,12 +187,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1649175235970</updated>
-    </task>
-    <task id="LOCAL‎00020" summary="changed package name">
-      <created>1650963999892</created>
-      <option name="number" value="LOCAL‎00020" />
-      <option name="presentableId" value="LOCAL‎00020" />
-      <updated>1650963999892</updated>
     </task>
     <task id="LOCAL‎00021" summary="added advice package + ErrorDetails class">
       <created>1650964406070</created>
@@ -408,7 +481,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658577731656</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="edit tests class">
+      <created>1659553447180</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1659553447180</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -423,7 +503,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added JWTutil, LoginDetails (login bean), UserType (enum), LoginController, LoginException and LoginAdvice" />
     <MESSAGE value="added getIdFromToken method to JWTutil, added @Table annotation to Company and Customer for custom table names, added todos to AdministratorService" />
     <MESSAGE value="added method to get Id by email and password in CompanyRepository and CustomerRepository, removed Id requirement for existByEmailAndPassword.&#10;LoginController: changed the way userDetails get Id" />
     <MESSAGE value="added authorization to first method of CompanyController, changed token validation in JWTutil, added TokenException and advice handle to LoginAdvice" />
@@ -448,6 +527,7 @@
     <MESSAGE value="added exposeHeader authorization to CORSconfiguration, changed login method to return JWT in header" />
     <MESSAGE value="added GeneralService with readAllCoupons method" />
     <MESSAGE value="added GeneralController with readAllCoupons method" />
-    <option name="LAST_COMMIT_MESSAGE" value="added GeneralController with readAllCoupons method" />
+    <MESSAGE value="edit tests class" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit tests class" />
   </component>
 </project>
